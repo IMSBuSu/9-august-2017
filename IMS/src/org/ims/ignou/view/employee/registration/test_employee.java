@@ -1,0 +1,18 @@
+package org.ims.ignou.view.employee.registration;
+
+import java.util.ArrayList;
+
+public class test_employee 
+{
+	public static void main(String[] args){		
+		ArrayList<String> arrayList=new ArrayList<>();
+		arrayList.add("Advance Java");
+		arrayList.add("core Java");
+		arrayList.add("C");
+		arrayList.add("C++");
+		arrayList.add("Oracle DBA");
+		Employee employee=new Employee(arrayList);
+		employee.setVisible(true);		
+	}	
+	
+}

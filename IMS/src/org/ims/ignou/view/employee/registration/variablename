@@ -1,0 +1,16 @@
+other :
+jobNametxtfieldother * --
+jobstarttimingcomboxBother  *--
+jobEndtimingcomboxother  * --
+SalarytextFieldother	*	--
+
+
+faculty emp:
+
+jobNametxtfield * --
+jobstarttimingcomboBoxfaculty * --
+jobEndtimingcomboBoxfaculty   * --
+SalarytextFieldfaculty	 	*--
+selectcourse7       * --
+Batch_start_time7   * --
+Batch_End_time7     * --
