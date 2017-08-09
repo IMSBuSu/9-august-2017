@@ -18,7 +18,7 @@ public class SearchRecord extends search {
 			 		if(txtIdentificationNumber.getText().equals("")  || txtIdentificationNumber.getText().equals("Identification Number"))
 					{
 						txtIdentificationNumber.setText("Identification Number");
-				    	JOptionPane.showMessageDialog(contentPane, "Please Input Identification Number");				    	
+				    	JOptionPane.showMessageDialog(contentPane, "Pleae Input Identification Number");				    	
 					}
 			 		{
 			 			ShowRecord showRecord=new ShowRecord();
