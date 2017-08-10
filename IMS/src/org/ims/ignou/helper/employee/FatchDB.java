@@ -12,8 +12,7 @@ public class FatchDB
 						,"india",2010,2012,0,2014,2017,0,0,"cbse","cbse","0","ITI"
 						,"Delhi univercity school of open learning","0","0","42.34%","45.54%","0","82%","54%","0","0",'a','b',
 						'0','b','A','0','0',"ART","0","Sheet metal worker","B.A","0","0","Sfotware Devloper","9:00 AM - 7:00 PM",
-						20000,
-					
+						20000,					
 						new String[]{"c++","java"},
 						new String[]{"12:00 PM - 2:00 PM","9:00 AM - 11:00 AM"}
 						);
