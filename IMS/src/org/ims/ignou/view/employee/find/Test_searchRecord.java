@@ -6,5 +6,4 @@ public class Test_searchRecord {
 		SearchRecord record=new SearchRecord();
 		record.setVisible(true);
 	}
-
 }
