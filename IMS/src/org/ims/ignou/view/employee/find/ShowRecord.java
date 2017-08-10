@@ -1,6 +1,6 @@
 package org.ims.ignou.view.employee.find;
 
-import org.ims.ignou.dto.employee.Employeedto;
+import org.ims.ignou.dto.employee.registration.Employeedto;
 import org.ims.ignou.helper.employee.FatchDB;
 import org.ims.ignou.view.extendable.ShowrEmpStuRecord;
 import javax.swing.JLabel;

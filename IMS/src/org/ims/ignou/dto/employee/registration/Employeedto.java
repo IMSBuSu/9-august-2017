@@ -1,4 +1,4 @@
-package org.ims.ignou.dto.employee;
+package org.ims.ignou.dto.employee.registration;
 
 public class Employeedto 
 {

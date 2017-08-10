@@ -1,6 +1,6 @@
 package org.ims.ignou.helper.employee;
 
-import org.ims.ignou.dto.employee.Employeedto;
+import org.ims.ignou.dto.employee.registration.Employeedto;
 
 public class FatchDB 
 {
