@@ -12,6 +12,7 @@ public class Addhelper
 
 		public static void setCourseDetails(AddDto courseDetails) {
 			Addhelper.courseDetails = courseDetails;
+			
 		}
 			
 			

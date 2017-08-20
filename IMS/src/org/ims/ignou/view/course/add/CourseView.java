@@ -12,11 +12,13 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
+import org.ims.ignou.dao.course.add.AddtoDB;
 import org.ims.ignou.dto.course.add.AddDto;
 import org.ims.ignou.helper.course.add.Addhelper;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 
@@ -93,6 +95,9 @@ public class CourseView extends JFrame {
 				courseDetails.setCourseFees(txtcouseFees.getText());
 				courseDetails.setCourseName(txtcouseName.getText());
 				Addhelper.setCourseDetails(courseDetails);
+				AddtoDB  SavetoDb=new AddtoDB();
+				SavetoDb.insert();
+				
 			}
 		});
 		btnAdd.setBounds(160, 107, 89, 23);
