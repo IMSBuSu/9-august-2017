@@ -11,7 +11,8 @@ public class CreateConnection
 	private static String upassword;
 	private static Connection connection;
 	
-	public static void loadDriver() throws ClassNotFoundException{
+	public static void loadDriver() throws ClassNotFoundException
+	{
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 	}
 	
