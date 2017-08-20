@@ -12,12 +12,20 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
+import org.ims.ignou.dto.course.add.AddDto;
+import org.ims.ignou.helper.course.add.Addhelper;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 
 public class CourseView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField couseName;
-	private JTextField couseFees;
+	private JTextField txtcouseName;
+	private JTextField txtcouseFees;
+	private JTextField txtCourseDuration;
 	public CourseView() 
 	{
 
@@ -38,9 +46,9 @@ public class CourseView extends JFrame {
 		    	
 			}		
 		setBackground(Color.ORANGE);
-		setTitle("New Course");
+		setTitle("                                                     New Course");
 		setResizable(false);
-		setBounds(100, 100, 451, 297);
+		setBounds(100, 100, 451, 179);
 		setLocationRelativeTo(null);
 
 		contentPane = new JPanel();
@@ -54,19 +62,41 @@ public class CourseView extends JFrame {
 		lblCourseName.setBounds(10, 11, 69, 14);
 		contentPane.add(lblCourseName);
 		
-		couseName = new JTextField();
-		couseName.setBounds(89, 8, 147, 20);
-		contentPane.add(couseName);
-		couseName.setColumns(10);
+		txtcouseName = new JTextField();
+		txtcouseName.setBounds(89, 8, 327, 20);
+		contentPane.add(txtcouseName);
+		txtcouseName.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Course Fees");
-		lblNewLabel.setBounds(10, 36, 69, 14);
-		contentPane.add(lblNewLabel);
+		JLabel lblcoursefees = new JLabel("Course Fees");
+		lblcoursefees.setBounds(10, 36, 69, 14);
+		contentPane.add(lblcoursefees);
 		
-		couseFees = new JTextField();
-		couseFees.setBounds(89, 33, 69, 20);
-		contentPane.add(couseFees);
-		couseFees.setColumns(10);
+		txtcouseFees = new JTextField();
+		txtcouseFees.setBounds(89, 33, 147, 20);
+		contentPane.add(txtcouseFees);
+		txtcouseFees.setColumns(10);
+		
+		JLabel lblCourseDuration = new JLabel("Course Duration( In Months)");
+		lblCourseDuration.setBounds(10, 67, 140, 14);
+		contentPane.add(lblCourseDuration);
+		
+		txtCourseDuration = new JTextField();
+		txtCourseDuration.setColumns(10);
+		txtCourseDuration.setBounds(160, 64, 147, 20);
+		contentPane.add(txtCourseDuration);
+		
+		JButton btnAdd = new JButton("ADD");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				AddDto courseDetails=new AddDto();
+				courseDetails.setCourseDuration(txtCourseDuration.getText());
+				courseDetails.setCourseFees(txtcouseFees.getText());
+				courseDetails.setCourseName(txtcouseName.getText());
+				Addhelper.setCourseDetails(courseDetails);
+			}
+		});
+		btnAdd.setBounds(160, 107, 89, 23);
+		contentPane.add(btnAdd);
 //		
 //		1:22:58
 //		1:26:14
