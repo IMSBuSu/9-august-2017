@@ -16,7 +16,8 @@ public class CreateConnection
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 	}
 	
-	public static Connection createconnection() throws SQLException, ClassNotFoundException{
+	public static Connection createconnection() throws SQLException, ClassNotFoundException
+	{
 		loadDriver();
 		url="jdbc:oracle:thin:@localhost:1521:ims";
 		uname=Loadbundle.getValue("userid");
