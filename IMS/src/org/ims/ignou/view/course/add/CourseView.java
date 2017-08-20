@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
 
@@ -18,6 +20,23 @@ public class CourseView extends JFrame {
 	private JTextField couseFees;
 	public CourseView() 
 	{
+
+		  try
+		    {
+				UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"); //set look and feel depend os.
+			} 
+		    catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+					| UnsupportedLookAndFeelException e1) {
+				// TODO Auto-generated catch block
+		    	try {
+					UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+				} 
+		    	catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+						| UnsupportedLookAndFeelException e) {
+							    	//theme not supported	
+				}	    
+		    	
+			}		
 		setBackground(Color.ORANGE);
 		setTitle("New Course");
 		setResizable(false);
