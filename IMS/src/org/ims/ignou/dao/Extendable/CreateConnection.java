@@ -4,19 +4,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class CreateConnection 
+public abstract class CreateConnection 
 {
 	private static String url;
 	private static String uname;
 	private static String upassword;
 	private static Connection connection;
 	
-	public static void loadDriver() throws ClassNotFoundException
+	public  void loadDriver() throws ClassNotFoundException
 	{
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 	}
 	
-	public static Connection createconnection() throws SQLException, ClassNotFoundException
+	public  Connection createconnection() throws SQLException, ClassNotFoundException
 	{
 		loadDriver();
 		url="jdbc:oracle:thin:@localhost:1521:ims";

@@ -5,12 +5,12 @@ import java.sql.SQLException;
 
 import org.ims.ignou.dao.Extendable.CreateConnection;
 
-public class Registration 
+public class Registration  extends CreateConnection
 {
 
 		public Connection createConnection() throws ClassNotFoundException, SQLException{
-			Connection connection=CreateConnection.createconnection();
-			return CreateConnection.createconnection();			
+			
+			return createconnection();			
 		}
 		
 		

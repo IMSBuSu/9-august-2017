@@ -6,6 +6,7 @@ import java.awt.Component;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -25,12 +26,13 @@ import java.awt.event.ActionEvent;
 public class CourseView extends JFrame {
 
 	private JPanel contentPane;
+	private JFrame frame;
 	private JTextField txtcouseName;
 	private JTextField txtcouseFees;
 	private JTextField txtCourseDuration;
 	public CourseView() 
 	{
-
+		frame=this;
 		  try
 		    {
 				UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"); //set look and feel depend os.
@@ -90,25 +92,24 @@ public class CourseView extends JFrame {
 		JButton btnAdd = new JButton("ADD");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				frame.setVisible(false);
 				AddDto courseDetails=new AddDto();
 				courseDetails.setCourseDuration(txtCourseDuration.getText());
 				courseDetails.setCourseFees(txtcouseFees.getText());
 				courseDetails.setCourseName(txtcouseName.getText());
 				Addhelper.setCourseDetails(courseDetails);
 				AddtoDB  SavetoDb=new AddtoDB();
-				SavetoDb.insert();
+				int courseid=SavetoDb.insert();
+				
+				if(courseid>0){
+					JOptionPane.showMessageDialog(frame, "Your Course Id : "+courseid);
+				}else{
+					JOptionPane.showMessageDialog(frame, "Failed to Add course !");					
+				}
 				
 			}
 		});
 		btnAdd.setBounds(160, 107, 89, 23);
-		contentPane.add(btnAdd);
-//		
-//		1:22:58
-//		1:26:14
-		
-	
-		 
-		
-		
+		contentPane.add(btnAdd);		
 	}
 }
