@@ -19,7 +19,6 @@ public class AddtoDB extends CreateConnection
 											PreparedStatement insertCoursestatment=statement.insertStatement(connection);
 											if(insertCoursestatment!=null){
 												int isSucess=insertCoursestatment.executeUpdate();
-												System.out.println(isSucess);
 												if(isSucess==1){	
 													 ResultSet   id=
 														statement.getcourseId(connection).executeQuery();										
