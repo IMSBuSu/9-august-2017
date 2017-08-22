@@ -93,20 +93,22 @@ public class CourseView extends JFrame {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.setVisible(false);
-				AddDto courseDetails=new AddDto();
+				SplashScreen screen=new SplashScreen();
+				screen.setVisible(true);				
+				AddDto courseDetails=new AddDto();				
 				courseDetails.setCourseDuration(txtCourseDuration.getText());
 				courseDetails.setCourseFees(txtcouseFees.getText());
 				courseDetails.setCourseName(txtcouseName.getText());
 				Addhelper.setCourseDetails(courseDetails);
 				AddtoDB  SavetoDb=new AddtoDB();
 				int courseid=SavetoDb.insert();
-				
 				if(courseid>0){
+					screen.setVisible(false);
 					JOptionPane.showMessageDialog(frame, "Your Course Id : "+courseid);
-				}else{
+				}else
+				{
 					JOptionPane.showMessageDialog(frame, "Failed to Add course !");					
-				}
-				
+				}				
 			}
 		});
 		btnAdd.setBounds(160, 107, 89, 23);

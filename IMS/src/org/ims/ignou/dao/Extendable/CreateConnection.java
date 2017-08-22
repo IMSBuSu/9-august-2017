@@ -9,7 +9,6 @@ public abstract class CreateConnection
 	private static String url;
 	private static String uname;
 	private static String upassword;
-	private static Connection connection;
 	
 	public  void loadDriver() throws ClassNotFoundException
 	{
@@ -22,8 +21,8 @@ public abstract class CreateConnection
 		url="jdbc:oracle:thin:@localhost:1521:ims";
 		uname=Loadbundle.getValue("userid");
 		upassword=Loadbundle.getValue("password");
-		connection = DriverManager.getConnection(url,uname,upassword);		
-		return connection;
+		return DriverManager.getConnection(url,uname,upassword);		
+		
 	}
 	
 }

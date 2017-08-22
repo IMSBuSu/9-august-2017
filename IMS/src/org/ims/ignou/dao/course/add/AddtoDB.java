@@ -14,15 +14,21 @@ public class AddtoDB extends CreateConnection
 					try {
 								Connection connection = createconnection();
 								if(connection!=null){				
-										Statement statement=new Statement();
-										PreparedStatement insertUpdate=statement.insertStatement(connection);
-										if(insertUpdate.executeUpdate()==1){	
-										ResultSet   id=
-										statement.getcourseId(connection).executeQuery();										
-										if(id.next()){
-										return id.getInt("COURSE_ID");
-										}
-										}
+										
+										Statement statement=new Statement();										
+											PreparedStatement insertCoursestatment=statement.insertStatement(connection);
+											if(insertCoursestatment!=null){
+												int isSucess=insertCoursestatment.executeUpdate();
+												System.out.println(isSucess);
+												if(isSucess==1){	
+													 ResultSet   id=
+														statement.getcourseId(connection).executeQuery();										
+													 	if(id.next()){
+													 			return id.getInt("COURSE_ID");
+													 		}
+												}
+												insertCoursestatment.close();
+											}
 										connection.close();			
 								}	
 								return 0;
