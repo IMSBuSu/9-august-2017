@@ -15,21 +15,55 @@ import javax.swing.border.EmptyBorder;
 
 import org.ims.ignou.dao.course.add.AddtoDB;
 import org.ims.ignou.dto.course.add.AddDto;
-import org.ims.ignou.helper.course.add.Addhelper;
+import org.ims.ignou.helper.course.add.CourseDetails;
+import org.ims.ignou.helper.course.add.Validation;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class CourseView extends JFrame {
 
 	private JPanel contentPane;
-	private JFrame frame;
+	private CourseView frame;
 	private JTextField txtcouseName;
 	private JTextField txtcouseFees;
-	private JTextField txtCourseDuration;
+	private JTextField txtCourseDuration;	 
+	private JLabel lblerrorcourseduration;
+	private JLabel lblerrorcoursefees ;
+	private JLabel lblcoursename;
+	
+	
+	
+
+	public void setLblerrorcourseduration(String errormessage) {
+		lblerrorcourseduration.setText(errormessage);
+	}
+
+	public void setLblerrorcoursefees(String errormessage) {
+		lblerrorcoursefees.setText(errormessage);
+	}
+
+	public void setLblcoursename(String errormessage) {
+		lblcoursename.setText(errormessage);;
+	}
+
+	public JTextField getTxtcouseName() {
+		return txtcouseName;
+	}
+
+	public JTextField getTxtcouseFees() {
+		return txtcouseFees;
+	}
+
+	public JTextField getTxtCourseDuration() {
+		return txtCourseDuration;
+	}
+
 	public CourseView() 
 	{
 		frame=this;
@@ -66,16 +100,30 @@ public class CourseView extends JFrame {
 		lblCourseName.setBounds(10, 11, 69, 14);
 		contentPane.add(lblCourseName);
 		
-		txtcouseName = new JTextField();
-		txtcouseName.setBounds(89, 8, 327, 20);
+		txtcouseName = new JTextField("");
+		txtcouseName.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblcoursename.setText("");
+			}
+		});
+		txtcouseName.setBounds(89, 8, 173, 20);
 		contentPane.add(txtcouseName);
 		txtcouseName.setColumns(10);
+		
+		
 		
 		JLabel lblcoursefees = new JLabel("Course Fees");
 		lblcoursefees.setBounds(10, 36, 69, 14);
 		contentPane.add(lblcoursefees);
 		
-		txtcouseFees = new JTextField();
+		txtcouseFees = new JTextField("");
+		txtcouseFees.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblerrorcoursefees.setText("");
+			}
+		});
 		txtcouseFees.setBounds(89, 33, 147, 20);
 		contentPane.add(txtcouseFees);
 		txtcouseFees.setColumns(10);
@@ -84,30 +132,49 @@ public class CourseView extends JFrame {
 		lblCourseDuration.setBounds(10, 67, 140, 14);
 		contentPane.add(lblCourseDuration);
 		
-		txtCourseDuration = new JTextField();
+		txtCourseDuration = new JTextField("");
+		txtCourseDuration.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lblerrorcourseduration.setText("");
+			}
+		});
 		txtCourseDuration.setColumns(10);
 		txtCourseDuration.setBounds(160, 64, 147, 20);
 		contentPane.add(txtCourseDuration);
 		
 		JButton btnAdd = new JButton("ADD");
-		btnAdd.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				frame.setVisible(false);							
-				AddDto courseDetails=new AddDto();				
-				courseDetails.setCourseDuration(txtCourseDuration.getText());
-				courseDetails.setCourseFees(txtcouseFees.getText());
-				courseDetails.setCourseName(txtcouseName.getText());
-				Addhelper.setCourseDetails(courseDetails);
-				AddtoDB  SavetoDb=new AddtoDB();
-				int courseid=SavetoDb.insert();		
-				if(courseid>0){
-					JOptionPane.showMessageDialog(frame, "Your Course Id : "+courseid);
-				}else{
-					JOptionPane.showMessageDialog(frame, "Failed to Add course !");					
-				}				
-			}
-		});
 		btnAdd.setBounds(160, 107, 89, 23);
 		contentPane.add(btnAdd);		
+		
+		
+		 lblerrorcourseduration = new JLabel("");
+		lblerrorcourseduration.setForeground(Color.RED);
+		lblerrorcourseduration.setBounds(317, 67, 118, 14);
+		contentPane.add(lblerrorcourseduration);
+		
+		 lblerrorcoursefees = new JLabel("");
+		lblerrorcoursefees.setForeground(Color.RED);
+		lblerrorcoursefees.setBounds(246, 36, 118, 14);
+		contentPane.add(lblerrorcoursefees);
+	
+		
+		 lblcoursename = new JLabel("");
+		lblcoursename.setForeground(Color.RED);
+		lblcoursename.setBounds(270, 11, 94, 14);
+		
+		contentPane.add(lblcoursename);
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Validation validation=new Validation();
+				validation.cannotBlank(frame);			
+			
+			}
+					
+		});
+		
+	
 	}
+	
+	
 }

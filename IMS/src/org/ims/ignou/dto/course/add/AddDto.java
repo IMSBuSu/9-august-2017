@@ -3,27 +3,28 @@ package org.ims.ignou.dto.course.add;
 public class AddDto {
 
 	private String courseName;
-	private String courseFees;
-	private String courseDuration;
-	
+	private int courseFees;
+	private int courseDuration;
 	public String getCourseName() {
 		return courseName;
 	}
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
 	}
-	public String getCourseFees() {
+	public int getCourseFees(){
 		return courseFees;
 	}
-	public void setCourseFees(String courseFees) {
+	public void setCourseFees(int courseFees) {
 		this.courseFees = courseFees;
 	}
-	public String getCourseDuration() {
+	public int getCourseDuration() {
 		return courseDuration;
 	}
-	public void setCourseDuration(String courseDuration) {
+	public void setCourseDuration(int courseDuration) {
 		this.courseDuration = courseDuration;
 	}
+	
+	
 	
 	
 }

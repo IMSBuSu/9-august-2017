@@ -21,10 +21,13 @@ public class AddtoDB extends CreateConnection
 												int isSucess=insertCoursestatment.executeUpdate();
 												if(isSucess==1){	
 													 ResultSet   id=
-														statement.getcourseId(connection).executeQuery();										
-													 	if(id.next()){
-													 			return id.getInt("COURSE_ID");
-													 		}
+														statement.getcourseId(connection).executeQuery();																							
+													 if(id.next()){	
+														 	int courseid=id.getInt("COURSE_ID");
+													 		id.close();
+														 	return courseid;
+													 	}
+												 		
 												}
 												insertCoursestatment.close();
 											}
@@ -39,6 +42,7 @@ public class AddtoDB extends CreateConnection
 							e.printStackTrace();
 							return 0;
 					}
+					
 							
 		}
 	
