@@ -16,7 +16,7 @@ import javax.swing.border.EmptyBorder;
 import org.ims.ignou.dao.course.add.AddtoDB;
 import org.ims.ignou.dto.course.add.AddDto;
 import org.ims.ignou.helper.course.add.CourseDetails;
-import org.ims.ignou.helper.course.add.Validation;
+import org.ims.ignou.helper.course.add.AddValidation;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -166,7 +166,7 @@ public class CourseView extends JFrame {
 		contentPane.add(lblcoursename);
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Validation validation=new Validation();
+				AddValidation validation=new AddValidation();
 				validation.cannotBlank(frame);			
 			
 			}

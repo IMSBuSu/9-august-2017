@@ -7,9 +7,7 @@ import org.ims.ignou.dto.course.add.AddDto;
 import org.ims.ignou.view.course.add.CourseView;
 
 
-public class InserttoDb {
-
-		
+public class InserttoDb {		
 		public void callDatabase(AddDto courseDetails,CourseView frame){
 			CourseDetails.setCourseDetails(courseDetails);
 			AddtoDB  SavetoDb=new AddtoDB();
@@ -21,9 +19,5 @@ public class InserttoDb {
 				frame.setVisible(false);							
 				JOptionPane.showMessageDialog(null, "Failed to Add course !");					
 			}								
-
-		}
-	
-	
-	
+		}	
 }
