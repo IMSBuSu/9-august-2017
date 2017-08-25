@@ -1,24 +1,25 @@
 package org.ims.ignou.helper.course.add;
 
-import org.ims.ignou.dto.course.add.AddDto;
-import org.ims.ignou.view.course.add.CourseView;
+import org.ims.ignou.dto.course.CourseDto;
+import org.ims.ignou.view.course.add.CourseAddView;
 
-public class AddValidation 
+public class CourseAddValidation 
 {
-	private  AddDto courseDetails;
+	private  CourseDto courseDetails;
 		
-	public void numberAllowed(CourseView courseView){
+	public void numberAllowed(CourseAddView courseView){
 		
-			courseDetails=new AddDto();
+			courseDetails=new CourseDto();
 			courseDetails.setCourseName(courseView.getTxtcouseName().getText());
 			try{
 				courseView.setLblerrorcoursefees("");						
 				courseDetails.setCourseFees(Integer.parseInt(courseView.getTxtcouseFees().getText()));
-				InserttoDb inserttoDb=new InserttoDb();
-				inserttoDb.callDatabase(courseDetails,courseView);
+				
 				try{
 					courseView.setLblerrorcourseduration("");				
 					courseDetails.setCourseDuration(Integer.parseInt(courseView.getTxtCourseDuration().getText()));
+					InserttoDb inserttoDb=new InserttoDb();
+					inserttoDb.callDatabase(courseDetails,courseView);
 				}
 				catch(NumberFormatException e){
 					courseView.setLblerrorcourseduration("* Only Number Allowed");
@@ -33,10 +34,11 @@ public class AddValidation
 	
 	
 
-	public void cannotBlank(CourseView courseView){
+	public void cannotBlank(CourseAddView courseView){
 		if(!courseView.getTxtcouseName().getText().equals("")){
 				if(!courseView.getTxtcouseFees().getText().equals("")){
-							if(!courseView.getTxtCourseDuration().getText().equals("")){				
+							if(!courseView.getTxtCourseDuration().getText().equals("")){	
+
 								numberAllowed(courseView);								
 							}
 							else{			

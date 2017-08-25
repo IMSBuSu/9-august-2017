@@ -1,10 +1,17 @@
-package org.ims.ignou.dto.course.add;
+package org.ims.ignou.dto.course;
 
-public class AddDto {
+public class CourseDto {
 
 	private String courseName;
 	private int courseFees;
 	private int courseDuration;
+	private int courseId;
+	public int getCourseId() {
+		return courseId;
+	}
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
+	}
 	public String getCourseName() {
 		return courseName;
 	}

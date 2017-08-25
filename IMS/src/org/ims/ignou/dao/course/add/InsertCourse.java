@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import org.ims.ignou.dao.Extendable.CreateConnection;
 
-public class AddtoDB extends CreateConnection
+public class InsertCourse extends CreateConnection
 {
 		public  int insert() 
 		{
@@ -15,7 +15,7 @@ public class AddtoDB extends CreateConnection
 								Connection connection = createconnection();
 								if(connection!=null){				
 										
-										Statement statement=new Statement();										
+										CourseAddsqlSTMT statement=new CourseAddsqlSTMT();										
 											PreparedStatement insertCoursestatment=statement.insertStatement(connection);
 											if(insertCoursestatment!=null){
 												int isSucess=insertCoursestatment.executeUpdate();

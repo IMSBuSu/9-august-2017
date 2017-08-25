@@ -4,7 +4,7 @@ public class TestView {
 
 	public static void main(String[] args) {
 		
-		CourseView courseView=new CourseView();
+		CourseAddView courseView=new CourseAddView();
 		courseView.setVisible(true);
 		
 	}

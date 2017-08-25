@@ -4,18 +4,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import org.ims.ignou.dto.course.add.AddDto;
+import org.ims.ignou.dto.course.CourseDto;
 import org.ims.ignou.helper.course.add.CourseDetails;
 
-public class Statement {
+public class CourseAddsqlSTMT {
 
 		public  String insertcourse(){
 			return "insert into course(COURSE_DURATION,COURSE_FEES,COURSE_ID,COURSE_NAME) values(?,?,course_id.nextval,?)";			
 		}
 
 		public PreparedStatement insertStatement(Connection connection) throws SQLException{			
-			AddDto courseDetails=CourseDetails.getCourseDetails();
+			CourseDto courseDetails=CourseDetails.getCourseDetails();
 			PreparedStatement preparedStatement=connection.prepareStatement(insertcourse());
+			System.out.println(courseDetails.getCourseDuration());
 			preparedStatement.setInt(1,courseDetails.getCourseDuration());
 			preparedStatement.setInt(2,courseDetails.getCourseFees());
 			preparedStatement.setString(3,courseDetails.getCourseName());				

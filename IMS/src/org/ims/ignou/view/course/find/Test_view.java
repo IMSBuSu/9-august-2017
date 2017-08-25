@@ -5,7 +5,7 @@ public class Test_view {
 	public static void main(String[] args) {
 
 		
-		FindView findView=new FindView();
+		CourseFindView findView=new CourseFindView();
 		findView.setVisible(true);
 	}
 

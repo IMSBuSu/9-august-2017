@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import org.ims.ignou.helper.course.add.AddValidation;
+import org.ims.ignou.helper.course.add.CourseAddValidation;
 import org.ims.ignou.helper.course.find.FindValidation;
 
 import javax.swing.JButton;
@@ -17,7 +17,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
 
-public class FindView extends JFrame
+public class CourseFindView extends JFrame
 {
 	private JTextField txtCourseId;
 	private JLabel lblEnterCourseId;
@@ -27,7 +27,8 @@ public class FindView extends JFrame
 	private JTextField textCourseName;
 	private JLabel lblerrormessagecourseid;
 	private JLabel lblCannotBlank;
-	private FindView findView;
+	private CourseFindView findView;
+	private FindValidation findValidation;
 	
 	public JLabel getLblerrormessagecourseid() {
 		return lblerrormessagecourseid;
@@ -45,7 +46,8 @@ public class FindView extends JFrame
 		return textCourseName;
 	}
 
-	public FindView() {
+	public CourseFindView() {
+		findValidation=new FindValidation();
 		findView=this;		
 		setTitle("                                              Find Course");
 		setResizable(false);
@@ -76,7 +78,7 @@ public class FindView extends JFrame
 		
 		
 		lblEnterCourseId = new JLabel("Course Id ");
-		lblEnterCourseId.setBounds(71, 11, 58, 14);
+		lblEnterCourseId.setBounds(59, 67, 58, 14);
 		getContentPane().add(lblEnterCourseId);
 		
 		txtCourseId = new JTextField("");
@@ -85,16 +87,17 @@ public class FindView extends JFrame
 			public void mouseClicked(MouseEvent e) {
 				lblerrormessagecourseid.setText("");
 				lblCannotBlank.setText("");
+				textCourseName.setText("");
 			}
 		});
-		txtCourseId.setBounds(166, 8, 129, 20);
+		txtCourseId.setBounds(159, 64, 129, 20);
 		getContentPane().add(txtCourseId);
 		txtCourseId.setColumns(10);
 		
 		 btnSearch = new JButton("Search");
 		 btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FindValidation findValidation=new FindValidation();
+				
 				findValidation.cannotBlank(findView);
 				
 			}
@@ -103,7 +106,7 @@ public class FindView extends JFrame
 		getContentPane().add(btnSearch);
 		
 		lblCourseName = new JLabel("Course Name");
-		lblCourseName.setBounds(71, 68, 73, 14);
+		lblCourseName.setBounds(56, 12, 73, 14);
 		getContentPane().add(lblCourseName);
 		
 		lblOr = new JLabel("or");
@@ -117,15 +120,17 @@ public class FindView extends JFrame
 			public void mouseClicked(MouseEvent e) {
 				lblCannotBlank.setText("");
 				lblerrormessagecourseid.setText("");
+				txtCourseId.setText("");
 			}
+			
 		});
-		textCourseName.setBounds(169, 64, 146, 20);
+		textCourseName.setBounds(160, 9, 146, 20);
 		getContentPane().add(textCourseName);
 		textCourseName.setColumns(10);
 		
 		lblerrormessagecourseid = new JLabel("");
 		lblerrormessagecourseid.setForeground(Color.RED);
-		lblerrormessagecourseid.setBounds(316, 11, 114, 14);
+		lblerrormessagecourseid.setBounds(317, 67, 114, 14);
 		getContentPane().add(lblerrormessagecourseid);
 		
 		

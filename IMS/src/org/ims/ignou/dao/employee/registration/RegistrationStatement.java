@@ -1,6 +1,6 @@
 package org.ims.ignou.dao.employee.registration;
 
-public class Statement 
+public class RegistrationStatement 
 {
 	
 			private static 	String employee="insert into employee(salary,dob,job_timeing,name,position_name,father_name,maritial_status,contact_number,id,email_id,category,gender,residental_address,address,zipcode,state,city,country,image_path) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";							
@@ -14,10 +14,7 @@ public class Statement
 
 	
 
-			public void insertstatement()
-			{				
-					
-			}
+			
 	
 		private static String qualification10th(){
 			return "insert into QUALIFICATION_DETAILS_EMPLOYEE(COMPLETE_YEAR,PERCENTAGE,INSTITUTION_NAME,COURSE_NAME,ID) "

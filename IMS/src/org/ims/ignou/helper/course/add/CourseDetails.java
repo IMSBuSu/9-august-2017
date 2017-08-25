@@ -1,14 +1,14 @@
 package org.ims.ignou.helper.course.add;
 
-import org.ims.ignou.dto.course.add.AddDto;
+import org.ims.ignou.dto.course.CourseDto;
 
 public abstract class CourseDetails 
 {	
-		private	static AddDto courseDetails;
-		public static AddDto getCourseDetails() {
+		private	static CourseDto courseDetails;
+		public static CourseDto getCourseDetails() {
 			return courseDetails;
 		}
-		public static void setCourseDetails(AddDto courseDetails) {
+		public static void setCourseDetails(CourseDto courseDetails) {
 			CourseDetails.courseDetails = courseDetails;			
 		}			
 }

@@ -13,10 +13,10 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
-import org.ims.ignou.dao.course.add.AddtoDB;
-import org.ims.ignou.dto.course.add.AddDto;
+import org.ims.ignou.dao.course.add.InsertCourse;
+import org.ims.ignou.dto.course.CourseDto;
 import org.ims.ignou.helper.course.add.CourseDetails;
-import org.ims.ignou.helper.course.add.AddValidation;
+import org.ims.ignou.helper.course.add.CourseAddValidation;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -26,10 +26,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
-public class CourseView extends JFrame {
+public class CourseAddView extends JFrame {
 
 	private JPanel contentPane;
-	private CourseView frame;
+	private CourseAddView frame;
 	private JTextField txtcouseName;
 	private JTextField txtcouseFees;
 	private JTextField txtCourseDuration;	 
@@ -64,7 +64,7 @@ public class CourseView extends JFrame {
 		return txtCourseDuration;
 	}
 
-	public CourseView() 
+	public CourseAddView() 
 	{
 		frame=this;
 		  try
@@ -166,7 +166,7 @@ public class CourseView extends JFrame {
 		contentPane.add(lblcoursename);
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				AddValidation validation=new AddValidation();
+				CourseAddValidation validation=new CourseAddValidation();
 				validation.cannotBlank(frame);			
 			
 			}
