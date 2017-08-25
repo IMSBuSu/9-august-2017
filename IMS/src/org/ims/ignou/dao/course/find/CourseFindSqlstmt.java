@@ -16,8 +16,7 @@ public class CourseFindSqlstmt {
 	public String stmtUsingCourseId(){
 								return stmtCourseId;	
 	}
-	
-	
+		
 	public String stmtUsingCourseName(){
 		return stmtCourseName;
 	}
@@ -28,7 +27,7 @@ public class CourseFindSqlstmt {
 	}
 	public PreparedStatement rsUsingName(Connection connection,CourseDto courseSearch) throws SQLException{
 		ps=connection.prepareStatement(stmtUsingCourseName());
-		ps.setString(1,courseSearch.getCourseName());
+		ps.setString(1,courseSearch.getCourseName().toUpperCase());
 		return ps;
 	}
 }

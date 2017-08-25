@@ -6,22 +6,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.ims.ignou.dao.Extendable.CreateConnection;
+import org.ims.ignou.dto.course.CourseDto;
 
 public class InsertCourse extends CreateConnection
 {
-		public  int insert() 
+		public  int insert(CourseDto courseDto) 
 		{
 					try {
 								Connection connection = createconnection();
 								if(connection!=null){				
 										
 										CourseAddsqlSTMT statement=new CourseAddsqlSTMT();										
-											PreparedStatement insertCoursestatment=statement.insertStatement(connection);
+											PreparedStatement insertCoursestatment=statement.insertStatement(connection,courseDto);
 											if(insertCoursestatment!=null){
 												int isSucess=insertCoursestatment.executeUpdate();
 												if(isSucess==1){	
 													 ResultSet   id=
-														statement.getcourseId(connection).executeQuery();																							
+														statement.getcourseId(connection,courseDto).executeQuery();																							
 													 if(id.next()){	
 														 	int courseid=id.getInt("COURSE_ID");
 													 		id.close();

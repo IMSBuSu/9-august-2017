@@ -2,25 +2,20 @@ package org.ims.ignou.view.course.add;
 
 import java.awt.Color;
 
-import java.awt.Component;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
-import org.ims.ignou.dao.course.add.InsertCourse;
-import org.ims.ignou.dto.course.CourseDto;
-import org.ims.ignou.helper.course.add.CourseDetails;
 import org.ims.ignou.helper.course.add.CourseAddValidation;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

@@ -10,12 +10,11 @@ import org.ims.ignou.view.course.add.CourseAddView;
 
 public class InserttoDb {		
 		public void callDatabase(CourseDto courseDetails,CourseAddView frame){
-			CourseDetails.setCourseDetails(courseDetails);
 			InsertCourse  SavetoDb=new InsertCourse();
 			SearchCourse checkAvaiableCourseName=new SearchCourse();
 			Boolean recordFound=checkAvaiableCourseName.searchUsingName(courseDetails);
 			if(!recordFound){
-					int courseid=SavetoDb.insert();		
+					int courseid=SavetoDb.insert(courseDetails);		
 					if(courseid>0){
 								frame.setVisible(false);							
 								JOptionPane.showMessageDialog(frame, "Your Course Id : "+courseid);
