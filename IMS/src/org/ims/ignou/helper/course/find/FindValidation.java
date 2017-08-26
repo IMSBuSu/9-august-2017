@@ -11,7 +11,7 @@ public class FindValidation
 
 	private static CourseDto courseFindDto;
 	
-	public  void onlyNumberAllowed(CourseFindView findView){
+	private  void onlyNumberAllowed(CourseFindView findView){
 			
 		courseFindDto=new CourseDto();
 		if(!(findView.getTextCourseName().getText().equals(""))){

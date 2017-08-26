@@ -21,14 +21,14 @@ public class CourseFindView extends JFrame
 {
 	private JTextField txtCourseId;
 	private JLabel lblEnterCourseId;
-	private JButton btnSearch;
+	protected JButton btnSearch;
 	private JLabel lblCourseName;
 	private JLabel lblOr;
 	private JTextField textCourseName;
 	private JLabel lblerrormessagecourseid;
 	private JLabel lblCannotBlank;
-	private CourseFindView findView;
-	private FindValidation findValidation;
+	protected CourseFindView findView;
+	protected FindValidation findValidation;
 	
 	public JLabel getLblerrormessagecourseid() {
 		return lblerrormessagecourseid;
