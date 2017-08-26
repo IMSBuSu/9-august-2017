@@ -17,6 +17,11 @@ import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
+
+import org.ims.ignou.view.course.add.CourseAddView;
+import org.ims.ignou.view.course.delete.CourseDeleteView;
+import org.ims.ignou.view.course.find.CourseFindView;
+
 import javax.swing.JPopupMenu;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
@@ -131,15 +136,35 @@ public class Welcome extends JFrame {
 		mnOrganization.add(mnCourse);
 		
 		JMenuItem menuItem = new JMenuItem("Add new Course");
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CourseAddView addView=new CourseAddView();
+				addView.setVisible(true);
+				
+			}
+		});
 		mnCourse.add(menuItem);
 		
 		JMenuItem menuItem_4 = new JMenuItem("Update Existing Course");
 		mnCourse.add(menuItem_4);
 		
 		JMenuItem menuItem_5 = new JMenuItem("Delete Existing Course");
+		menuItem_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+					CourseDeleteView courseDeleteView=new CourseDeleteView();
+					courseDeleteView.setVisible(true);
+			}
+		});
 		mnCourse.add(menuItem_5);
 		
 		JMenuItem mntmViewExistingCourse = new JMenuItem("View  Existing Course");
+		mntmViewExistingCourse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CourseFindView courseFindView=new CourseFindView();
+				courseFindView.setVisible(true);
+			}
+		});
 		mnCourse.add(mntmViewExistingCourse);
 		
 		JMenu mnInventory = new JMenu("Inventory");
