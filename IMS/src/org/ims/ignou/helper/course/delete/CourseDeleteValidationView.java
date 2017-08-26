@@ -1,20 +1,19 @@
-package org.ims.ignou.helper.course.find;
-
-import org.ims.ignou.view.course.delete.CourseDeleteView;
-import org.ims.ignou.view.course.find.CourseFindView;
+package org.ims.ignou.helper.course.delete;
 
 import javax.swing.JOptionPane;
 
 import org.ims.ignou.dao.course.find.SearchCourse;
 import org.ims.ignou.dto.course.CourseDto;
-public class FindValidation 
-{
+import org.ims.ignou.helper.course.find.ShowFindRecordhelper;
+import org.ims.ignou.view.course.delete.CourseDeleteView;
 
+public class CourseDeleteValidationView {
+
+	
 	private static CourseDto courseFindDto;
 	
-	public  void onlyNumberAllowed(CourseFindView findView){
-
-
+	public  void onlyNumberAllowed(CourseDeleteView findView){
+	
 		courseFindDto=new CourseDto();
 		if(!(findView.getTextCourseName().getText().equals(""))){
 			courseFindDto.setCourseName(findView.getTextCourseName().getText());
@@ -22,7 +21,7 @@ public class FindValidation
 			if(course.searchUsingName(courseFindDto)){
 				
 				findView.setVisible(false);
-				ShowFindRecordhelper showFindRecordhelper=new ShowFindRecordhelper();
+				ShowFindRecordDeletehelper showFindRecordhelper=new ShowFindRecordDeletehelper();
 				showFindRecordhelper.setDetails(SearchCourse.getCourseDetails());
 				
 			}
@@ -38,7 +37,7 @@ public class FindValidation
 				if(course.searchUsingId(courseFindDto)){
 					
 					findView.setVisible(false);
-					ShowFindRecordhelper showFindRecordhelper=new ShowFindRecordhelper();
+					ShowFindRecordDeletehelper showFindRecordhelper=new ShowFindRecordDeletehelper();
 					showFindRecordhelper.setDetails(SearchCourse.getCourseDetails());
 					
 				}
@@ -54,37 +53,29 @@ public class FindValidation
 		}
 	
 	}
+
 	
-	
-		public  void cannotBlank(CourseFindView findView){
-			
-			
-			
-			if(!(findView.getTextCourseName().getText().equals(""))){					
-				onlyNumberAllowed(findView);															
+	public  void cannotBlank(CourseDeleteView findView){
+		
+		
+		
+		if(!(findView.getTextCourseName().getText().equals(""))){					
+			onlyNumberAllowed(findView);															
+
+		}
+		else{
+			if(!(findView.getTxtCourseId().getText().equals("")))
+			{
+				onlyNumberAllowed(findView);				
+				
+			}else{
+
+				findView.getLblCannotBlank().setText("* Input Course Name or Course Id");							
 
 			}
-			else{
-				if(!(findView.getTxtCourseId().getText().equals("")))
-				{
-					onlyNumberAllowed(findView);				
-					
-				}else{
 
-					findView.getLblCannotBlank().setText("* Input Course Name or Course Id");							
-
-				}
-
-				
-			}			
 			
-			
-			
-			
-			
-			
-		}
-
-
-		
+		}			
+	
+	}
 }

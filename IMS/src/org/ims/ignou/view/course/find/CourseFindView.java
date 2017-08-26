@@ -97,7 +97,8 @@ public class CourseFindView extends JFrame
 		 btnSearch = new JButton("Search");
 		 btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				System.out.println("course find action call");
+
 				findValidation.cannotBlank(findView);
 				
 			}
