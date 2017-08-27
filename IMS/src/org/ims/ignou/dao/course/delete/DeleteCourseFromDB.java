@@ -1,11 +1,11 @@
 package org.ims.ignou.dao.course.delete;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import org.ims.ignou.dao.Extendable.CreateConnection;
-import org.ims.ignou.dto.course.CourseDto;
 
 public class DeleteCourseFromDB extends CreateConnection{
 

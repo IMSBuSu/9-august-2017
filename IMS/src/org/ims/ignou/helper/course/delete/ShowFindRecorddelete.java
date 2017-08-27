@@ -1,9 +1,9 @@
 package org.ims.ignou.helper.course.delete;
 
 import org.ims.ignou.dto.course.CourseDto;
-import org.ims.ignou.view.employee.delete.DeleteFindRecord;
+import org.ims.ignou.view.course.delete.DeleteFindRecord;
 
-public class ShowFindRecordDeletehelper {
+public class ShowFindRecorddelete {
 
 	 
 public void setDetails(CourseDto courseDetails){
@@ -17,14 +17,5 @@ public void setDetails(CourseDto courseDetails){
 		findRecord.setVisible(true);
 		
 	}
-
-
-
-
-
-
-
-
-
 
 }

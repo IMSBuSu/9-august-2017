@@ -11,7 +11,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
-import org.ims.ignou.helper.course.add.CourseAddValidation;
+import org.ims.ignou.helper.course.add.AddValidation;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -44,7 +44,7 @@ public class CourseAddView extends JFrame {
 	}
 
 	public void setLblcoursename(String errormessage) {
-		lblcoursename.setText(errormessage);;
+		lblcoursename.setText(errormessage);
 	}
 
 	public JTextField getTxtcouseName() {
@@ -161,7 +161,7 @@ public class CourseAddView extends JFrame {
 		contentPane.add(lblcoursename);
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CourseAddValidation validation=new CourseAddValidation();
+				AddValidation validation=new AddValidation();
 				validation.cannotBlank(frame);			
 			
 			}

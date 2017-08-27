@@ -1,18 +1,18 @@
-package org.ims.ignou.helper.course.find;
-
-import org.ims.ignou.view.course.delete.CourseDeleteView;
-import org.ims.ignou.view.course.find.CourseFindView;
+package org.ims.ignou.helper.course.update;
 
 import javax.swing.JOptionPane;
 
 import org.ims.ignou.dao.course.find.SearchCourse;
 import org.ims.ignou.dto.course.CourseDto;
-public class FindValidation 
+import org.ims.ignou.helper.course.find.ShowFindRecord;
+import org.ims.ignou.view.course.update.CourseUpdateView;
+
+public class SearchValidation 
 {
 
-	private static CourseDto courseFindDto;
+private static CourseDto courseFindDto;
 	
-	public  void onlyNumberAllowed(CourseFindView findView){
+	public  void onlyNumberAllowed(CourseUpdateView findView){
 
 
 		courseFindDto=new CourseDto();
@@ -22,7 +22,7 @@ public class FindValidation
 			if(course.searchUsingName(courseFindDto)){
 				
 				findView.setVisible(false);
-				ShowFindRecord showFindRecordhelper=new ShowFindRecord();
+				ShowFindRecordupdate showFindRecordhelper=new ShowFindRecordupdate();
 				showFindRecordhelper.setDetails(SearchCourse.getCourseDetails());
 				
 			}
@@ -38,7 +38,7 @@ public class FindValidation
 				if(course.searchUsingId(courseFindDto)){
 					
 					findView.setVisible(false);
-					ShowFindRecord showFindRecordhelper=new ShowFindRecord();
+					ShowFindRecordupdate showFindRecordhelper=new ShowFindRecordupdate();
 					showFindRecordhelper.setDetails(SearchCourse.getCourseDetails());
 					
 				}
@@ -56,7 +56,7 @@ public class FindValidation
 	}
 	
 	
-		public  void cannotBlank(CourseFindView findView){
+		public  void cannotBlank(CourseUpdateView findView){
 			
 			
 			
@@ -77,14 +77,7 @@ public class FindValidation
 
 				
 			}			
-			
-			
-			
-			
-			
-			
+	
 		}
-
-
-		
+	
 }

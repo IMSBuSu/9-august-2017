@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import org.ims.ignou.helper.course.add.CourseAddValidation;
+import org.ims.ignou.helper.course.add.AddValidation;
 import org.ims.ignou.helper.course.find.FindValidation;
 
 import javax.swing.JButton;
@@ -27,7 +27,7 @@ public class CourseFindView extends JFrame
 	private JTextField textCourseName;
 	private JLabel lblerrormessagecourseid;
 	private JLabel lblCannotBlank;
-	protected CourseFindView findView;
+	private CourseFindView findView;
 	protected FindValidation findValidation;
 	
 	public JLabel getLblerrormessagecourseid() {
@@ -97,7 +97,6 @@ public class CourseFindView extends JFrame
 		 btnSearch = new JButton("Search");
 		 btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("course find action call");
 
 				findValidation.cannotBlank(findView);
 				

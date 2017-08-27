@@ -1,6 +1,7 @@
-package org.ims.ignou.view.employee.delete;
+package org.ims.ignou.view.course.delete;
 
 import java.awt.Color;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,7 +14,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import org.ims.ignou.dao.course.delete.DeleteCourseFromDB;
-import org.ims.ignou.dto.course.CourseDto;
 
 public class DeleteFindRecord extends JFrame {
 
@@ -99,8 +99,7 @@ public class DeleteFindRecord extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				int option=JOptionPane.showConfirmDialog(frame ,"Do You Want To Delete Record ? ");
-				if(option==0){
-					
+				if(option==0){				
 						DeleteCourseFromDB deleteFindRecord=new DeleteCourseFromDB();
 						Boolean isdelete=deleteFindRecord.DeleteCourse(Integer.parseInt(textCourseId.getText()));
 						if(isdelete){

@@ -2,12 +2,12 @@ package org.ims.ignou.helper.course.delete;
 
 import javax.swing.JOptionPane;
 
+
 import org.ims.ignou.dao.course.find.SearchCourse;
 import org.ims.ignou.dto.course.CourseDto;
-import org.ims.ignou.helper.course.find.ShowFindRecordhelper;
 import org.ims.ignou.view.course.delete.CourseDeleteView;
 
-public class CourseDeleteValidationView {
+public class DeleteValidation {
 
 	
 	private static CourseDto courseFindDto;
@@ -21,7 +21,7 @@ public class CourseDeleteValidationView {
 			if(course.searchUsingName(courseFindDto)){
 				
 				findView.setVisible(false);
-				ShowFindRecordDeletehelper showFindRecordhelper=new ShowFindRecordDeletehelper();
+				ShowFindRecorddelete showFindRecordhelper=new ShowFindRecorddelete();
 				showFindRecordhelper.setDetails(SearchCourse.getCourseDetails());
 				
 			}
@@ -37,7 +37,7 @@ public class CourseDeleteValidationView {
 				if(course.searchUsingId(courseFindDto)){
 					
 					findView.setVisible(false);
-					ShowFindRecordDeletehelper showFindRecordhelper=new ShowFindRecordDeletehelper();
+					ShowFindRecorddelete showFindRecordhelper=new ShowFindRecorddelete();
 					showFindRecordhelper.setDetails(SearchCourse.getCourseDetails());
 					
 				}

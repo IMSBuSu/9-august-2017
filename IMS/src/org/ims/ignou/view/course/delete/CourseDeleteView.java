@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import org.ims.ignou.helper.course.delete.CourseDeleteValidationView;
+import org.ims.ignou.helper.course.delete.DeleteValidation;
 import org.ims.ignou.helper.course.find.FindValidation;
 
 public class CourseDeleteView extends JFrame
@@ -29,7 +29,6 @@ public class CourseDeleteView extends JFrame
 	private JLabel lblerrormessagecourseid;
 	private JLabel lblCannotBlank;
 	protected CourseDeleteView findView;
-	protected FindValidation findValidation;
 	
 	public JLabel getLblerrormessagecourseid() {
 		return lblerrormessagecourseid;
@@ -48,9 +47,8 @@ public class CourseDeleteView extends JFrame
 	}
 
 	public CourseDeleteView() {
-		findValidation=new FindValidation();
 		findView=this;		
-		setTitle("                                              Find Course");
+		setTitle("                                              Search Course ");
 		setResizable(false);
 		try
 	    {
@@ -99,7 +97,7 @@ public class CourseDeleteView extends JFrame
 		 btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				CourseDeleteValidationView coursedelete=new CourseDeleteValidationView();
+				DeleteValidation coursedelete=new DeleteValidation();
 				coursedelete.cannotBlank(findView);
 			}
 		});

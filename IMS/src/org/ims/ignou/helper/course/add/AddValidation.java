@@ -3,7 +3,7 @@ package org.ims.ignou.helper.course.add;
 import org.ims.ignou.dto.course.CourseDto;
 import org.ims.ignou.view.course.add.CourseAddView;
 
-public class CourseAddValidation 
+public class AddValidation 
 {
 	private  CourseDto courseDetails;
 		

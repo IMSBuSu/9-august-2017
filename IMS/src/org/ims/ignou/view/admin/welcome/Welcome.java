@@ -1,10 +1,11 @@
 package org.ims.ignou.view.admin.welcome;
-import java.applet.Applet;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
-import java.awt.Desktop.Action;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -13,7 +14,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.Timer;
+import javax.swing.JPopupMenu;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
@@ -21,11 +22,7 @@ import javax.swing.border.EmptyBorder;
 import org.ims.ignou.view.course.add.CourseAddView;
 import org.ims.ignou.view.course.delete.CourseDeleteView;
 import org.ims.ignou.view.course.find.CourseFindView;
-
-import javax.swing.JPopupMenu;
-import java.awt.Component;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import org.ims.ignou.view.course.update.CourseUpdateView;
 
 public class Welcome extends JFrame {
 
@@ -146,12 +143,18 @@ public class Welcome extends JFrame {
 		mnCourse.add(menuItem);
 		
 		JMenuItem menuItem_4 = new JMenuItem("Update Existing Course");
+		menuItem_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CourseUpdateView courseUpdateView=new CourseUpdateView();
+				courseUpdateView.setVisible(true);
+			}
+		});
 		mnCourse.add(menuItem_4);
-		
+
 		JMenuItem menuItem_5 = new JMenuItem("Delete Existing Course");
 		menuItem_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+					
 					CourseDeleteView courseDeleteView=new CourseDeleteView();
 					courseDeleteView.setVisible(true);
 			}
