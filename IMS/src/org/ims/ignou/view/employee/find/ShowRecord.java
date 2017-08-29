@@ -1,7 +1,6 @@
 package org.ims.ignou.view.employee.find;
 
 import org.ims.ignou.dto.employee.registration.Employeedto;
-import org.ims.ignou.helper.employee.FatchDB;
 import org.ims.ignou.view.extendable.ShowrEmpStuRecord;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -54,14 +53,14 @@ public class ShowRecord extends ShowrEmpStuRecord
 		record.textField_Year10th.setText(new Integer(data.getYear10th()).toString());
 		record.txFieldinstituationname_10th.setText(data.getInstituteName10th());
 		record.textField_Percentage_10th.setText(data.getPercentage10th());
-		record.textField_grade_10th.setText(new Character(data.getGrade10th()).toString());	
+		record.textField_grade_10th.setText((data.getGrade10th()).toString());	
 	}
 	public void setQualificationInformation12th(ShowRecord record,Employeedto data){
 		record.textFieldQualification12th.setText("12th");
 		record.textField_Year12th.setText(new Integer(data.getYear12th()).toString());
 		record.textField_institutationname_12th.setText(data.getInstituteName12th());
 		record.textField_Percentage_12th.setText(data.getPercentage12th());
-		record.textField_grade_12th.setText(new Character(data.getGrade12th()).toString());
+		record.textField_grade_12th.setText((data.getGrade12th()).toString());
 		record.textFieldStream_12th.setText(data.getStream12th());		
 	}
 	public void setQualificationInformationcertification(ShowRecord record,Employeedto data){
@@ -69,7 +68,7 @@ public class ShowRecord extends ShowrEmpStuRecord
 		record.textField_Yearcertification.setText(new Integer(data.getYearCertification()).toString());
 		record.textFieldInstitutenamecertification.setText(data.getInstituteNameCertification());
 		record.textField_Percentage_Certification.setText(data.getPercentageCertification());
-		record.textField_Grade_certification.setText(new Character(data.getGradeCertification()).toString());
+		record.textField_Grade_certification.setText((data.getGradeCertification()).toString());
 		record.textFieldCourseName_Certification.setText(data.getCoursenameCertification());
 	}
 	public void setQualificationInformationDiploma(ShowRecord record,Employeedto data){
@@ -77,7 +76,7 @@ public class ShowRecord extends ShowrEmpStuRecord
 		record.textField_Yeardiploma.setText(new Integer(data.getYearDiploma()).toString());
 		record.textFieldInstitutenamediploma.setText(data.getInstituteNameDiploma());
 		record.textField_Percentage_Diploma.setText(data.getPercentageDiploma());
-		record.textField_grade_Diploma.setText(new Character(data.getGradeDiploma()).toString());
+		record.textField_grade_Diploma.setText((data.getGradeDiploma()).toString());
 		record.textFieldCourseNameDiploma.setText(data.getCoursenameDiploma());
 	}
 	public void setQualificationInformationundergraduate(ShowRecord record,Employeedto data){
@@ -85,7 +84,7 @@ public class ShowRecord extends ShowrEmpStuRecord
 		record.textField_YearUnder_graduate.setText(new Integer(data.getYearunderGraduate()).toString());
 		record.textFieldInstitutenameUnder_graduate.setText(data.getInstituteNameUnderGraduate());
 		record.textField_Percentage_Undergraduate.setText(data.getPercentageUnderGraduate());
-		record.textField_GradeUndergraduate.setText(new Character(data.getGradeUnderGraduate()).toString());	
+		record.textField_GradeUndergraduate.setText((data.getGradeUnderGraduate()).toString());	
 		record.textFieldCourseNameUndergraduate.setText(data.getCoursenameUnderGraduate());	
 	}
 	public void setQualificationInformationpostgraduate(ShowRecord record,Employeedto data){
@@ -93,7 +92,7 @@ public class ShowRecord extends ShowrEmpStuRecord
 				record.textField_Year_post_graduation.setText(new Integer(data.getYearPostGraduate()).toString());
 				record.textFieldInstitutenamePost_graducation.setText(data.getInstituteNamePostgraduate());
 				record.textField_Percentage_postgraduate.setText(data.getPercentagePostgraduate());
-				record.textField_GradePostUndergraduate.setText(new Character(data.getGradePostgraduate()).toString());
+				record.textField_GradePostUndergraduate.setText((data.getGradePostgraduate()).toString());
 				record.textFieldCourseNamePostGraduate.setText(data.getCoursenamePostgraduate());
 	}
 			
@@ -102,7 +101,7 @@ public void setQualificationinformationother(ShowRecord record,Employeedto data)
 			record.textField_Year_other.setText(new Integer(data.getYearOther()).toString());		
 			record.textField_InstituteNameOther.setText(data.getInstituteNameOther());
 			record.textField_Percentage_Other.setText(data.getPercentageOther());
-			record.textField_GradeOther.setText(new Character(data.getGradeOther()).toString());
+			record.textField_GradeOther.setText((data.getGradeOther()).toString());
 			record.textFieldCourseName_Other.setText(data.getCoursenameOther());
 		}
 	

@@ -52,6 +52,7 @@ public class Registration extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 		
+	private JFileChooser employeeImage;
 	protected JPanel contentPane;
 	private String Student_image="upload_image.png";
 	protected JTextField Student_First_Name;
@@ -72,7 +73,7 @@ public class Registration extends JFrame {
 	protected JComboBox<String> Maritial_status;
 	protected JTextField email_id;
 	protected JTextField City;
-	protected JTextField State;
+	protected JTextField state;
 	protected JComboBox comboBoxQualification12th;
 	protected	JComboBox comboBoxQualificationdiploma;
 	protected	JComboBox comboBoxQualificationcertification; 
@@ -156,14 +157,220 @@ public class Registration extends JFrame {
 	private JLabel label_29;
 	private JLabel label_30;
 	private JLabel label_31;
+	
+	
+
+public JPanel getContentPane() {
+		return contentPane;
+	}
+	public String getStudent_image() {
+		return Student_image;
+	}
+	public JTextField getStudent_First_Name() {
+		return Student_First_Name;
+	}
+	public JTextField getStudent_Middle_Name() {
+		return Student_Middle_Name;
+	}
+	public JTextField getStudent_Last_Name() {
+		return Student_Last_Name;
+	}
+	public JTextField getFather_First_Name() {
+		return Father_First_Name;
+	}
+	public JTextField getFather_Middle_Name() {
+		return Father_Middle_Name;
+	}
+	public JTextField getFather_Last_Name() {
+		return Father_Last_Name;
+	}
+	public JComboBox<String> getGender() {
+		return Gender;
+	}
+	public JLabel getBackgroundimage() {
+		return Backgroundimage;
+	}
+	public JComboBox<String> getDaydob() {
+		return Daydob;
+	}
+	public JComboBox<String> getMonthsdob() {
+		return Monthsdob;
+	}
+	public JComboBox<String> getYeardob() {
+		return Yeardob;
+	}
+	public JTextField getContact_number() {
+		return contact_number;
+	}
+	public JComboBox<String> getMaritial_status() {
+		return Maritial_status;
+	}
+	public JTextField getEmail_id() {
+		return email_id;
+	}
+	public JTextField getCity() {
+		return City;
+	}
+	public JTextField getStatee() {
+		return state;
+	}
+	public JComboBox getComboBoxQualification12th() {
+		return comboBoxQualification12th;
+	}
+	public JComboBox getComboBoxQualificationdiploma() {
+		return comboBoxQualificationdiploma;
+	}
+	public JComboBox getComboBoxQualificationcertification() {
+		return comboBoxQualificationcertification;
+	}
+	public JTextField getZipCode() {
+		return ZipCode;
+	}
+	public JComboBox getCountry() {
+		return country;
+	}
+	public JTextArea getAddress() {
+		return Address;
+	}
+	public JComboBox getComboBoxQualification10th() {
+		return comboBoxQualification10th;
+	}
+	public JPanel getContact_information() {
+		return Contact_information;
+	}
+	public JPanel getQualification_Information() {
+		return Qualification_Information;
+	}
+	public JComboBox<String> getComboBoxQualificationUnder_graduate() {
+		return comboBoxQualificationUnder_graduate;
+	}
+	public JComboBox<String> getComboBoxQualificationPost_graducation() {
+		return comboBoxQualificationPost_graducation;
+	}
+	public JComboBox<String> getComboBoxQualificationOther() {
+		return comboBoxQualificationOther;
+	}
+	public JTextField getYear10th() {
+		return Year10th;
+	}
+	public JTextField getYear12th() {
+		return Year12th;
+	}
+	public JTextField getYeardiploma() {
+		return Yeardiploma;
+	}
+	public JTextField getYearcertification() {
+		return Yearcertification;
+	}
+	public JTextField getYearUnder_graduate() {
+		return YearUnder_graduate;
+	}
+	public JTextField getYear_post_graduation() {
+		return Year_post_graduation;
+	}
+	public JTextField getYear_other() {
+		return Year_other;
+	}
+	public JTextField getInstituation_name_10th() {
+		return Instituation_name_10th;
+	}
+	public JTextField getInstituation_name_12th() {
+		return Instituation_name_12th;
+	}
+	public JTextField getInstituation_name_Diploma() {
+		return Instituation_name_Diploma;
+	}
+	public JTextField getInstituation_name_Certification() {
+		return Instituation_name_Certification;
+	}
+	public JTextField getInstituation_name_Under_graduate() {
+		return Instituation_name_Under_graduate;
+	}
+	public JTextField getInstituation_name_Post_graduate() {
+		return Instituation_name_Post_graduate;
+	}
+	public JTextField getInstituation_name_other() {
+		return Instituation_name_other;
+	}
+	public JTextField getPercentage10th() {
+		return Percentage10th;
+	}
+	public JTextField getPercentage12th() {
+		return Percentage12th;
+	}
+	public JTextField getPercentageDiploma() {
+		return PercentageDiploma;
+	}
+	public JTextField getPercentagecertification() {
+		return Percentagecertification;
+	}
+	public JTextField getPercentageUndergraduate() {
+		return PercentageUndergraduate;
+	}
+	public JTextField getPercentagepost_graduation() {
+		return Percentagepost_graduation;
+	}
+	public JTextField getPercentageother() {
+		return Percentageother;
+	}
+	public JComboBox<String> getGrade10th() {
+		return Grade10th;
+	}
+	public JComboBox<String> getGrade12th() {
+		return Grade12th;
+	}
+	public JComboBox<String> getGradediploma() {
+		return Gradediploma;
+	}
+	public JComboBox<String> getGradeCertificate() {
+		return GradeCertificate;
+	}
+	public JComboBox<String> getGradeUnder_graduate() {
+		return GradeUnder_graduate;
+	}
+	public JComboBox<String> getGradePost_graduate() {
+		return GradePost_graduate;
+	}
+	public JComboBox<String> getGradeother() {
+		return Gradeother;
+	}
+	public JTextField getDiploma_course_name() {
+		return Diploma_course_name;
+	}
+	public JTextField getCertificatation_course_name() {
+		return Certificatation_course_name;
+	}
+	public JTextField getUnderGraduation_course_name() {
+		return underGraduation_course_name;
+	}
+	public JTextField getPostGraduation_course_name() {
+		return PostGraduation_course_name;
+	}
+	public JTextField getOther_course_name() {
+		return Other_course_name;
+	}
+	public JComboBox<String> getStream12th() {
+		return stream12th;
+	}
+	public JLabel getImage() {
+		return image;
+	}
+	public JComboBox<String> getCategory() {
+		return Category;
+	}
+	
+	
+public JFileChooser getEmployeeImage() {
+		return employeeImage;
+	}
 public void imagevalidation()
 {
-	JFileChooser fc = new JFileChooser();
-	fc.setDialogTitle("Select Image");
-	fc.showOpenDialog(null);	
-	if(fc.getSelectedFile()!=null)
+	employeeImage = new JFileChooser();
+	employeeImage.setDialogTitle("Select Image");
+	employeeImage.showOpenDialog(null);	
+	if(employeeImage.getSelectedFile()!=null)
 	{					
-		Student_image=fc.getSelectedFile().toString();				
+		Student_image=employeeImage.getSelectedFile().toString();				
 		ImageIcon icon=new ImageIcon(Student_image);
 		if((icon.getIconHeight()<=image.getWidth()) && (icon.getIconWidth()<=image.getWidth()))
 		{	
@@ -248,7 +455,7 @@ public Boolean ContactInformationvalidation()
 		JOptionPane.showMessageDialog(this, "City can not be blank");
 		return false;
 	}
-	if(State.getText().equals(""))
+	if(state.getText().equals(""))
 	{
 		JOptionPane.showMessageDialog(this, "State can not be blank");
 		return false;
@@ -683,11 +890,10 @@ public Registration()
 								 				  Contact_information.add(lblState);
 								 				  lblState.setToolTipText("");
 								 				  
-								 				  State = new JTextField();
-								 				  State.setBounds(454, 50, 76, 20);
-								 				  Contact_information.add(State);
-								 				  State.setToolTipText("State");
-								 				  State.setColumns(10);
+								 				  state = new JTextField();
+								 				  state.setBounds(454, 50, 76, 20);
+								 				  Contact_information.add(state);
+								 				  state.setColumns(10);
 								 				  
 								 				  		 country = new JComboBox();
 								 				  		country.setBounds(659, 81, 86, 20);

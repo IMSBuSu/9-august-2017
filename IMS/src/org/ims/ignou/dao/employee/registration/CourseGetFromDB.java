@@ -21,37 +21,42 @@ public class CourseGetFromDB extends CreateConnection
 	}
 
 
-	public Boolean courseResultset(Connection connection) throws SQLException{
+	private Boolean courseResultset(Connection connection) throws SQLException{
 		Statement statement=connection.createStatement();		
 		if(statement!=null){
 					ResultSet courseSet=statement.executeQuery(stmt);
-					if(courseSet.next()){
+				
 							getCourseList(courseSet);
-							return true;
-					}
-					
+							
+			statement.close();
+			return true;
+			
 		}
 		return false;		
 	}
 
 	
-	public void getCourseList(ResultSet courseset) throws SQLException{
-		
+	private void getCourseList(ResultSet courseset) throws SQLException{
 		String course;
 		courseList=new ArrayList<String>();
+		System.out.println(courseList);
 		while(courseset.next())
 		{			
-			 course=courseset.getString("COURSE_NAME");
-			 courseList.add(course);						
-		}
-		
+			  course=courseset.getString("COURSE_NAME");
+			 courseList.add(course);			
+		}	
+		courseset.close();
 	}
 	
-	public void getcourse(){
+	public Boolean getcourse(){
 		try {
 			Connection connection=createconnection();
-					if(connection!=null){						
-							courseResultset(connection);						
+					if(connection!=null){			
+						   
+							if(courseResultset(connection)){
+								
+								return true;
+							}
 							connection.close();
 					}
 		} catch (ClassNotFoundException e) {
@@ -61,8 +66,8 @@ public class CourseGetFromDB extends CreateConnection
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		return false;
+
 	}
-	
 	
 }

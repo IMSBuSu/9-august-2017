@@ -13,16 +13,17 @@ import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
 
+import org.ims.ignou.helper.employee.registration.GetValueFrmRegistrationform;
 import org.ims.ignou.view.extendable.Registration;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
-public class Employee extends Registration
+public class RegistrationeEmployee extends Registration
 {	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
+		
+	
+	private RegistrationeEmployee frame;
 	
 	//two panel create employee(faculty and other) 
 	//they both show or hide at  the time when Areyoucmbox change state.
@@ -78,6 +79,234 @@ public class Employee extends Registration
 	private  DefaultComboBoxModel<String> defaultComboBoxModel; //contains course.from all course.
 	
 	
+	public RegistrationeEmployee getFrame() {
+		return frame;
+	}
+	public void setFrame(RegistrationeEmployee frame) {
+		this.frame = frame;
+	}
+	public JPanel getJobinformationfaculty() {
+		return Jobinformationfaculty;
+	}
+	public void setJobinformationfaculty(JPanel jobinformationfaculty) {
+		Jobinformationfaculty = jobinformationfaculty;
+	}
+	public JPanel getJobinformationother() {
+		return Jobinformationother;
+	}
+	public void setJobinformationother(JPanel jobinformationother) {
+		Jobinformationother = jobinformationother;
+	}
+	public JComboBox<String> getAreyoucmbox() {
+		return Areyoucmbox;
+	}
+	public void setAreyoucmbox(JComboBox<String> areyoucmbox) {
+		Areyoucmbox = areyoucmbox;
+	}
+	public JTextField getJobNametxtfieldfaculty() {
+		return jobNametxtfieldfaculty;
+	}
+	public void setJobNametxtfieldfaculty(JTextField jobNametxtfieldfaculty) {
+		this.jobNametxtfieldfaculty = jobNametxtfieldfaculty;
+	}
+	public JTextField getSalarytextFieldfaculty() {
+		return SalarytextFieldfaculty;
+	}
+	public void setSalarytextFieldfaculty(JTextField salarytextFieldfaculty) {
+		SalarytextFieldfaculty = salarytextFieldfaculty;
+	}
+	public JComboBox<String> getJobstarttimingcomboBoxfaculty() {
+		return jobstarttimingcomboBoxfaculty;
+	}
+	public void setJobstarttimingcomboBoxfaculty(JComboBox<String> jobstarttimingcomboBoxfaculty) {
+		this.jobstarttimingcomboBoxfaculty = jobstarttimingcomboBoxfaculty;
+	}
+	public JComboBox<String> getJobEndtimingcomboBoxfaculty() {
+		return jobEndtimingcomboBoxfaculty;
+	}
+	public void setJobEndtimingcomboBoxfaculty(JComboBox<String> jobEndtimingcomboBoxfaculty) {
+		this.jobEndtimingcomboBoxfaculty = jobEndtimingcomboBoxfaculty;
+	}
+	public JComboBox<String> getBatch_start_time1() {
+		return Batch_start_time1;
+	}
+	public void setBatch_start_time1(JComboBox<String> batch_start_time1) {
+		Batch_start_time1 = batch_start_time1;
+	}
+	public JComboBox<String> getBatch_start_time2() {
+		return Batch_start_time2;
+	}
+	public void setBatch_start_time2(JComboBox<String> batch_start_time2) {
+		Batch_start_time2 = batch_start_time2;
+	}
+	public JComboBox<String> getBatch_start_time3() {
+		return Batch_start_time3;
+	}
+	public void setBatch_start_time3(JComboBox<String> batch_start_time3) {
+		Batch_start_time3 = batch_start_time3;
+	}
+	public JComboBox<String> getBatch_start_time4() {
+		return Batch_start_time4;
+	}
+	public void setBatch_start_time4(JComboBox<String> batch_start_time4) {
+		Batch_start_time4 = batch_start_time4;
+	}
+	public JComboBox<String> getBatch_start_time5() {
+		return Batch_start_time5;
+	}
+	public void setBatch_start_time5(JComboBox<String> batch_start_time5) {
+		Batch_start_time5 = batch_start_time5;
+	}
+	public JComboBox<String> getBatch_start_time6() {
+		return Batch_start_time6;
+	}
+	public void setBatch_start_time6(JComboBox<String> batch_start_time6) {
+		Batch_start_time6 = batch_start_time6;
+	}
+	public JComboBox<String> getBatch_start_time7() {
+		return Batch_start_time7;
+	}
+	public void setBatch_start_time7(JComboBox<String> batch_start_time7) {
+		Batch_start_time7 = batch_start_time7;
+	}
+	public JComboBox<String> getBatch_start_time8() {
+		return Batch_start_time8;
+	}
+	public void setBatch_start_time8(JComboBox<String> batch_start_time8) {
+		Batch_start_time8 = batch_start_time8;
+	}
+	public JComboBox<String> getBatch_End_time1() {
+		return Batch_End_time1;
+	}
+	public void setBatch_End_time1(JComboBox<String> batch_End_time1) {
+		Batch_End_time1 = batch_End_time1;
+	}
+	public JComboBox<String> getBatch_End_time2() {
+		return Batch_End_time2;
+	}
+	public void setBatch_End_time2(JComboBox<String> batch_End_time2) {
+		Batch_End_time2 = batch_End_time2;
+	}
+	public JComboBox<String> getBatch_End_time3() {
+		return Batch_End_time3;
+	}
+	public void setBatch_End_time3(JComboBox<String> batch_End_time3) {
+		Batch_End_time3 = batch_End_time3;
+	}
+	public JComboBox<String> getBatch_End_time4() {
+		return Batch_End_time4;
+	}
+	public void setBatch_End_time4(JComboBox<String> batch_End_time4) {
+		Batch_End_time4 = batch_End_time4;
+	}
+	public JComboBox<String> getBatch_End_time5() {
+		return Batch_End_time5;
+	}
+	public void setBatch_End_time5(JComboBox<String> batch_End_time5) {
+		Batch_End_time5 = batch_End_time5;
+	}
+	public JComboBox<String> getBatch_End_time6() {
+		return Batch_End_time6;
+	}
+	public void setBatch_End_time6(JComboBox<String> batch_End_time6) {
+		Batch_End_time6 = batch_End_time6;
+	}
+	public JComboBox<String> getBatch_End_time7() {
+		return Batch_End_time7;
+	}
+	public void setBatch_End_time7(JComboBox<String> batch_End_time7) {
+		Batch_End_time7 = batch_End_time7;
+	}
+	public JComboBox<String> getBatch_End_time8() {
+		return Batch_End_time8;
+	}
+	public void setBatch_End_time8(JComboBox<String> batch_End_time8) {
+		Batch_End_time8 = batch_End_time8;
+	}
+	public JComboBox<String> getSelectcourse1() {
+		return selectcourse1;
+	}
+	public void setSelectcourse1(JComboBox<String> selectcourse1) {
+		this.selectcourse1 = selectcourse1;
+	}
+	public JComboBox<String> getSelectcourse2() {
+		return selectcourse2;
+	}
+	public void setSelectcourse2(JComboBox<String> selectcourse2) {
+		this.selectcourse2 = selectcourse2;
+	}
+	public JComboBox<String> getSelectcourse3() {
+		return selectcourse3;
+	}
+	public void setSelectcourse3(JComboBox<String> selectcourse3) {
+		this.selectcourse3 = selectcourse3;
+	}
+	public JComboBox<String> getSelectcourse4() {
+		return selectcourse4;
+	}
+	public void setSelectcourse4(JComboBox<String> selectcourse4) {
+		this.selectcourse4 = selectcourse4;
+	}
+	public JComboBox<String> getSelectcourse5() {
+		return selectcourse5;
+	}
+	public void setSelectcourse5(JComboBox<String> selectcourse5) {
+		this.selectcourse5 = selectcourse5;
+	}
+	public JComboBox<String> getSelectcourse6() {
+		return selectcourse6;
+	}
+	public void setSelectcourse6(JComboBox<String> selectcourse6) {
+		this.selectcourse6 = selectcourse6;
+	}
+	public JComboBox<String> getSelectcourse7() {
+		return selectcourse7;
+	}
+	public void setSelectcourse7(JComboBox<String> selectcourse7) {
+		this.selectcourse7 = selectcourse7;
+	}
+	public JComboBox<String> getSelectcourse8() {
+		return selectcourse8;
+	}
+	public void setSelectcourse8(JComboBox<String> selectcourse8) {
+		this.selectcourse8 = selectcourse8;
+	}
+	public JTextField getJobNametxtfieldother() {
+		return jobNametxtfieldother;
+	}
+	public void setJobNametxtfieldother(JTextField jobNametxtfieldother) {
+		this.jobNametxtfieldother = jobNametxtfieldother;
+	}
+	public JTextField getSalarytextFieldother() {
+		return SalarytextFieldother;
+	}
+	public void setSalarytextFieldother(JTextField salarytextFieldother) {
+		SalarytextFieldother = salarytextFieldother;
+	}
+	public JComboBox<String> getJobEndtimingcomboxother() {
+		return jobEndtimingcomboxother;
+	}
+	public void setJobEndtimingcomboxother(JComboBox<String> jobEndtimingcomboxother) {
+		this.jobEndtimingcomboxother = jobEndtimingcomboxother;
+	}
+	public JComboBox<String> getJobstarttimingcomboxBother() {
+		return jobstarttimingcomboxBother;
+	}
+	public void setJobstarttimingcomboxBother(JComboBox<String> jobstarttimingcomboxBother) {
+		this.jobstarttimingcomboxBother = jobstarttimingcomboxBother;
+	}
+	public ArrayList<String> getAllcourse() {
+		return allcourse;
+	}
+	public void setAllcourse(ArrayList<String> allcourse) {
+		this.allcourse = allcourse;
+	}
+	public DefaultComboBoxModel<String> getDefaultComboBoxModel() {
+		return defaultComboBoxModel;
+	}
+	public void setDefaultComboBoxModel(DefaultComboBoxModel<String> defaultComboBoxModel) {
+		this.defaultComboBoxModel = defaultComboBoxModel;
+	}
 	public Boolean Facultyvalidation()
 	{		
 		if(jobNametxtfieldfaculty.getText().equals(""))
@@ -182,13 +411,13 @@ public class Employee extends Registration
 		}
 		return false;		
 }	
-	public DefaultComboBoxModel<String> setcoursecomboboxmodel(ArrayList<String> allcourse)
-	{		
+public DefaultComboBoxModel<String> setcoursecomboboxmodel(ArrayList<String> allcourse)
+{		
 		defaultComboBoxModel=new DefaultComboBoxModel<>();	
 		defaultComboBoxModel.addElement("Select course");		
 		if(allcourse.size()==0)
 		{
-			defaultComboBoxModel.addElement("No course found");
+			defaultComboBoxModel.addElement("No Course Found");
 		}
 		else
 		{			
@@ -202,7 +431,9 @@ public class Employee extends Registration
 	
 		return defaultComboBoxModel;
 	}
-	@SuppressWarnings("deprecation")
+
+
+@SuppressWarnings("deprecation")
 	void otheremployee()
 	{		
 		Jobinformationfaculty.hide();		
@@ -223,9 +454,17 @@ public class Employee extends Registration
 	  		Reset.setBounds(389, 660, 89, 23);
 	  		Backgroundimage.setBounds(0, 648, 758, 67);
 	}
-	public Employee(ArrayList<String> allcourse)
-	{		
+	
+	public RegistrationeEmployee(ArrayList<String> allcourse)
+	{
+		btnSumbit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GetValueFrmRegistrationform frmRegistrationform=new GetValueFrmRegistrationform();
+				frmRegistrationform.setDetails(frame);
+			}
+		});		
 		this.allcourse=allcourse;		
+		frame=this;
 		getContentPane().setBackground(Color.DARK_GRAY);
 		getContentPane().setForeground(Color.ORANGE);
 		setBounds(100, 100, 764, 490);
