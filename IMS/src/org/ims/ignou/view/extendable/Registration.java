@@ -695,8 +695,6 @@ public Boolean validation(Registration reg)
 	return false;
 }
 
-
-
 public Registration()
 {
 	setResizable(false);
