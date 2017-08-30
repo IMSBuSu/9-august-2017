@@ -307,6 +307,8 @@ public class RegistrationeEmployee extends Registration
 	public void setDefaultComboBoxModel(DefaultComboBoxModel<String> defaultComboBoxModel) {
 		this.defaultComboBoxModel = defaultComboBoxModel;
 	}
+	
+	
 	public Boolean Facultyvalidation()
 	{		
 		if(jobNametxtfieldfaculty.getText().equals(""))
@@ -381,16 +383,17 @@ public class RegistrationeEmployee extends Registration
 		return true;
 	}
 
-	@Override
 	public Boolean validation()
 	{
-		if(super.validation())
+		if(super.validation(super.frame))
 		{	
 			if(Areyoucmbox.getSelectedItem().equals("Faculty"))
 			{
 				if(Facultyvalidation())
 				{
 					this.setVisible(false);
+					GetValueFrmRegistrationform frmRegistrationform=new GetValueFrmRegistrationform();
+					frmRegistrationform.setDetails(frame);
 					JOptionPane.showMessageDialog(this, "Congratulation Your Registartion no :"+System.currentTimeMillis()*4);					
 					return true;
 				}				
@@ -400,6 +403,8 @@ public class RegistrationeEmployee extends Registration
 				if(OtherEmpvalidation())
 				{
 					this.setVisible(false);
+					GetValueFrmRegistrationform frmRegistrationform=new GetValueFrmRegistrationform();
+					frmRegistrationform.setDetails(frame);		
 					JOptionPane.showMessageDialog(this, "Congratulation Your REgistartion no :"+System.currentTimeMillis()*4);
 					return true;
 				}				
@@ -411,7 +416,7 @@ public class RegistrationeEmployee extends Registration
 		}
 		return false;		
 }	
-public DefaultComboBoxModel<String> setcoursecomboboxmodel(ArrayList<String> allcourse)
+private DefaultComboBoxModel<String> setcoursecomboboxmodel(ArrayList<String> allcourse)
 {		
 		defaultComboBoxModel=new DefaultComboBoxModel<>();	
 		defaultComboBoxModel.addElement("Select course");		
@@ -457,17 +462,11 @@ public DefaultComboBoxModel<String> setcoursecomboboxmodel(ArrayList<String> all
 	
 	public RegistrationeEmployee(ArrayList<String> allcourse)
 	{
-		btnSumbit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				GetValueFrmRegistrationform frmRegistrationform=new GetValueFrmRegistrationform();
-				frmRegistrationform.setDetails(frame);
-			}
-		});		
 		this.allcourse=allcourse;		
 		frame=this;
 		getContentPane().setBackground(Color.DARK_GRAY);
 		getContentPane().setForeground(Color.ORANGE);
-		setBounds(100, 100, 764, 490);
+		setBounds(100, 100, 764, 493);
 		setLocationRelativeTo(null);
 		setTitle("New Employee Registration");	
 		
@@ -483,7 +482,7 @@ public DefaultComboBoxModel<String> setcoursecomboboxmodel(ArrayList<String> all
   		Backgroundimage.setBounds(0, 514, 758, 102);
   		
   		Areyoucmbox = new JComboBox<String>();
-  		Areyoucmbox.addItemListener(new ItemListener() {
+  		Areyoucmbox.addItemListener(new ItemListener(){
   			public void itemStateChanged(ItemEvent arg0) 
   			{ 				
   				if(Areyoucmbox.getSelectedItem().equals("Faculty"))

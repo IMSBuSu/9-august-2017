@@ -53,8 +53,8 @@ public class Employeedto
 			private String jobName;
 			private String jobTiming;
 			private int salary;
-			private String subjectName[]=new String[7];
-			private String batchTiming[]=new String[7];
+			private String subjectName[]=new String[8];
+			private String batchTiming[]=new String[8];
 			private String State;
 			private String zipcode;
 			private String city;

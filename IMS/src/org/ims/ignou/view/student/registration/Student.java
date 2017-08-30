@@ -264,10 +264,10 @@ public class Student extends Registration
 		}
 		return true;
 	}
-@Override
+
 public Boolean validation()
 {		
-	if(super.validation())
+	if(super.validation(super.frame))
 	{
 						if(courseinformationvalidiation())
 						{

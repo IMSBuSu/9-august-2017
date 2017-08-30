@@ -11,7 +11,7 @@ public class GetValueFrmRegistrationform {
 	
 
 		
-		public Employeedto setPersonalInformation(RegistrationeEmployee frameReg){
+		private Employeedto setPersonalInformation(RegistrationeEmployee frameReg){
 			Employeedto employeeDetail=new Employeedto();
 			employeeDetail.setEmployeeName(frameReg.getStudent_First_Name().getText()+" "+frameReg.getStudent_Middle_Name().getText()+" "+frameReg.getStudent_Last_Name().getText());
 			employeeDetail.setFathersName(frameReg.getFather_First_Name().getText()+" "+frameReg.getFather_Middle_Name().getText()+" "+frameReg.getFather_Last_Name().getText());
@@ -19,11 +19,11 @@ public class GetValueFrmRegistrationform {
 			employeeDetail.setGenDer((String)frameReg.getGender().getSelectedItem());
 			employeeDetail.setCateGory((String)frameReg.getCategory().getSelectedItem());
 			employeeDetail.setMaritialStatus((String)frameReg.getMaritial_status().getSelectedItem());
-			employeeDetail.setImagesPath(frameReg.getEmployeeImage().getSelectedFile().getAbsolutePath());
+			employeeDetail.setImagesPath(frameReg.getCandidateImage().getSelectedFile().getPath());
 			return employeeDetail;
 		}
 	
-		public Employeedto setContactInformation(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private Employeedto setContactInformation(RegistrationeEmployee frameReg,Employeedto empDetail){
 			
 			empDetail.setContactNumber(frameReg.getContact_number().getText());
 			empDetail.setEmailId(frameReg.getEmail_id().getText());
@@ -35,7 +35,7 @@ public class GetValueFrmRegistrationform {
 						
 			return empDetail;
 		}
-		public Employeedto set10thQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail)
+		private Employeedto set10thQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail)
 		{			
 			
 			if(frameReg.getComboBoxQualification10th().getSelectedItem().equals("10th")){
@@ -46,7 +46,7 @@ public class GetValueFrmRegistrationform {
 			}
 			return empDetail;
 		}
-		public Employeedto set12thQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail)
+		private Employeedto set12thQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail)
 		{
 					
 					if(frameReg.getComboBoxQualification12th().getSelectedItem().equals("12th")){
@@ -60,7 +60,7 @@ public class GetValueFrmRegistrationform {
 		}
 		
 
-		public Employeedto setCertificationQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private Employeedto setCertificationQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
 			
 			if(frameReg.getComboBoxQualificationcertification().getSelectedItem().equals("Certification")){
 			empDetail.setYearCertification(Integer.parseInt(frameReg.getYearcertification().getText()));
@@ -73,7 +73,7 @@ public class GetValueFrmRegistrationform {
 			
 		}
 		
-		public Employeedto setDiplomaQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private Employeedto setDiplomaQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
 			
 			if(frameReg.getComboBoxQualificationdiploma().getSelectedItem().equals("Diploma")){
 		
@@ -88,7 +88,7 @@ public class GetValueFrmRegistrationform {
 		}
 		
 
-		public Employeedto setPostGraduateQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private Employeedto setPostGraduateQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
 			
 			if(frameReg.getComboBoxQualificationPost_graducation().getSelectedItem().equals("Post Graducation")){
 			empDetail.setYearPostGraduate(Integer.parseInt(frameReg.getYear_post_graduation().getText()));			
@@ -99,7 +99,7 @@ public class GetValueFrmRegistrationform {
 			}			
 			return empDetail;
 		}
-		public Employeedto setUnderGraduateQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private Employeedto setUnderGraduateQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
 			
 
 			if(frameReg.getComboBoxQualificationUnder_graduate().getSelectedItem().equals("Under Graduation")){
@@ -112,7 +112,7 @@ public class GetValueFrmRegistrationform {
 			return empDetail;
 		}	
 		
-		public Employeedto setOtherQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private Employeedto setOtherQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
 			
 			
 			if(frameReg.getComboBoxQualificationOther().getSelectedItem().equals("Other")){
@@ -125,20 +125,66 @@ public class GetValueFrmRegistrationform {
 			return empDetail;
 		}	
 		
-		public Employeedto empCourseTeachingDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private Employeedto empCourseTeachingDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
 			
-			 String subjectName[]=new String[7];
-			 String batchTiming[]=new String[7];
+			 String subjectName[]=new String[8];
+			 String batchTiming[]=new String[8];
 			if(!((frameReg.getSelectcourse1().getSelectedItem().equals("Select course"))  || (frameReg.getSelectcourse1().getSelectedItem().equals("No Course Found"))) ){				
 				subjectName[0]=(String)frameReg.getSelectcourse1().getSelectedItem();
 				batchTiming[0]=(String)frameReg.getBatch_start_time1().getSelectedItem()+" - "+(String)frameReg.getBatch_End_time1().getSelectedItem();
-				System.out.println("Course 1 Selected : "+subjectName[0]);
-				System.out.println("Batch 1 Timeing Selected : "+batchTiming[0]);				
+			}
+		
+			if(!((frameReg.getSelectcourse2().getSelectedItem().equals("Select course"))  || (frameReg.getSelectcourse2().getSelectedItem().equals("No Course Found"))) ){				
+				subjectName[1]=(String)frameReg.getSelectcourse2().getSelectedItem();
+				batchTiming[1]=(String)frameReg.getBatch_start_time2().getSelectedItem()+" - "+(String)frameReg.getBatch_End_time2().getSelectedItem();
 			}
 			
+			if(!((frameReg.getSelectcourse3().getSelectedItem().equals("Select course"))  || (frameReg.getSelectcourse3().getSelectedItem().equals("No Course Found"))) ){				
+				subjectName[2]=(String)frameReg.getSelectcourse3().getSelectedItem();
+				batchTiming[2]=(String)frameReg.getBatch_start_time3().getSelectedItem()+" - "+(String)frameReg.getBatch_End_time3().getSelectedItem();
+			}
+			
+			
+
+			if(!((frameReg.getSelectcourse4().getSelectedItem().equals("Select course"))  || (frameReg.getSelectcourse4().getSelectedItem().equals("No Course Found"))) ){				
+				subjectName[3]=(String)frameReg.getSelectcourse4().getSelectedItem();
+				batchTiming[3]=(String)frameReg.getBatch_start_time4().getSelectedItem()+" - "+(String)frameReg.getBatch_End_time4().getSelectedItem();
+			}
+
+
+			if(!((frameReg.getSelectcourse5().getSelectedItem().equals("Select course"))  || (frameReg.getSelectcourse5().getSelectedItem().equals("No Course Found"))) ){				
+				subjectName[4]=(String)frameReg.getSelectcourse5().getSelectedItem();
+				batchTiming[4]=(String)frameReg.getBatch_start_time5().getSelectedItem()+" - "+(String)frameReg.getBatch_End_time5().getSelectedItem();
+			}
+			
+			if(!((frameReg.getSelectcourse6().getSelectedItem().equals("Select course"))  || (frameReg.getSelectcourse6().getSelectedItem().equals("No Course Found"))) ){				
+				subjectName[5]=(String)frameReg.getSelectcourse6().getSelectedItem();
+				batchTiming[5]=(String)frameReg.getBatch_start_time6().getSelectedItem()+" - "+(String)frameReg.getBatch_End_time6().getSelectedItem();
+			}
+
+			if(!((frameReg.getSelectcourse7().getSelectedItem().equals("Select course"))  || (frameReg.getSelectcourse7().getSelectedItem().equals("No Course Found"))) ){				
+				subjectName[6]=(String)frameReg.getSelectcourse7().getSelectedItem();
+				batchTiming[6]=(String)frameReg.getBatch_start_time7().getSelectedItem()+" - "+(String)frameReg.getBatch_End_time7().getSelectedItem();
+			}
+
+			if(!((frameReg.getSelectcourse8().getSelectedItem().equals("Select course"))  || (frameReg.getSelectcourse8().getSelectedItem().equals("No Course Found"))) ){				
+				subjectName[7]=(String)frameReg.getSelectcourse8().getSelectedItem();
+				batchTiming[7]=(String)frameReg.getBatch_start_time8().getSelectedItem()+" - "+(String)frameReg.getBatch_End_time8().getSelectedItem();
+			}
+
+			empDetail.setBatchTiming(batchTiming);
+			empDetail.setSubjectName(subjectName);
+			
+			for(String sub:empDetail.getSubjectName()){
+				System.out.println(sub);
+			}
+			for(String course:empDetail.getBatchTiming())
+			{
+				System.out.println(course);
+			}
 			return empDetail;
 		}
-		public Employeedto empJobDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private Employeedto empJobDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
 			
 			if(frameReg.getAreyoucmbox().getSelectedItem().equals("Other")){
 						empDetail.setJobName(frameReg.getJobNametxtfieldother().getText());
@@ -150,11 +196,10 @@ public class GetValueFrmRegistrationform {
 				empDetail.setSalary(Integer.parseInt(frameReg.getSalarytextFieldfaculty().getText()));
 				empDetail.setJobTiming(((String)frameReg.getJobstarttimingcomboBoxfaculty().getSelectedItem())+" - "+((String)frameReg.getJobEndtimingcomboBoxfaculty().getSelectedItem()));													
 				empCourseTeachingDetail(frameReg,empDetail);			
-			}
-			
+			}			
 			return empDetail;			
 		}
-
+		
 		public Employeedto setDetails(RegistrationeEmployee frameReg){
 					Employeedto empDetail=setPersonalInformation(frameReg);
 					empDetail=setContactInformation(frameReg, empDetail);
@@ -165,11 +210,8 @@ public class GetValueFrmRegistrationform {
 					empDetail=setPostGraduateQualificationDetail(frameReg, empDetail);
 					empDetail=setUnderGraduateQualificationDetail(frameReg, empDetail);
 					empDetail=setOtherQualificationDetail(frameReg, empDetail);
-					empDetail=empJobDetail(frameReg,empDetail);
-					
-					return empDetail;
-					
+					empDetail=empJobDetail(frameReg,empDetail);					
+					return empDetail;					
 		}
-	
-	
+		
 }

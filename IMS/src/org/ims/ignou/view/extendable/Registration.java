@@ -29,6 +29,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -52,7 +53,7 @@ public class Registration extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 		
-	private JFileChooser employeeImage;
+	private JFileChooser candidateImage=null;
 	protected JPanel contentPane;
 	private String Student_image="upload_image.png";
 	protected JTextField Student_First_Name;
@@ -157,9 +158,322 @@ public class Registration extends JFrame {
 	private JLabel label_29;
 	private JLabel label_30;
 	private JLabel label_31;
-	
-	
+	private Reg_Validation validation;
+	protected Registration frame;
 
+public void setCandidateImage(JFileChooser candidateImage) {
+		this.candidateImage = candidateImage;
+	}
+	
+	public void setStudent_image(String student_image) {
+		Student_image = student_image;
+	}
+	public void setStudent_First_Name(JTextField student_First_Name) {
+		Student_First_Name = student_First_Name;
+	}
+	public void setStudent_Middle_Name(JTextField student_Middle_Name) {
+		Student_Middle_Name = student_Middle_Name;
+	}
+	public void setStudent_Last_Name(JTextField student_Last_Name) {
+		Student_Last_Name = student_Last_Name;
+	}
+	public void setFather_First_Name(JTextField father_First_Name) {
+		Father_First_Name = father_First_Name;
+	}
+	public void setFather_Middle_Name(JTextField father_Middle_Name) {
+		Father_Middle_Name = father_Middle_Name;
+	}
+	public void setFather_Last_Name(JTextField father_Last_Name) {
+		Father_Last_Name = father_Last_Name;
+	}
+	public void setGender(JComboBox<String> gender) {
+		Gender = gender;
+	}
+	public void setLblLastName_1(JLabel lblLastName_1) {
+		this.lblLastName_1 = lblLastName_1;
+	}
+	public void setLabel_1(JLabel label_1) {
+		this.label_1 = label_1;
+	}
+	public void setLblDateOfBirth(JLabel lblDateOfBirth) {
+		this.lblDateOfBirth = lblDateOfBirth;
+	}
+	public void setBackgroundimage(JLabel backgroundimage) {
+		Backgroundimage = backgroundimage;
+	}
+	public void setDaydob(JComboBox<String> daydob) {
+		Daydob = daydob;
+	}
+	public void setMonthsdob(JComboBox<String> monthsdob) {
+		Monthsdob = monthsdob;
+	}
+	public void setYeardob(JComboBox<String> yeardob) {
+		Yeardob = yeardob;
+	}
+	public void setContact_number(JTextField contact_number) {
+		this.contact_number = contact_number;
+	}
+	public void setMaritial_status(JComboBox<String> maritial_status) {
+		Maritial_status = maritial_status;
+	}
+	public void setEmail_id(JTextField email_id) {
+		this.email_id = email_id;
+	}
+	public void setCity(JTextField city) {
+		City = city;
+	}
+	public void setState(JTextField state) {
+		this.state = state;
+	}
+	public void setComboBoxQualification12th(JComboBox comboBoxQualification12th) {
+		this.comboBoxQualification12th = comboBoxQualification12th;
+	}
+	public void setComboBoxQualificationdiploma(JComboBox comboBoxQualificationdiploma) {
+		this.comboBoxQualificationdiploma = comboBoxQualificationdiploma;
+	}
+	public void setComboBoxQualificationcertification(JComboBox comboBoxQualificationcertification) {
+		this.comboBoxQualificationcertification = comboBoxQualificationcertification;
+	}
+	public void setLblState(JLabel lblState) {
+		this.lblState = lblState;
+	}
+	public void setZipCode(JTextField zipCode) {
+		ZipCode = zipCode;
+	}
+	public void setCountry(JComboBox country) {
+		this.country = country;
+	}
+	public void setAddress(JTextArea address) {
+		Address = address;
+	}
+	public void setComboBoxQualification10th(JComboBox comboBoxQualification10th) {
+		this.comboBoxQualification10th = comboBoxQualification10th;
+	}
+	public void setScrollPane(JScrollPane scrollPane) {
+		this.scrollPane = scrollPane;
+	}
+	public void setContact_information(JPanel contact_information) {
+		Contact_information = contact_information;
+	}
+	public void setQualification_Information(JPanel qualification_Information) {
+		Qualification_Information = qualification_Information;
+	}
+	public void setComboBoxQualificationUnder_graduate(JComboBox<String> comboBoxQualificationUnder_graduate) {
+		this.comboBoxQualificationUnder_graduate = comboBoxQualificationUnder_graduate;
+	}
+	public void setComboBoxQualificationPost_graducation(JComboBox<String> comboBoxQualificationPost_graducation) {
+		this.comboBoxQualificationPost_graducation = comboBoxQualificationPost_graducation;
+	}
+	public void setComboBoxQualificationOther(JComboBox<String> comboBoxQualificationOther) {
+		this.comboBoxQualificationOther = comboBoxQualificationOther;
+	}
+	public void setYear10th(JTextField year10th) {
+		Year10th = year10th;
+	}
+	public void setYear12th(JTextField year12th) {
+		Year12th = year12th;
+	}
+	public void setYeardiploma(JTextField yeardiploma) {
+		Yeardiploma = yeardiploma;
+	}
+	public void setYearcertification(JTextField yearcertification) {
+		Yearcertification = yearcertification;
+	}
+	public void setYearUnder_graduate(JTextField yearUnder_graduate) {
+		YearUnder_graduate = yearUnder_graduate;
+	}
+	public void setYear_post_graduation(JTextField year_post_graduation) {
+		Year_post_graduation = year_post_graduation;
+	}
+	public void setYear_other(JTextField year_other) {
+		Year_other = year_other;
+	}
+	public void setInstituation_name_10th(JTextField instituation_name_10th) {
+		Instituation_name_10th = instituation_name_10th;
+	}
+	public void setInstituation_name_12th(JTextField instituation_name_12th) {
+		Instituation_name_12th = instituation_name_12th;
+	}
+	public void setInstituation_name_Diploma(JTextField instituation_name_Diploma) {
+		Instituation_name_Diploma = instituation_name_Diploma;
+	}
+	public void setInstituation_name_Certification(JTextField instituation_name_Certification) {
+		Instituation_name_Certification = instituation_name_Certification;
+	}
+	public void setInstituation_name_Under_graduate(JTextField instituation_name_Under_graduate) {
+		Instituation_name_Under_graduate = instituation_name_Under_graduate;
+	}
+	public void setInstituation_name_Post_graduate(JTextField instituation_name_Post_graduate) {
+		Instituation_name_Post_graduate = instituation_name_Post_graduate;
+	}
+	public void setInstituation_name_other(JTextField instituation_name_other) {
+		Instituation_name_other = instituation_name_other;
+	}
+	public void setPercentage10th(JTextField percentage10th) {
+		Percentage10th = percentage10th;
+	}
+	public void setPercentage12th(JTextField percentage12th) {
+		Percentage12th = percentage12th;
+	}
+	public void setPercentageDiploma(JTextField percentageDiploma) {
+		PercentageDiploma = percentageDiploma;
+	}
+	public void setPercentagecertification(JTextField percentagecertification) {
+		Percentagecertification = percentagecertification;
+	}
+	public void setPercentageUndergraduate(JTextField percentageUndergraduate) {
+		PercentageUndergraduate = percentageUndergraduate;
+	}
+	public void setPercentagepost_graduation(JTextField percentagepost_graduation) {
+		Percentagepost_graduation = percentagepost_graduation;
+	}
+	public void setPercentageother(JTextField percentageother) {
+		Percentageother = percentageother;
+	}
+	public void setGrade10th(JComboBox<String> grade10th) {
+		Grade10th = grade10th;
+	}
+	public void setGrade12th(JComboBox<String> grade12th) {
+		Grade12th = grade12th;
+	}
+	public void setGradediploma(JComboBox<String> gradediploma) {
+		Gradediploma = gradediploma;
+	}
+	public void setGradeCertificate(JComboBox<String> gradeCertificate) {
+		GradeCertificate = gradeCertificate;
+	}
+	public void setGradeUnder_graduate(JComboBox<String> gradeUnder_graduate) {
+		GradeUnder_graduate = gradeUnder_graduate;
+	}
+	public void setGradePost_graduate(JComboBox<String> gradePost_graduate) {
+		GradePost_graduate = gradePost_graduate;
+	}
+	public void setGradeother(JComboBox<String> gradeother) {
+		Gradeother = gradeother;
+	}
+	public void setDiploma_course_name(JTextField diploma_course_name) {
+		Diploma_course_name = diploma_course_name;
+	}
+	public void setCertificatation_course_name(JTextField certificatation_course_name) {
+		Certificatation_course_name = certificatation_course_name;
+	}
+	public void setUnderGraduation_course_name(JTextField underGraduation_course_name) {
+		this.underGraduation_course_name = underGraduation_course_name;
+	}
+	public void setPostGraduation_course_name(JTextField postGraduation_course_name) {
+		PostGraduation_course_name = postGraduation_course_name;
+	}
+	public void setOther_course_name(JTextField other_course_name) {
+		Other_course_name = other_course_name;
+	}
+	public void setStream12th(JComboBox<String> stream12th) {
+		this.stream12th = stream12th;
+	}
+	public void setBtnSumbit(JButton btnSumbit) {
+		this.btnSumbit = btnSumbit;
+	}
+	public void setReset(JButton reset) {
+		Reset = reset;
+	}
+	public void setImage(JLabel image) {
+		this.image = image;
+	}
+	public void setCategory(JComboBox<String> category) {
+		Category = category;
+	}
+	public void setLblNewLabel(JLabel lblNewLabel) {
+		this.lblNewLabel = lblNewLabel;
+	}
+	public void setLabel(JLabel label) {
+		this.label = label;
+	}
+	public void setLabel_2(JLabel label_2) {
+		this.label_2 = label_2;
+	}
+	public void setLabel_3(JLabel label_3) {
+		this.label_3 = label_3;
+	}
+	public void setLabel_4(JLabel label_4) {
+		this.label_4 = label_4;
+	}
+	public void setLabel_5(JLabel label_5) {
+		this.label_5 = label_5;
+	}
+	public void setLabel_6(JLabel label_6) {
+		this.label_6 = label_6;
+	}
+	public void setLabel_7(JLabel label_7) {
+		this.label_7 = label_7;
+	}
+	public void setLabel_8(JLabel label_8) {
+		this.label_8 = label_8;
+	}
+	public void setLabel_9(JLabel label_9) {
+		this.label_9 = label_9;
+	}
+	public void setLabel_10(JLabel label_10) {
+		this.label_10 = label_10;
+	}
+	public void setLabel_11(JLabel label_11) {
+		this.label_11 = label_11;
+	}
+	public void setLabel_12(JLabel label_12) {
+		this.label_12 = label_12;
+	}
+	public void setLabel_13(JLabel label_13) {
+		this.label_13 = label_13;
+	}
+	public void setLabel_14(JLabel label_14) {
+		this.label_14 = label_14;
+	}
+	public void setLabel_15(JLabel label_15) {
+		this.label_15 = label_15;
+	}
+	public void setLabel_16(JLabel label_16) {
+		this.label_16 = label_16;
+	}
+	public void setLabel_17(JLabel label_17) {
+		this.label_17 = label_17;
+	}
+	public void setLabel_18(JLabel label_18) {
+		this.label_18 = label_18;
+	}
+	public void setLabel_19(JLabel label_19) {
+		this.label_19 = label_19;
+	}
+	public void setLabel_20(JLabel label_20) {
+		this.label_20 = label_20;
+	}
+	public void setLabel_21(JLabel label_21) {
+		this.label_21 = label_21;
+	}
+	public void setLabel_22(JLabel label_22) {
+		this.label_22 = label_22;
+	}
+	public void setLabel_23(JLabel label_23) {
+		this.label_23 = label_23;
+	}
+	public void setLabel_24(JLabel label_24) {
+		this.label_24 = label_24;
+	}
+	public void setLabel_26(JLabel label_26) {
+		this.label_26 = label_26;
+	}
+	public void setLabel_27(JLabel label_27) {
+		this.label_27 = label_27;
+	}
+	public void setLabel_28(JLabel label_28) {
+		this.label_28 = label_28;
+	}
+	public void setLabel_29(JLabel label_29) {
+		this.label_29 = label_29;
+	}
+	public void setLabel_30(JLabel label_30) {
+		this.label_30 = label_30;
+	}
+	public void setLabel_31(JLabel label_31) {
+		this.label_31 = label_31;
+	}
 public JPanel getContentPane() {
 		return contentPane;
 	}
@@ -360,301 +674,19 @@ public JPanel getContentPane() {
 	}
 	
 	
-public JFileChooser getEmployeeImage() {
-		return employeeImage;
+public JFileChooser getCandidateImage() {
+		return candidateImage;
 	}
-public void imagevalidation()
-{
-	employeeImage = new JFileChooser();
-	employeeImage.setDialogTitle("Select Image");
-	employeeImage.showOpenDialog(null);	
-	if(employeeImage.getSelectedFile()!=null)
-	{					
-		Student_image=employeeImage.getSelectedFile().toString();				
-		ImageIcon icon=new ImageIcon(Student_image);
-		if((icon.getIconHeight()<=image.getWidth()) && (icon.getIconWidth()<=image.getWidth()))
-		{	
-			
-				image.setIcon(new ImageIcon(Student_image));
-				image.setText("");
-		
-		}
-		else
-		{
-			JOptionPane.showMessageDialog(null, "Image Too large. Your image Size : Height "+icon.getIconHeight()+" Width "+icon.getIconWidth()+"  But Required  Maximum Width : "+" 100 "+" Hight : "+"100");
-		}
-	}
-	else
-	{
-		image.setIcon(new ImageIcon(Registration.class.getResource("upload_image.png")));					
-		JOptionPane.showMessageDialog(this, "Image not Selected");
-	}
-	
-}
-public Boolean personalInformationvalidation()
 
-{
 
-	
-		if(Student_First_Name.getText().equals(""))
-		{
-			JOptionPane.showMessageDialog(this, "Student First Name Can not be blank");
-			return false;
-		}
-		
-		if(Father_First_Name.getText().equals(""))
-		{
-			JOptionPane.showMessageDialog(this, "Father's First Name Can not be blank");
-			return false;
-		}		
-		
-		if(Daydob.getSelectedItem().equals("Day"))		
-		{
-		
-			JOptionPane.showMessageDialog(this, "Birth Day Can not be blank");
-			return false;
-		}
-		if(Monthsdob.getSelectedItem().equals("Month"))
-		{
-			JOptionPane.showMessageDialog(this, "Birth Month Can not be blank");
-			return false;
-		}
-		if(Yeardob.getSelectedItem().equals("Year"))
-		{
-			JOptionPane.showMessageDialog(this, "Birth Year Can not be blank");
-			return false;
-		}
-		if(Gender.getSelectedItem().equals("Select Gender"))
-		{
-			JOptionPane.showMessageDialog(this, "Gender Can not be blank");
-			return false;
-		}
-		if(Category.getSelectedItem().equals("Category"))
-		{
-			JOptionPane.showMessageDialog(this, "Category Can not be blank");
-			return false;
-		}
-		
-		
-		if(Maritial_status.getSelectedItem().equals("Maritial Status"))
-		{
-			JOptionPane.showMessageDialog(this, "Maritial status Can not be blank");
-			return false;
-		}
-		return true;
-}
-public Boolean ContactInformationvalidation()
-{
-	if(Address.getText().equals("Address"))
-	{
-		JOptionPane.showMessageDialog(this, "Address can not be blank");
-		return false;
-	}
-	if(City.getText().equals(""))
-	{
-		JOptionPane.showMessageDialog(this, "City can not be blank");
-		return false;
-	}
-	if(state.getText().equals(""))
-	{
-		JOptionPane.showMessageDialog(this, "State can not be blank");
-		return false;
-	}
-	if(country.getSelectedItem().equals("Country"))
-	{
-		JOptionPane.showMessageDialog(this, "Country can not be blank");
-		return false;
-	}
-	if(ZipCode.getText().equals(""))
-	{
-		JOptionPane.showMessageDialog(this, "ZipCode can not be blank");
-		return false;
-	}
-	if(contact_number.getText().equals(""))
-	{
-		JOptionPane.showMessageDialog(this, "Contact number can not be blank");
-		return false;
-	}
-	if(email_id.getText().equals("Email Id"))
-	{
-		JOptionPane.showMessageDialog(this, "Email Id can not be blank");
-		return false;
-	}
-	return true;
-}
-public boolean qualificationinformationvalidation()
-{
-	if(!comboBoxQualification10th.getSelectedItem().equals("Select"))
-	{
-		if(Year10th.getText().equals("Year"))
-		{
-			JOptionPane.showMessageDialog(this, "10th year cannot be balnk");
-			return false;
-		}
-		if(Instituation_name_10th.getText().equals("Instituation Name"))
-		{
-			JOptionPane.showMessageDialog(this, "10th Institute Name cannot be balnk");
-			return false;
-		}
-		if(Percentage10th.getText().equals("%"))
-		{
-			JOptionPane.showMessageDialog(this, "10th Percentage cannot be balnk");
-			return false;
-		}
-	}
-	if(!comboBoxQualification12th.getSelectedItem().equals("Select"))
-	{
-		if(Year12th.getText().equals("Year"))
-		{
-			JOptionPane.showMessageDialog(this, "12th year cannot be balnk");
-			return false;
-		}
-		if(Instituation_name_12th.getText().equals("Instituation Name"))
-		{
-			JOptionPane.showMessageDialog(this, "12th Institute Name cannot be balnk");
-			return false;
-		}
-		if(Percentage12th.getText().equals("%"))
-		{
-			JOptionPane.showMessageDialog(this, "12th Percentage cannot be balnk");
-			return false;
-		}
-		if(stream12th.getSelectedItem().equals("Select Stream"))
-		{
-			JOptionPane.showMessageDialog(this, "12th  Stream  cannot be balnk");
-			return false;
-		}
-	}
-	if(!comboBoxQualificationdiploma.getSelectedItem().equals("Select"))
-	{
-		if(Yeardiploma.getText().equals("Year"))
-		{
-			JOptionPane.showMessageDialog(this, "Diploma year cannot be balnk");
-			return false;
-		}
-		if(Instituation_name_Diploma.getText().equals("Instituation Name"))
-		{
-			JOptionPane.showMessageDialog(this, "Diploma Institute Name cannot be balnk");
-			return false;
-		}
-		if(PercentageDiploma.getText().equals("%"))
-		{
-			JOptionPane.showMessageDialog(this, "Diploma Percentage cannot be balnk");
-			return false;
-		}
-		if(Diploma_course_name.getText().equals("Course Name"))
-		{
-			JOptionPane.showMessageDialog(this, "Diploma  Course Name cannot be balnk");
-			return false;
-		}
-		
-	}
-	
-	if(!comboBoxQualificationcertification.getSelectedItem().equals("Select"))
-	{
-		if(Yearcertification.getText().equals("Year"))
-		{
-			JOptionPane.showMessageDialog(this, "Certification year cannot be balnk");
-			return false;
-		}
-		if(Instituation_name_Certification.getText().equals("Instituation Name"))
-		{
-			JOptionPane.showMessageDialog(this, "Certification Institute Name cannot be balnk");
-			return false;
-		}
-		if(Percentagecertification.getText().equals("%"))
-		{
-			JOptionPane.showMessageDialog(this, "Certification Percentage cannot be balnk");
-			return false;
-		}
-		if(Certificatation_course_name.getText().equals("Course Name"))
-		{
-			JOptionPane.showMessageDialog(this, "Certification  Course Name cannot be balnk");
-			return false;
-		}
-		
-	}
-	
-	if(!comboBoxQualificationUnder_graduate.getSelectedItem().equals("Select"))
-	{
-		if(YearUnder_graduate.getText().equals("Year"))
-		{
-			JOptionPane.showMessageDialog(this, "Under graduate year cannot be balnk");
-			return false;
-		}
-		if(Instituation_name_Under_graduate.getText().equals("Instituation Name"))
-		{
-			JOptionPane.showMessageDialog(this, "Under graduate Institute Name cannot be balnk");
-			return false;
-		}
-		if(PercentageUndergraduate.getText().equals("%"))
-		{
-			JOptionPane.showMessageDialog(this, "Under graduate Percentage cannot be balnk");
-			return false;
-		}
-		if(underGraduation_course_name.getText().equals("Course Name"))
-		{
-			JOptionPane.showMessageDialog(this, "Under graduate  Course Name cannot be balnk");
-			return false;
-		}		
-	}
-	
-	if(!comboBoxQualificationPost_graducation.getSelectedItem().equals("Select"))
-	{
-		if(Year_post_graduation.getText().equals("Year"))
-		{
-			JOptionPane.showMessageDialog(this, "Post graduate year cannot be balnk");
-			return false;
-		}
-		if(Instituation_name_Post_graduate.getText().equals("Instituation Name"))
-		{
-			JOptionPane.showMessageDialog(this, "Post graduate Institute Name cannot be balnk");
-			return false;
-		}
-		if(Percentagepost_graduation.getText().equals("%"))
-		{
-			JOptionPane.showMessageDialog(this, "Post graduate Percentage cannot be balnk");
-			return false;
-		}
-		if(PostGraduation_course_name.getText().equals("Course Name"))
-		{
-			JOptionPane.showMessageDialog(this, "Post graduate  Course Name cannot be balnk");
-			return false;
-		}		
-	}
-	if(!comboBoxQualificationOther.getSelectedItem().equals("Select"))
-	{
-		if(Year_other.getText().equals("Year"))
-		{
-			JOptionPane.showMessageDialog(this, "Other  year cannot be balnk");
-			return false;
-		}
-		if(Instituation_name_other.getText().equals("Instituation Name"))
-		{
-			JOptionPane.showMessageDialog(this, "Other  Institute Name cannot be balnk");
-			return false;
-		}
-		if(Percentageother.getText().equals("%"))
-		{
-			JOptionPane.showMessageDialog(this, "Other  Percentage cannot be balnk");
-			return false;
-		}
-		if(Other_course_name.getText().equals("Course Name"))
-		{
-			JOptionPane.showMessageDialog(this, "Other   Course Name cannot be balnk");
-			return false;
-		}		
-	}
-	return true;
-}
 
-public Boolean validation()
+public Boolean validation(Registration reg)
 {
-	if(personalInformationvalidation())
+	if(validation.personalInformationvalidation(reg))
 	{
-		if(ContactInformationvalidation())
+		if(validation.ContactInformationvalidation(reg))
 		{
-				if(qualificationinformationvalidation())
+				if(validation.qualificationinformationvalidation(reg))
 				{
 					return true;
 				}
@@ -663,11 +695,13 @@ public Boolean validation()
 	return false;
 }
 
+
+
 public Registration()
 {
 	setResizable(false);
-		setForeground(Color.RED);
-		setBackground(Color.RED);
+	setForeground(Color.RED);
+	setBackground(Color.RED);	
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Registration.class.getResource("filling-student-form.jpg")));				
 	    try
 	    {
@@ -685,19 +719,24 @@ public Registration()
 			}	    
 	    	
 		}
-		setBounds(100, 100, 764, 617);
+	    
+	    
+		
+	    setBounds(100, 100, 764, 617);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+
+	
 		JPanel Personal_information = new JPanel();
+		Personal_information.setBounds(0, 0, 758, 131);
 		Personal_information.setBackground(Color.ORANGE);
 		Personal_information.setForeground(Color.WHITE);
 		Personal_information.setBorder(new TitledBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)), "Personal Information", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(64, 64, 64)));
 		Personal_information.setLayout(null);
-		Personal_information.setBounds(0, 0, 758, 131);
 		contentPane.add(Personal_information);
 		
 
@@ -825,15 +864,16 @@ public Registration()
 								 		image.addMouseListener(new MouseAdapter() {
 								 			@Override
 								 			public void mouseClicked(MouseEvent arg0) {
-								 						imagevalidation();
+								 				candidateImage=null;
+								 				validation.selectImage(frame);
 								 			}
 								 		});
 								 				 
 								 				 Contact_information = new JPanel();
+								 				 Contact_information.setBounds(0, 129, 758, 131);
 								 				 Contact_information.setBackground(Color.ORANGE);
 								 				 Contact_information.setLayout(null);
 								 				 Contact_information.setBorder(new TitledBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)), "Contact Information", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(64, 64, 64)));
-								 				 Contact_information.setBounds(0, 129, 758, 131);
 								 				 contentPane.add(Contact_information);
 								 				 
 								 				 
@@ -975,10 +1015,10 @@ public Registration()
 								 				  		Contact_information.add(label_3);
 								 				  		
 								 				  		Qualification_Information = new JPanel();
+								 				  		Qualification_Information.setBounds(0, 258, 758, 187);
 								 				  		Qualification_Information.setLayout(null);
 								 				  		Qualification_Information.setBorder(new TitledBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)), "Qualification Information ", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(64, 64, 64)));
 								 				  		Qualification_Information.setBackground(Color.ORANGE);
-								 				  		Qualification_Information.setBounds(0, 258, 758, 187);
 								 				  		contentPane.add(Qualification_Information);
 								 				  		
 								 				  		comboBoxQualification10th = new JComboBox();
@@ -2204,12 +2244,12 @@ public Registration()
 								 				  		Qualification_Information.add(label_31);
 								 				  		
 								 				  		btnSumbit = new JButton("Sumbit");
+								 				  		btnSumbit.setBounds(279, 542, 89, 23);
 								 				  		btnSumbit.addActionListener(new ActionListener() {
 								 				  			public void actionPerformed(ActionEvent arg0) {
-								 				  				validation();
+								 				  				validation(frame);
 								 				  			}
 								 				  		});
-								 				  		btnSumbit.setBounds(279, 542, 89, 23);
 								 				  		contentPane.add(btnSumbit);
 								 				  		
 								 				  		Reset = new JButton("Reset");
@@ -2222,14 +2262,14 @@ public Registration()
 								 				  				Backgroundimage.setBounds(0, 520, 758, 68);
 								 				  				contentPane.add(Backgroundimage);
 								 				  				Backgroundimage.setIcon(new ImageIcon(Registration.class.getResource("filling-student-form.jpg")));
-				Daydob.addItem("Day");
 			
-////		
-		
-
+								 				  				Daydob.addItem("Day");
+								 				  				validation=new Reg_Validation();
+								 				  		
+								 				  				frame=this;
 	}
-public Boolean validtion() {
-	// TODO Auto-generated method stub
-	return null;
-}
+
+
+
+
 }
