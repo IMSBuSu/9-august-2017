@@ -381,103 +381,8 @@ public void setCandidateImage(JFileChooser candidateImage) {
 	public void setCategory(JComboBox<String> category) {
 		Category = category;
 	}
-	public void setLblNewLabel(JLabel lblNewLabel) {
-		this.lblNewLabel = lblNewLabel;
-	}
-	public void setLabel(JLabel label) {
-		this.label = label;
-	}
-	public void setLabel_2(JLabel label_2) {
-		this.label_2 = label_2;
-	}
-	public void setLabel_3(JLabel label_3) {
-		this.label_3 = label_3;
-	}
-	public void setLabel_4(JLabel label_4) {
-		this.label_4 = label_4;
-	}
-	public void setLabel_5(JLabel label_5) {
-		this.label_5 = label_5;
-	}
-	public void setLabel_6(JLabel label_6) {
-		this.label_6 = label_6;
-	}
-	public void setLabel_7(JLabel label_7) {
-		this.label_7 = label_7;
-	}
-	public void setLabel_8(JLabel label_8) {
-		this.label_8 = label_8;
-	}
-	public void setLabel_9(JLabel label_9) {
-		this.label_9 = label_9;
-	}
-	public void setLabel_10(JLabel label_10) {
-		this.label_10 = label_10;
-	}
-	public void setLabel_11(JLabel label_11) {
-		this.label_11 = label_11;
-	}
-	public void setLabel_12(JLabel label_12) {
-		this.label_12 = label_12;
-	}
-	public void setLabel_13(JLabel label_13) {
-		this.label_13 = label_13;
-	}
-	public void setLabel_14(JLabel label_14) {
-		this.label_14 = label_14;
-	}
-	public void setLabel_15(JLabel label_15) {
-		this.label_15 = label_15;
-	}
-	public void setLabel_16(JLabel label_16) {
-		this.label_16 = label_16;
-	}
-	public void setLabel_17(JLabel label_17) {
-		this.label_17 = label_17;
-	}
-	public void setLabel_18(JLabel label_18) {
-		this.label_18 = label_18;
-	}
-	public void setLabel_19(JLabel label_19) {
-		this.label_19 = label_19;
-	}
-	public void setLabel_20(JLabel label_20) {
-		this.label_20 = label_20;
-	}
-	public void setLabel_21(JLabel label_21) {
-		this.label_21 = label_21;
-	}
-	public void setLabel_22(JLabel label_22) {
-		this.label_22 = label_22;
-	}
-	public void setLabel_23(JLabel label_23) {
-		this.label_23 = label_23;
-	}
-	public void setLabel_24(JLabel label_24) {
-		this.label_24 = label_24;
-	}
-	public void setLabel_26(JLabel label_26) {
-		this.label_26 = label_26;
-	}
-	public void setLabel_27(JLabel label_27) {
-		this.label_27 = label_27;
-	}
-	public void setLabel_28(JLabel label_28) {
-		this.label_28 = label_28;
-	}
-	public void setLabel_29(JLabel label_29) {
-		this.label_29 = label_29;
-	}
-	public void setLabel_30(JLabel label_30) {
-		this.label_30 = label_30;
-	}
-	public void setLabel_31(JLabel label_31) {
-		this.label_31 = label_31;
-	}
-public JPanel getContentPane() {
-		return contentPane;
-	}
-	public String getStudent_image() {
+
+		public String getStudent_image() {
 		return Student_image;
 	}
 	public JTextField getStudent_First_Name() {
@@ -2243,11 +2148,7 @@ public Registration()
 								 				  		
 								 				  		btnSumbit = new JButton("Sumbit");
 								 				  		btnSumbit.setBounds(279, 542, 89, 23);
-								 				  		btnSumbit.addActionListener(new ActionListener() {
-								 				  			public void actionPerformed(ActionEvent arg0) {
-								 				  				validation(frame);
-								 				  			}
-								 				  		});
+								 				  		
 								 				  		contentPane.add(btnSumbit);
 								 				  		
 								 				  		Reset = new JButton("Reset");

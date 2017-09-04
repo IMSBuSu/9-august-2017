@@ -13,7 +13,13 @@ import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
 
+import org.ims.ignou.dao.employee.registration.InsertEmployee;
+import org.ims.ignou.dto.employee.registration.Employeedto;
+import org.ims.ignou.helper.employee.registration.ChkEmailAlreadyUse;
+import org.ims.ignou.helper.employee.registration.ChkEmailValid;
+import org.ims.ignou.helper.employee.registration.EmployeeRegistrationValidation;
 import org.ims.ignou.helper.employee.registration.GetValueFrmRegistrationform;
+import org.ims.ignou.helper.employee.registration.InsertEmployeehelper;
 import org.ims.ignou.view.extendable.Registration;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -62,7 +68,7 @@ public class RegistrationeEmployee extends Registration
 	private	JComboBox<String> selectcourse6;
 	private	JComboBox<String> selectcourse7;
 	private	JComboBox<String> selectcourse8;
-
+	private ChkEmailAlreadyUse email=null;
 	
 	
 
@@ -77,7 +83,7 @@ public class RegistrationeEmployee extends Registration
 	//these both variable working 
 	private ArrayList<String> allcourse;	//constructor intilize that variable.
 	private  DefaultComboBoxModel<String> defaultComboBoxModel; //contains course.from all course.
-	
+	private EmployeeRegistrationValidation employeeRegistrationValidation;
 	
 	public RegistrationeEmployee getFrame() {
 		return frame;
@@ -308,106 +314,49 @@ public class RegistrationeEmployee extends Registration
 		this.defaultComboBoxModel = defaultComboBoxModel;
 	}
 	
-	
-	public Boolean Facultyvalidation()
-	{		
-		if(jobNametxtfieldfaculty.getText().equals(""))
-		{
-			JOptionPane.showMessageDialog(this, "Job Type Can not Blank");
-			return false;
-		}
-		if(jobstarttimingcomboBoxfaculty.getSelectedItem().equals("Start"))
-		{
-			JOptionPane.showMessageDialog(this, "Select Job Start Timing");
-			return false;
-		}
-		if(jobEndtimingcomboBoxfaculty.getSelectedItem().equals("End"))
-		{
-			JOptionPane.showMessageDialog(this, "Select Job End Timing");
-			return false;			
-		}
-	
-		if(SalarytextFieldfaculty.getText().equals(""))
-		{
-			JOptionPane.showMessageDialog(this, "Salary Can not Blank.");
-			return false;
-		}
-		if(selectcourse7.getSelectedItem().equals("Select course")||selectcourse7.getSelectedItem().equals("No course found"))
-		{
-			if(selectcourse7.getItemAt(1).equals("No course found"))
-			{
-				return true;
-			}
-			else
-			{				
-				JOptionPane.showMessageDialog(this, "Select Minimum One Course * ");	
-				return false;
-			}
-		}
-
-		if(Batch_start_time7.getSelectedItem().equals("Start"))
-		{
-			JOptionPane.showMessageDialog(this, "Select Batch Start timing");			
-			return false;
-		}
-		if(Batch_End_time7.getSelectedItem().equals("End"))
-		{
-			JOptionPane.showMessageDialog(this, "Select Batch End timing");			
-			return false;
-		}		
-		return true;
-	}
-	public Boolean OtherEmpvalidation()
-	{
-		if(jobNametxtfieldother.getText().equals(""))
-		{
-			JOptionPane.showMessageDialog(this, "Job Type Can not Blank");
-			return false;
-		}
-		if(jobstarttimingcomboxBother.getSelectedItem().equals("Start"))
-		{
-			JOptionPane.showMessageDialog(this, "Select Job Start Timing");
-			return false;
-		}
-		if(jobEndtimingcomboxother.getSelectedItem().equals("End"))
-		{
-			JOptionPane.showMessageDialog(this, "Select Job End Timing");
-			return false;			
-		}
-		if(SalarytextFieldother.getText().equals(""))
-		{
-			JOptionPane.showMessageDialog(this, "Salary Can not Blank.");
-			return false;
-		}
-		
-		return true;
-	}
-
-	public Boolean validation()
+	public Boolean validation(EmployeeRegistrationValidation registrationValidation)
 	{
 		if(super.validation(super.frame))
 		{	
 			if(Areyoucmbox.getSelectedItem().equals("Faculty"))
 			{
-				if(Facultyvalidation())
-				{
-					this.setVisible(false);
-					GetValueFrmRegistrationform frmRegistrationform=new GetValueFrmRegistrationform();
-					frmRegistrationform.setDetails(frame);
-					JOptionPane.showMessageDialog(this, "Congratulation Your Registartion no :"+System.currentTimeMillis()*4);					
-					return true;
-				}				
+							if(registrationValidation.Facultyvalidation(frame))
+							{
+									if(new ChkEmailValid().checkMail(frame.getEmail_id().getText())){
+												if(!(email.searchEmail(email_id.getText().toUpperCase()))){
+										        
+													new InsertEmployeehelper().insertEmployee(frame);
+												}	
+												else{
+														JOptionPane.showMessageDialog(this, "Email id already Exist");										
+												}
+									}
+									else{
+										JOptionPane.showMessageDialog(frame, "Use a Valid Email Address !");
+										return false;
+									}
+							}				
 			}
 			else if(Areyoucmbox.getSelectedItem().equals("Other"))
 			{
-				if(OtherEmpvalidation())
-				{
-					this.setVisible(false);
-					GetValueFrmRegistrationform frmRegistrationform=new GetValueFrmRegistrationform();
-					frmRegistrationform.setDetails(frame);		
-					JOptionPane.showMessageDialog(this, "Congratulation Your REgistartion no :"+System.currentTimeMillis()*4);
-					return true;
-				}				
+							if(registrationValidation.OtherEmpvalidation(frame)){
+								     if(new ChkEmailValid().checkMail(frame.getEmail_id().getText())){
+											
+								    	 				if((!email.searchEmail(email_id.getText().toUpperCase()))){
+												
+								    	 								new InsertEmployeehelper().insertEmployee(frame);
+								    	 				}		
+								    	 				else{
+								    	 						JOptionPane.showMessageDialog(this, "Email id already Exist");
+								    	 				}
+									}
+									else{
+												JOptionPane.showMessageDialog(frame, "Use a Valid Email Address !");
+												return false;
+									}
+								
+								
+							}				
 			}
 			else 
 			{
@@ -415,7 +364,11 @@ public class RegistrationeEmployee extends Registration
 			}		
 		}
 		return false;		
-}	
+	}	
+	
+	
+	
+	
 private DefaultComboBoxModel<String> setcoursecomboboxmodel(ArrayList<String> allcourse)
 {		
 		defaultComboBoxModel=new DefaultComboBoxModel<>();	
@@ -462,6 +415,18 @@ private DefaultComboBoxModel<String> setcoursecomboboxmodel(ArrayList<String> al
 	
 	public RegistrationeEmployee(ArrayList<String> allcourse)
 	{
+		email=new ChkEmailAlreadyUse();
+		employeeRegistrationValidation=new EmployeeRegistrationValidation();
+		btnSumbit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+						
+								validation(new EmployeeRegistrationValidation());
+							
+							
+				
+			}
+		});
 		this.allcourse=allcourse;		
 		frame=this;
 		getContentPane().setBackground(Color.DARK_GRAY);

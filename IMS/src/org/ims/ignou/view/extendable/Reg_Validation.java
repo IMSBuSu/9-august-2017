@@ -130,6 +130,15 @@ public class Reg_Validation {
 			JOptionPane.showMessageDialog(reg, "ZipCode can not be blank");
 			return false;
 		}
+		try{
+			Integer.parseInt(reg.getZipCode().getText());
+		}
+		catch(NumberFormatException e){
+			
+			JOptionPane.showMessageDialog(reg, "Only Number Allowed in Zipcode !");
+			return false;
+		}
+		
 		if(reg.getContact_number().getText().equals(""))
 		{
 			JOptionPane.showMessageDialog(reg, "Contact number can not be blank");

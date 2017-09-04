@@ -2,7 +2,7 @@ package org.ims.ignou.dao.Extendable;
 
 import java.util.ResourceBundle;
 
-public class Loadbundle
+public class LoadbundleDatabase
 {
 	private static ResourceBundle databasebundle;
 	static{

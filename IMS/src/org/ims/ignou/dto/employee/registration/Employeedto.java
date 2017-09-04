@@ -56,7 +56,7 @@ public class Employeedto
 			private String subjectName[]=new String[8];
 			private String batchTiming[]=new String[8];
 			private String State;
-			private String zipcode;
+			private int zipcode;
 			private String city;
 			
 			
@@ -673,13 +673,13 @@ public class Employeedto
 
 
 
-			public String getZipcode() {
+			public int getZipcode() {
 				return zipcode;
 			}
 
 
 
-			public void setZipcode(String zipcode) {
+			public void setZipcode(int zipcode) {
 				this.zipcode = zipcode;
 			}
 

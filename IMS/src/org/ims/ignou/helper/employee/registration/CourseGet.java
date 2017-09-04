@@ -12,7 +12,7 @@ public class CourseGet {
 		CourseGetFromDB course=new CourseGetFromDB();
 				if(course.getcourse()){
 					
-					return course.getCourseList();									
+							return course.getCourseList();									
 				}
 		
 		return null;

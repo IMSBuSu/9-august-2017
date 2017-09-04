@@ -19,8 +19,8 @@ public abstract class CreateConnection
 	{
 		loadDriver();
 		url="jdbc:oracle:thin:@localhost:1521:ims";
-		uname=Loadbundle.getValue("userid");
-		upassword=Loadbundle.getValue("password");
+		uname=LoadbundleDatabase.getValue("userid");
+		upassword=LoadbundleDatabase.getValue("password");
 		return DriverManager.getConnection(url,uname,upassword);		
 		
 	}

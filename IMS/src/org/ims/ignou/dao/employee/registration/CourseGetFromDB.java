@@ -25,7 +25,6 @@ public class CourseGetFromDB extends CreateConnection
 		Statement statement=connection.createStatement();		
 		if(statement!=null){
 					ResultSet courseSet=statement.executeQuery(stmt);
-				
 							getCourseList(courseSet);
 							
 			statement.close();
@@ -39,12 +38,11 @@ public class CourseGetFromDB extends CreateConnection
 	private void getCourseList(ResultSet courseset) throws SQLException{
 		String course;
 		courseList=new ArrayList<String>();
-		System.out.println(courseList);
 		while(courseset.next())
 		{			
-			  course=courseset.getString("COURSE_NAME");
+			 course=courseset.getString("COURSE_NAME");
 			 courseList.add(course);			
-		}	
+		}
 		courseset.close();
 	}
 	
@@ -54,8 +52,9 @@ public class CourseGetFromDB extends CreateConnection
 					if(connection!=null){			
 						   
 							if(courseResultset(connection)){
-								
-								return true;
+								if(courseList.size()!=0){
+										return true;
+								}
 							}
 							connection.close();
 					}

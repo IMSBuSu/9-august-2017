@@ -13,25 +13,25 @@ public class GetValueFrmRegistrationform {
 		
 		private Employeedto setPersonalInformation(RegistrationeEmployee frameReg){
 			Employeedto employeeDetail=new Employeedto();
-			employeeDetail.setEmployeeName(frameReg.getStudent_First_Name().getText()+" "+frameReg.getStudent_Middle_Name().getText()+" "+frameReg.getStudent_Last_Name().getText());
-			employeeDetail.setFathersName(frameReg.getFather_First_Name().getText()+" "+frameReg.getFather_Middle_Name().getText()+" "+frameReg.getFather_Last_Name().getText());
-			employeeDetail.setDob(((String)frameReg.getDaydob().getSelectedItem())+"/"+((String)frameReg.getMonthsdob().getSelectedItem())+"/"+((String)frameReg.getYeardob().getSelectedItem()));
-			employeeDetail.setGenDer((String)frameReg.getGender().getSelectedItem());
-			employeeDetail.setCateGory((String)frameReg.getCategory().getSelectedItem());
-			employeeDetail.setMaritialStatus((String)frameReg.getMaritial_status().getSelectedItem());
-			employeeDetail.setImagesPath(frameReg.getCandidateImage().getSelectedFile().getPath());
+			employeeDetail.setEmployeeName((frameReg.getStudent_First_Name().getText()+" "+frameReg.getStudent_Middle_Name().getText()+" "+frameReg.getStudent_Last_Name().getText()).toUpperCase());
+			employeeDetail.setFathersName((frameReg.getFather_First_Name().getText()+" "+frameReg.getFather_Middle_Name().getText()+" "+frameReg.getFather_Last_Name().getText()).toUpperCase());
+			employeeDetail.setDob((((String)frameReg.getDaydob().getSelectedItem())+"/"+((String)frameReg.getMonthsdob().getSelectedItem())+"/"+((String)frameReg.getYeardob().getSelectedItem())).toUpperCase());
+			employeeDetail.setGenDer(((String)frameReg.getGender().getSelectedItem()).toUpperCase());
+			employeeDetail.setCateGory(((String)frameReg.getCategory().getSelectedItem()).toUpperCase());
+			employeeDetail.setMaritialStatus(((String)frameReg.getMaritial_status().getSelectedItem()).toUpperCase());
+			employeeDetail.setImagesPath((frameReg.getCandidateImage().getSelectedFile().getPath()).toUpperCase());
 			return employeeDetail;
 		}
 	
 		private Employeedto setContactInformation(RegistrationeEmployee frameReg,Employeedto empDetail){
 			
-			empDetail.setContactNumber(frameReg.getContact_number().getText());
-			empDetail.setEmailId(frameReg.getEmail_id().getText());
-			empDetail.setState(frameReg.getStatee().getText());
-			empDetail.setCounTry((String)frameReg.getCountry().getSelectedItem());
-			empDetail.setZipcode(frameReg.getZipCode().getText());
-			empDetail.setCity(frameReg.getCity().getText());
-			empDetail.setAddRess(frameReg.getAddress().getText());
+			empDetail.setContactNumber(frameReg.getContact_number().getText().toUpperCase());
+			empDetail.setEmailId(frameReg.getEmail_id().getText().toUpperCase());
+			empDetail.setState(frameReg.getStatee().getText().toUpperCase());
+			empDetail.setCounTry(((String)frameReg.getCountry().getSelectedItem()).toUpperCase());
+			empDetail.setZipcode((Integer.parseInt(frameReg.getZipCode().getText())));
+			empDetail.setCity(frameReg.getCity().getText().toUpperCase());
+			empDetail.setAddRess(frameReg.getAddress().getText().toUpperCase());
 						
 			return empDetail;
 		}
@@ -40,7 +40,7 @@ public class GetValueFrmRegistrationform {
 			
 			if(frameReg.getComboBoxQualification10th().getSelectedItem().equals("10th")){
 					empDetail.setYear10th(Integer.parseInt(frameReg.getYear10th().getText()));
-					empDetail.setInstituteName10th(frameReg.getInstituation_name_10th().getText());
+					empDetail.setInstituteName10th(frameReg.getInstituation_name_10th().getText().toUpperCase());
 					empDetail.setPercentage10th(frameReg.getPercentage10th().getText());
 					empDetail.setGrade10th((String) frameReg.getGrade10th().getSelectedItem());	
 			}
@@ -51,7 +51,7 @@ public class GetValueFrmRegistrationform {
 					
 					if(frameReg.getComboBoxQualification12th().getSelectedItem().equals("12th")){
 					empDetail.setYear12th(Integer.parseInt(frameReg.getYear12th().getText()));
-					empDetail.setInstituteName12th(frameReg.getInstituation_name_12th().getText());
+					empDetail.setInstituteName12th(frameReg.getInstituation_name_12th().getText().toUpperCase());
 					empDetail.setPercentage12th(frameReg.getPercentage12th().getText());
 					empDetail.setGrade12th((String)frameReg.getGrade12th().getSelectedItem());
 					empDetail.setStream12th((String)frameReg.getStream12th().getSelectedItem());
@@ -67,7 +67,7 @@ public class GetValueFrmRegistrationform {
 			empDetail.setInstituteNameCertification(frameReg.getInstituation_name_Certification().getText());
 			empDetail.setPercentageCertification(frameReg.getPercentagecertification().getText());
 			empDetail.setGradeCertification((String)frameReg.getGradeCertificate().getSelectedItem());
-			empDetail.setCoursenameCertification(frameReg.getCertificatation_course_name().getText());
+			empDetail.setCoursenameCertification(frameReg.getCertificatation_course_name().getText().toUpperCase());
 			}			
 			return empDetail;
 			
@@ -78,10 +78,10 @@ public class GetValueFrmRegistrationform {
 			if(frameReg.getComboBoxQualificationdiploma().getSelectedItem().equals("Diploma")){
 		
 			empDetail.setYearDiploma(Integer.parseInt(frameReg.getYeardiploma().getText()));			
-			empDetail.setInstituteNameDiploma(frameReg.getInstituation_name_Diploma().getText());
+			empDetail.setInstituteNameDiploma(frameReg.getInstituation_name_Diploma().getText().toUpperCase());
 			empDetail.setPercentageDiploma(frameReg.getPercentageDiploma().getText());
 			empDetail.setGradeDiploma((String)frameReg.getGradediploma().getSelectedItem());
-			empDetail.setCoursenameDiploma(frameReg.getDiploma_course_name().getText());						
+			empDetail.setCoursenameDiploma(frameReg.getDiploma_course_name().getText().toUpperCase());						
 			}
 				
 			return empDetail;
@@ -92,10 +92,10 @@ public class GetValueFrmRegistrationform {
 			
 			if(frameReg.getComboBoxQualificationPost_graducation().getSelectedItem().equals("Post Graducation")){
 			empDetail.setYearPostGraduate(Integer.parseInt(frameReg.getYear_post_graduation().getText()));			
-			empDetail.setInstituteNamePostgraduate(frameReg.getInstituation_name_Post_graduate().getText());
+			empDetail.setInstituteNamePostgraduate(frameReg.getInstituation_name_Post_graduate().getText().toUpperCase());
 			empDetail.setPercentagePostgraduate(frameReg.getPercentagepost_graduation().getText());
 			empDetail.setGradePostgraduate((String)frameReg.getGradePost_graduate().getSelectedItem());
-			empDetail.setCoursenamePostgraduate(frameReg.getPostGraduation_course_name().getText());		
+			empDetail.setCoursenamePostgraduate(frameReg.getPostGraduation_course_name().getText().toUpperCase());		
 			}			
 			return empDetail;
 		}
@@ -104,10 +104,10 @@ public class GetValueFrmRegistrationform {
 
 			if(frameReg.getComboBoxQualificationUnder_graduate().getSelectedItem().equals("Under Graduation")){
 			empDetail.setYearunderGraduate(Integer.parseInt(frameReg.getYearUnder_graduate().getText()));			
-			empDetail.setInstituteNameUnderGraduate(frameReg.getInstituation_name_Under_graduate().getText());
+			empDetail.setInstituteNameUnderGraduate(frameReg.getInstituation_name_Under_graduate().getText().toUpperCase());
 			empDetail.setPercentageUnderGraduate(frameReg.getPercentageUndergraduate().getText());
 			empDetail.setGradeUnderGraduate((String)frameReg.getGradeUnder_graduate().getSelectedItem());
-			empDetail.setCoursenameUnderGraduate(frameReg.getUnderGraduation_course_name().getText());		
+			empDetail.setCoursenameUnderGraduate(frameReg.getUnderGraduation_course_name().getText().toUpperCase());		
 			}
 			return empDetail;
 		}	
@@ -117,10 +117,10 @@ public class GetValueFrmRegistrationform {
 			
 			if(frameReg.getComboBoxQualificationOther().getSelectedItem().equals("Other")){
 					empDetail.setYearunderGraduate(Integer.parseInt(frameReg.getYearUnder_graduate().getText()));			
-					empDetail.setInstituteNameUnderGraduate(frameReg.getInstituation_name_Under_graduate().getText());
+					empDetail.setInstituteNameUnderGraduate(frameReg.getInstituation_name_Under_graduate().getText().toUpperCase());
 					empDetail.setPercentageUnderGraduate(frameReg.getPercentageUndergraduate().getText());
 					empDetail.setGradeUnderGraduate((String)frameReg.getGradeUnder_graduate().getSelectedItem());
-					empDetail.setCoursenameUnderGraduate(frameReg.getUnderGraduation_course_name().getText());		
+					empDetail.setCoursenameUnderGraduate(frameReg.getUnderGraduation_course_name().getText().toUpperCase());		
 			}
 			return empDetail;
 		}	
@@ -175,25 +175,20 @@ public class GetValueFrmRegistrationform {
 			empDetail.setBatchTiming(batchTiming);
 			empDetail.setSubjectName(subjectName);
 			
-			for(String sub:empDetail.getSubjectName()){
-				System.out.println(sub);
-			}
-			for(String course:empDetail.getBatchTiming())
-			{
-				System.out.println(course);
-			}
+			
 			return empDetail;
+
 		}
 		private Employeedto empJobDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
 			
 			if(frameReg.getAreyoucmbox().getSelectedItem().equals("Other")){
-						empDetail.setJobName(frameReg.getJobNametxtfieldother().getText());
+						empDetail.setJobName(frameReg.getJobNametxtfieldother().getText().toUpperCase());
 						empDetail.setSalary(Integer.parseInt(frameReg.getSalarytextFieldother().getText()));
-						empDetail.setJobTiming(((String)frameReg.getJobstarttimingcomboxBother().getSelectedItem())+" - "+((String)frameReg.getJobEndtimingcomboBoxfaculty().getSelectedItem()));						
+						empDetail.setJobTiming(((String)frameReg.getJobstarttimingcomboxBother().getSelectedItem())+" - "+((String)frameReg.getJobEndtimingcomboxother().getSelectedItem()));						
 			}
 			if(frameReg.getAreyoucmbox().getSelectedItem().equals("Faculty")){
-				empDetail.setJobName(frameReg.getJobNametxtfieldfaculty().getText());
-				empDetail.setSalary(Integer.parseInt(frameReg.getSalarytextFieldfaculty().getText()));
+				empDetail.setJobName(frameReg.getJobNametxtfieldfaculty().getText().toUpperCase());
+				empDetail.setSalary(Integer.parseInt(frameReg.getSalarytextFieldfaculty().getText().trim()));
 				empDetail.setJobTiming(((String)frameReg.getJobstarttimingcomboBoxfaculty().getSelectedItem())+" - "+((String)frameReg.getJobEndtimingcomboBoxfaculty().getSelectedItem()));													
 				empCourseTeachingDetail(frameReg,empDetail);			
 			}			
