@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -13,16 +14,19 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
+import org.ims.ignou.helper.employee.registration.CourseGet;
 import org.ims.ignou.view.course.add.CourseAddView;
 import org.ims.ignou.view.course.delete.CourseDeleteView;
 import org.ims.ignou.view.course.find.CourseFindView;
 import org.ims.ignou.view.course.update.CourseUpdateView;
+import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
 
 public class Welcome extends JFrame {
 
@@ -74,6 +78,48 @@ public class Welcome extends JFrame {
 		menuBar.add(mnStaffMember);
 		
 		JMenuItem mntmNewFacultyRegistration = new JMenuItem("New Staff  registration");
+		mntmNewFacultyRegistration.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				CourseGet arrayList=new CourseGet();
+				ArrayList<String> course=arrayList.getCourseFromDb();
+				RegistrationeEmployee employee;
+				if(course!=null)
+				{
+
+							employee=new RegistrationeEmployee(course);
+							employee.setVisible(true);
+				}
+				else{
+					
+					   try
+					    {
+							UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"); //set look and feel depend os.
+						} 
+					    catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+								| UnsupportedLookAndFeelException e1) {
+							// TODO Auto-generated catch block
+					    	try {
+								UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+							} 
+					    	catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+									| UnsupportedLookAndFeelException e2) {
+
+							}	    
+					    	
+						}			   
+						if(JOptionPane.showConfirmDialog(null, "No Course Found In System. Do you want to Add New Course ?")==0);
+						{
+							CourseAddView addNewcourse=new CourseAddView();
+							addNewcourse.setVisible(true);
+						}
+				}
+
+				
+				
+			
+			}
+		});
 		mnStaffMember.add(mntmNewFacultyRegistration);
 		
 		JMenuItem menuItem_1 = new JMenuItem("Update Record");

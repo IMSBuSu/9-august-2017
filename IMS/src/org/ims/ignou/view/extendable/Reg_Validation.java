@@ -161,6 +161,15 @@ public class Reg_Validation {
 				JOptionPane.showMessageDialog(reg, "10th year cannot be balnk");
 				return false;
 			}
+			try{
+
+					Integer.parseInt((String)reg.getYear10th().getText());
+			}
+			catch (NumberFormatException e) {
+
+					JOptionPane.showMessageDialog(reg, "Only Number Allowed in qualification year");
+					return false;
+			}
 			if(reg.getInstituation_name_10th().getText().equals("Instituation Name"))
 			{
 				JOptionPane.showMessageDialog(reg, "10th Institute Name cannot be balnk");
@@ -179,6 +188,15 @@ public class Reg_Validation {
 				JOptionPane.showMessageDialog(reg, "12th year cannot be balnk");
 				return false;
 			}
+			try{
+
+				Integer.parseInt((String)reg.getYear12th().getText());
+		}
+		catch (NumberFormatException e) {
+
+				JOptionPane.showMessageDialog(reg, "Only Number Allowed in qualification year");
+				return false;
+		}
 			if(reg.getInstituation_name_12th().getText().equals("Instituation Name"))
 			{
 				JOptionPane.showMessageDialog(reg, "12th Institute Name cannot be balnk");
@@ -200,6 +218,15 @@ public class Reg_Validation {
 			if(reg.getYeardiploma().getText().equals("Year"))
 			{
 				JOptionPane.showMessageDialog(reg, "Diploma year cannot be balnk");
+				return false;
+			}
+			try{
+
+				Integer.parseInt((String)reg.getYeardiploma().getText());
+			}
+			catch (NumberFormatException e) {
+
+				JOptionPane.showMessageDialog(reg, "Only Number Allowed in qualification year");
 				return false;
 			}
 			if(reg.getInstituation_name_Diploma().getText().equals("Instituation Name"))
@@ -227,6 +254,15 @@ public class Reg_Validation {
 				JOptionPane.showMessageDialog(reg, "Certification year cannot be balnk");
 				return false;
 			}
+			try{
+
+				Integer.parseInt((String)reg.getYearcertification().getText());
+		}
+		catch (NumberFormatException e) {
+
+				JOptionPane.showMessageDialog(reg, "Only Number Allowed in qualification year");
+				return false;
+		}
 			if(reg.getInstituation_name_Certification().getText().equals("Instituation Name"))
 			{
 				JOptionPane.showMessageDialog(reg, "Certification Institute Name cannot be balnk");
@@ -252,6 +288,15 @@ public class Reg_Validation {
 				JOptionPane.showMessageDialog(reg, "Under graduate year cannot be balnk");
 				return false;
 			}
+			try{
+
+				Integer.parseInt((String)reg.getYearUnder_graduate().getText());
+		}
+		catch (NumberFormatException e) {
+
+				JOptionPane.showMessageDialog(reg, "Only Number Allowed in qualification year");
+				return false;
+		}
 			if(reg.getInstituation_name_Under_graduate().getText().equals("Instituation Name"))
 			{
 				JOptionPane.showMessageDialog(reg, "Under graduate Institute Name cannot be balnk");
@@ -274,6 +319,15 @@ public class Reg_Validation {
 			if(reg.getYear_post_graduation().getText().equals("Year"))
 			{
 				JOptionPane.showMessageDialog(reg, "Post graduate year cannot be balnk");
+				return false;
+			}
+			try{
+
+				Integer.parseInt((String)reg.getYear_post_graduation().getText());
+			}
+			catch (NumberFormatException e) {
+
+				JOptionPane.showMessageDialog(reg, "Only Number Allowed in qualification year");
 				return false;
 			}
 			if(reg.getInstituation_name_Post_graduate().getText().equals("Instituation Name"))
@@ -299,6 +353,15 @@ public class Reg_Validation {
 				JOptionPane.showMessageDialog(reg, "Other  year cannot be balnk");
 				return false;
 			}
+			try{
+
+				Integer.parseInt((String)reg.getYear_other().getText());
+		}
+		catch (NumberFormatException e) {
+
+				JOptionPane.showMessageDialog(reg, "Only Number Allowed in qualification year");
+				return false;
+		}
 			if(reg.getInstituation_name_other().getText().equals("Instituation Name"))
 			{
 				JOptionPane.showMessageDialog(reg, "Other  Institute Name cannot be balnk");

@@ -22,17 +22,15 @@ public class GetValueFrmRegistrationform {
 			employeeDetail.setImagesPath((frameReg.getCandidateImage().getSelectedFile().getPath()).toUpperCase());
 			return employeeDetail;
 		}
-	
-		private Employeedto setContactInformation(RegistrationeEmployee frameReg,Employeedto empDetail){
-			
+		
+		private Employeedto setContactInformation(RegistrationeEmployee frameReg,Employeedto empDetail){			
 			empDetail.setContactNumber(frameReg.getContact_number().getText().toUpperCase());
 			empDetail.setEmailId(frameReg.getEmail_id().getText().toUpperCase());
 			empDetail.setState(frameReg.getStatee().getText().toUpperCase());
 			empDetail.setCounTry(((String)frameReg.getCountry().getSelectedItem()).toUpperCase());
 			empDetail.setZipcode((Integer.parseInt(frameReg.getZipCode().getText())));
 			empDetail.setCity(frameReg.getCity().getText().toUpperCase());
-			empDetail.setAddRess(frameReg.getAddress().getText().toUpperCase());
-						
+			empDetail.setAddRess(frameReg.getAddress().getText().toUpperCase());						
 			return empDetail;
 		}
 		private Employeedto set10thQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail)
@@ -42,7 +40,9 @@ public class GetValueFrmRegistrationform {
 					empDetail.setYear10th(Integer.parseInt(frameReg.getYear10th().getText()));
 					empDetail.setInstituteName10th(frameReg.getInstituation_name_10th().getText().toUpperCase());
 					empDetail.setPercentage10th(frameReg.getPercentage10th().getText());
-					empDetail.setGrade10th((String) frameReg.getGrade10th().getSelectedItem());	
+						if(!frameReg.getGrade10th().getSelectedItem().equals("Select Grade")){
+									empDetail.setGrade10th((String) frameReg.getGrade10th().getSelectedItem());	
+						}
 			}
 			return empDetail;
 		}
@@ -53,7 +53,9 @@ public class GetValueFrmRegistrationform {
 					empDetail.setYear12th(Integer.parseInt(frameReg.getYear12th().getText()));
 					empDetail.setInstituteName12th(frameReg.getInstituation_name_12th().getText().toUpperCase());
 					empDetail.setPercentage12th(frameReg.getPercentage12th().getText());
-					empDetail.setGrade12th((String)frameReg.getGrade12th().getSelectedItem());
+						if(!frameReg.getGrade12th().getSelectedItem().equals("Select Grade")){
+							empDetail.setGrade12th((String)frameReg.getGrade12th().getSelectedItem());
+						}	
 					empDetail.setStream12th((String)frameReg.getStream12th().getSelectedItem());
 					}
 					return empDetail;
@@ -66,12 +68,18 @@ public class GetValueFrmRegistrationform {
 			empDetail.setYearCertification(Integer.parseInt(frameReg.getYearcertification().getText()));
 			empDetail.setInstituteNameCertification(frameReg.getInstituation_name_Certification().getText());
 			empDetail.setPercentageCertification(frameReg.getPercentagecertification().getText());
-			empDetail.setGradeCertification((String)frameReg.getGradeCertificate().getSelectedItem());
+							if(!frameReg.getGradeCertificate().getSelectedItem().equals("Select Grade")){
+								
+										empDetail.setGradeCertification((String)frameReg.getGradeCertificate().getSelectedItem());
+								}
 			empDetail.setCoursenameCertification(frameReg.getCertificatation_course_name().getText().toUpperCase());
+							
 			}			
-			return empDetail;
-			
+							
+				
+			return empDetail;			
 		}
+			
 		
 		private Employeedto setDiplomaQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
 			
@@ -80,7 +88,13 @@ public class GetValueFrmRegistrationform {
 			empDetail.setYearDiploma(Integer.parseInt(frameReg.getYeardiploma().getText()));			
 			empDetail.setInstituteNameDiploma(frameReg.getInstituation_name_Diploma().getText().toUpperCase());
 			empDetail.setPercentageDiploma(frameReg.getPercentageDiploma().getText());
-			empDetail.setGradeDiploma((String)frameReg.getGradediploma().getSelectedItem());
+			
+			if(!frameReg.getGradediploma().getSelectedItem().equals("Select Grade")){
+				
+
+							empDetail.setGradeDiploma((String)frameReg.getGradediploma().getSelectedItem());
+			
+			}				
 			empDetail.setCoursenameDiploma(frameReg.getDiploma_course_name().getText().toUpperCase());						
 			}
 				
@@ -94,7 +108,11 @@ public class GetValueFrmRegistrationform {
 			empDetail.setYearPostGraduate(Integer.parseInt(frameReg.getYear_post_graduation().getText()));			
 			empDetail.setInstituteNamePostgraduate(frameReg.getInstituation_name_Post_graduate().getText().toUpperCase());
 			empDetail.setPercentagePostgraduate(frameReg.getPercentagepost_graduation().getText());
-			empDetail.setGradePostgraduate((String)frameReg.getGradePost_graduate().getSelectedItem());
+			if(!frameReg.getGradePost_graduate().getSelectedItem().equals("Select Grade")){
+				
+							empDetail.setGradePostgraduate((String)frameReg.getGradePost_graduate().getSelectedItem());
+			
+			}				
 			empDetail.setCoursenamePostgraduate(frameReg.getPostGraduation_course_name().getText().toUpperCase());		
 			}			
 			return empDetail;
@@ -106,7 +124,11 @@ public class GetValueFrmRegistrationform {
 			empDetail.setYearunderGraduate(Integer.parseInt(frameReg.getYearUnder_graduate().getText()));			
 			empDetail.setInstituteNameUnderGraduate(frameReg.getInstituation_name_Under_graduate().getText().toUpperCase());
 			empDetail.setPercentageUnderGraduate(frameReg.getPercentageUndergraduate().getText());
+			if(!frameReg.getGradeUnder_graduate().getSelectedItem().equals("Select Grade")){
+				
+
 			empDetail.setGradeUnderGraduate((String)frameReg.getGradeUnder_graduate().getSelectedItem());
+			}
 			empDetail.setCoursenameUnderGraduate(frameReg.getUnderGraduation_course_name().getText().toUpperCase());		
 			}
 			return empDetail;
@@ -116,11 +138,15 @@ public class GetValueFrmRegistrationform {
 			
 			
 			if(frameReg.getComboBoxQualificationOther().getSelectedItem().equals("Other")){
-					empDetail.setYearunderGraduate(Integer.parseInt(frameReg.getYearUnder_graduate().getText()));			
-					empDetail.setInstituteNameUnderGraduate(frameReg.getInstituation_name_Under_graduate().getText().toUpperCase());
-					empDetail.setPercentageUnderGraduate(frameReg.getPercentageUndergraduate().getText());
-					empDetail.setGradeUnderGraduate((String)frameReg.getGradeUnder_graduate().getSelectedItem());
-					empDetail.setCoursenameUnderGraduate(frameReg.getUnderGraduation_course_name().getText().toUpperCase());		
+					empDetail.setYearOther(Integer.parseInt(frameReg.getYear_other().getText()));			
+					empDetail.setInstituteNameOther(frameReg.getInstituation_name_other().getText().toUpperCase());
+					empDetail.setPercentageOther(frameReg.getPercentageother().getText());
+					if(!frameReg.getGradeother().getSelectedItem().equals("Select Grade")){
+						
+
+					empDetail.setGradeOther((String)frameReg.getGradeother().getSelectedItem());
+					}
+					empDetail.setCoursenameOther(frameReg.getOther_course_name().getText().toUpperCase());		
 			}
 			return empDetail;
 		}	

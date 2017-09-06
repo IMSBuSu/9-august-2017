@@ -164,6 +164,10 @@ public class Registration extends JFrame {
 public void setCandidateImage(JFileChooser candidateImage) {
 		this.candidateImage = candidateImage;
 	}
+public Registration getFrame() {
+	return frame;
+}
+
 	
 	public void setStudent_image(String student_image) {
 		Student_image = student_image;

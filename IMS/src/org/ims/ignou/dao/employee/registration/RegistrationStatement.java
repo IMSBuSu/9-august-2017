@@ -11,27 +11,40 @@ public class RegistrationStatement
 			private static	String qualificationPostGraduation=qualification();
 			private static	String qualificationUnderGraduation=qualification();
 			private static	String qualificationOther=qualification();			
-	
+			private static  String batch_Detail=batchDetail();
 			private static String emailId="select EMAIL_ID from employee";
-	
+			private static String employeeID="select ID from employee where EMAIL_ID=?";
 			
+			
+			public static String getEmployeeID() {
+				return employeeID;
+			}
+
 			public   String getGetEmailId() {
 				return emailId;
 			}
 			
+			public static String getBatch_Detail() {
+				return batch_Detail;
+			}
+
+			private static String batchDetail(){
+				return "insert into BATCH_DETAILS(ID,COURSE_NAME,BATCH_TIMEING) values(?,?,?)";
+			}
+			
 		private static String qualification10th(){
-			return "insert into QUALIFICATION_DETAILS_EMPLOYEE(COMPLETE_YEAR,PERCENTAGE,INSTITUTION_NAME,COURSE_NAME,ID) "
-					+ "values(?,?,?,'10th',?)";
+			return "insert into QUALIFICATION_DETAILS_EMPLOYEE(COURSE,COMPLETE_YEAR,INSTITUTION_NAME,PERCENTAGE,ID,GRADE) "
+					+ "values('10th',?,?,?,?,?)";
 		}
 
 		private static String qualification12th(){
-			return "insert into QUALIFICATION_DETAILS_EMPLOYEE(COMPLETE_YEAR,PERCENTAGE,INSTITUTION_NAME,STREAM,COURSE_NAME,ID) "
-					+ "values(?,?,?,?,'12th',?)";
+			return "insert into QUALIFICATION_DETAILS_EMPLOYEE(COURSE,COMPLETE_YEAR,PERCENTAGE,INSTITUTION_NAME,STREAM,GRADE,ID) "
+					+ "values('12th',?,?,?,?,?,?)";
 		}
 		
 		private static String qualification(){			
-			return "insert into QUALIFICATION_DETAILS_EMPLOYEE(COMPLETE_YEAR,PERCENTAGE,INSTITUTION_NAME,GRADE,COURSE_NAME,ID) "
-					+ "values(?,?,?,?,?,?)";
+			return "insert into QUALIFICATION_DETAILS_EMPLOYEE(COURSE,COMPLETE_YEAR,PERCENTAGE,INSTITUTION_NAME,GRADE,COURSE_NAME,ID) "
+					+ "values(?,?,?,?,?,?,?)";
 		}
 
 		public static String getEmployee() {

@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import org.ims.ignou.dao.employee.registration.InsertEmployee;
 import org.ims.ignou.dto.employee.registration.Employeedto;
 import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
+import org.ims.ignou.view.extendable.Registration;
 
 public class InsertEmployeehelper {
 	
@@ -14,9 +15,9 @@ public class InsertEmployeehelper {
 				GetValueFrmRegistrationform frmRegistrationform=new GetValueFrmRegistrationform();
 				Employeedto employeeDetail=frmRegistrationform.setDetails(frame);
 				InsertEmployee employee=new InsertEmployee(); //Database insertion
-				if(employee.insertEmployeeDetail(employeeDetail)){									
+				if(employee.insertEmployeeDetail(employeeDetail,frame)){									
 									frame.setVisible(false);
-									JOptionPane.showMessageDialog(frame, "Course Successfully Added !");
+									JOptionPane.showMessageDialog(frame, "Course Successfully Added. Employee Id :- "+employee.getEmloyeeId());									
 									return true;
 									
 				}else{
