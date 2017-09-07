@@ -1,6 +1,6 @@
 package org.ims.ignou.helper.employee.delete;
 
-import org.ims.ignou.view.employee.delete.EmployeeSearchView;
+import org.ims.ignou.view.employee.find.EmployeeSearchView;
 
 public class EmpDeleteValidation {
 

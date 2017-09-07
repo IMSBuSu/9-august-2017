@@ -1,24 +1,22 @@
-package org.ims.ignou.view.employee.delete;
+package org.ims.ignou.view.employee.find;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
 import org.ims.ignou.dao.employee.delete.DeleteEmpFromDB;
 import org.ims.ignou.helper.employee.delete.EmpDeleteValidation;
-
-import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import org.ims.ignou.helper.employee.find.SearchEmployee;
 
 public class EmployeeSearchView extends JFrame {
 
@@ -51,10 +49,15 @@ public class EmployeeSearchView extends JFrame {
 					EmpDeleteValidation deleteValidation=new EmpDeleteValidation();
 					if(deleteValidation.canNotblank(this)){
 									int id=Integer.parseInt(txtEmployeeIFld.getText());
-									DeleteEmpFromDB deleteEmployee=new DeleteEmpFromDB();
-									Boolean success=deleteEmployee.delete(id);
-									if(success){
-											JOptionPane.showMessageDialog(this, "Employee Deleted Successfully !");
+									SearchEmployee employee=new SearchEmployee();
+									Boolean found=employee.chkIdDb(id);
+									if(!found){
+												JOptionPane.showMessageDialog(this, "Employee Not Found");
+									}
+									else{
+									
+													employee.showEmpDetail();
+													this.setVisible(false);
 									}
 									
 					}

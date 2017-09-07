@@ -26,7 +26,7 @@ import org.ims.ignou.view.course.add.CourseAddView;
 import org.ims.ignou.view.course.delete.CourseDeleteView;
 import org.ims.ignou.view.course.find.CourseFindView;
 import org.ims.ignou.view.course.update.CourseUpdateView;
-import org.ims.ignou.view.employee.delete.EmployeeSearchView;
+import org.ims.ignou.view.employee.find.EmployeeSearchView;
 import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
 
 public class Welcome extends JFrame {
@@ -133,6 +133,7 @@ public class Welcome extends JFrame {
 		menuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 						new EmployeeSearchView().setVisible(true);
+			
 			}
 		});
 		mnStaffMember.add(menuItem_2);

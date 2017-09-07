@@ -17,8 +17,6 @@ public class DeleteEmpFromDB extends CreateConnection{
 									 		ps=feelsqlStmtemployeeDelete.setQalfictondtlsemployee(ps, empId);
 									 		if(ps.executeUpdate()==1)	
 									 		{
-									 			
-									 			
 									 			return true;
 									 		}
 								 }
@@ -38,7 +36,6 @@ public class DeleteEmpFromDB extends CreateConnection{
 						}			
 					return false;
 			}
-			
 			private Boolean deleteEmployee(int empId,Connection connection,FeelsqlStmtemployeeDelete feelsqlStmtemployeeDelete){
 				
 				PreparedStatement ps=null;
@@ -107,14 +104,13 @@ public class DeleteEmpFromDB extends CreateConnection{
 						if(connection!=null){
 							if(deleteEmployeeQualification(id,connection,feelsqlStmtemployeeDelete))
 							{
-										System.out.println("qualification delete");
 								if(deleteBatchdetail(id,connection,feelsqlStmtemployeeDelete))
 								{
-										System.out.println("batch details");
 									if(deleteEmployee(id,connection,feelsqlStmtemployeeDelete))
 									{
 										
-										System.out.println("employee delete");
+										
+										
 										return true;
 								
 									}
