@@ -30,6 +30,8 @@ import org.ims.ignou.view.course.update.CourseUpdateView;
 import org.ims.ignou.view.employee.delete.DeleteEmployeeSearchView;
 import org.ims.ignou.view.employee.find.EmployeeSearchView;
 import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
+import org.ims.ignou.view.student.delete.DeleteStudentSearchView;
+import org.ims.ignou.view.student.find.StudentSearchView;
 import org.ims.ignou.view.student.registration.StudentRegistration;
 
 public class Welcome extends JFrame {
@@ -52,7 +54,7 @@ public class Welcome extends JFrame {
 		setBackground(Color.WHITE);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 958, 568);
+		setBounds(100, 100, 789, 568);
 		setFocusable(true);
 		setLocationRelativeTo(null);	//screen open on center.
 		
@@ -79,9 +81,20 @@ public class Welcome extends JFrame {
 		mnNew.add(menuItem_18);
 		
 		JMenuItem menuItem_15 = new JMenuItem("View Record");
+		menuItem_15.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				StudentSearchView searchView=new StudentSearchView();
+				searchView.setVisible(true);
+			}
+		});
 		mnNew.add(menuItem_15);
 		
 		JMenuItem menuItem_16 = new JMenuItem("Delete Record");
+		menuItem_16.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new	DeleteStudentSearchView().setVisible(true);
+			}
+		});
 		mnNew.add(menuItem_16);
 		
 		JMenuItem menuItem_17 = new JMenuItem("Update Record");
@@ -170,11 +183,8 @@ public class Welcome extends JFrame {
 		JMenuItem mntmUpdate = new JMenuItem("Sumbit now");
 		mnFees.add(mntmUpdate);
 		
-		JMenu mnPendingStatus = new JMenu("Check Status");
-		mnFees.add(mnPendingStatus);
-		
-		JMenuItem menuItem_7 = new JMenuItem("By Student Id");
-		mnPendingStatus.add(menuItem_7);
+		JMenuItem mntmCheckStatusItem = new JMenuItem("Check Status");
+		mnFees.add(mntmCheckStatusItem);
 		
 		JMenu mnSalary = new JMenu("Salary");
 		mnOrganization.add(mnSalary);
@@ -289,28 +299,6 @@ public class Welcome extends JFrame {
 		JMenuItem mntmExpenditureVsProfit = new JMenuItem("Expenditure VS Profit ");
 		mnAverage.add(mntmExpenditureVsProfit);
 		
-		JMenu mnAttendence = new JMenu("Entry(Attendence)");
-		mnAttendence.setIcon(new ImageIcon(Welcome.class.getResource("Entry.jpg")));
-		menuBar.add(mnAttendence);
-		
-		JMenu mnNewMenu = new JMenu("Add");
-		mnAttendence.add(mnNewMenu);
-		
-		JMenuItem menuItem_6 = new JMenuItem("Student");
-		mnNewMenu.add(menuItem_6);
-		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Staff Member");
-		mnNewMenu.add(mntmNewMenuItem);
-		
-		JMenu mnNewMenu_1 = new JMenu("View");
-		mnAttendence.add(mnNewMenu_1);
-		
-		JMenuItem menuItem_8 = new JMenuItem("Student");
-		mnNewMenu_1.add(menuItem_8);
-		
-		JMenuItem menuItem_9 = new JMenuItem("Staff Member");
-		mnNewMenu_1.add(menuItem_9);
-		
 		JMenu mnAdminProfile = new JMenu("Admin Profile");
 		mnAdminProfile.setIcon(new ImageIcon(Welcome.class.getResource("login_icon.png")));
 		menuBar.add(mnAdminProfile);
@@ -372,7 +360,7 @@ public class Welcome extends JFrame {
 		
 		label = new JLabel("");				
 		label.setIcon(new ImageIcon(Welcome.class.getResource("edu2.gif")));
-		label.setBounds(0, 0, 952, 477);
+		label.setBounds(-112, 0, 952, 477);
 		contentPane.add(label);
 	
 		

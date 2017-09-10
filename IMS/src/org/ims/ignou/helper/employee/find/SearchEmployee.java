@@ -21,7 +21,6 @@ public class SearchEmployee {
 				public EmployeeFinddto getEmployeeFinddto() {
 					return employeeFinddto;
 				}
-				
 
 				public Boolean chkIdDb(int id)
 				{
@@ -33,8 +32,6 @@ public class SearchEmployee {
 											employeeFinddto=search.getEmployeeFinddto();
 											return true;
 								}
-					
-							
 					return false;
 				}
 

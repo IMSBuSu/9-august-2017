@@ -12,8 +12,6 @@ import org.ims.ignou.dao.Extendable.LoadBundelImageLocation;
 
 public class DeleteEmpFromDB extends CreateConnection{
 
-			
-	
 			private Boolean deleteEmployeeQualification(int empId,Connection connection,FeelsqlStmtemployeeDelete feelsqlStmtemployeeDelete){
 				PreparedStatement ps=null;
 							try {
