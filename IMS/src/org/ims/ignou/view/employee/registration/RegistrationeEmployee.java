@@ -14,7 +14,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
 
 import org.ims.ignou.dao.employee.registration.InsertEmployee;
-import org.ims.ignou.dto.employee.registration.Employeedto;
+import org.ims.ignou.dto.employee.registration.EmployeeRegsdto;
 import org.ims.ignou.helper.employee.registration.ChkEmailAlreadyUse;
 import org.ims.ignou.helper.employee.registration.ChkEmailValid;
 import org.ims.ignou.helper.employee.registration.EmployeeRegistrationValidation;
@@ -398,7 +398,6 @@ private DefaultComboBoxModel<String> setcoursecomboboxmodel(ArrayList<String> al
 		Jobinformationother.show();		
 		setBounds(100, 100, 764, 592);
 		btnSumbit.setBounds(258, 527, 89, 23);
-  		Reset.setBounds(389, 527, 89, 23);
   		setLocationRelativeTo(null);
   		Backgroundimage.setBounds(0, 514, 758, 102);		
 	}	
@@ -409,7 +408,6 @@ private DefaultComboBoxModel<String> setcoursecomboboxmodel(ArrayList<String> al
 			setBounds(100, 100, 764, 720); //frame size changed.
 			setLocationRelativeTo(null);
 			btnSumbit.setBounds(271, 660, 89, 23);
-	  		Reset.setBounds(389, 660, 89, 23);
 	  		Backgroundimage.setBounds(0, 648, 758, 67);
 	}
 	
@@ -443,7 +441,6 @@ private DefaultComboBoxModel<String> setcoursecomboboxmodel(ArrayList<String> al
 		getContentPane().add(Jobinformationfaculty);
 						
 		btnSumbit.setBounds(258, 527, 89, 23);
-  		Reset.setBounds(389, 527, 89, 23);
   		Backgroundimage.setBounds(0, 514, 758, 102);
   		
   		Areyoucmbox = new JComboBox<String>();

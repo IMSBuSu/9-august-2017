@@ -3,6 +3,9 @@ package org.ims.ignou.helper.employee.find;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
+
+import org.ims.ignou.dao.Extendable.LoadBundelImageLocation;
 import org.ims.ignou.dao.employee.find.SearchInDb;
 import org.ims.ignou.dto.employee.find.EmployeeFinddto;
 import org.ims.ignou.view.employee.find.ShowEmpDetailView;
@@ -18,13 +21,7 @@ public class SearchEmployee {
 				public EmployeeFinddto getEmployeeFinddto() {
 					return employeeFinddto;
 				}
-
-				public void showEmpDetail(){
-					
-									ShowEmpDetailView detailView=new ShowEmpDetailView();
-									detailView.setVisible(true);
-					
-				}
+				
 
 				public Boolean chkIdDb(int id)
 				{
@@ -40,4 +37,8 @@ public class SearchEmployee {
 							
 					return false;
 				}
+
+
+				
+
 }

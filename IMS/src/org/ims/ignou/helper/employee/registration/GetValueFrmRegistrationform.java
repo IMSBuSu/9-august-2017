@@ -1,6 +1,6 @@
 package org.ims.ignou.helper.employee.registration;
 
-import org.ims.ignou.dto.employee.registration.Employeedto;
+import org.ims.ignou.dto.employee.registration.EmployeeRegsdto;
 import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
 
 import oracle.net.aso.e;
@@ -11,8 +11,8 @@ public class GetValueFrmRegistrationform {
 	
 
 		
-		private Employeedto setPersonalInformation(RegistrationeEmployee frameReg){
-			Employeedto employeeDetail=new Employeedto();
+		private EmployeeRegsdto setPersonalInformation(RegistrationeEmployee frameReg){
+			EmployeeRegsdto employeeDetail=new EmployeeRegsdto();
 			employeeDetail.setEmployeeName((frameReg.getStudent_First_Name().getText()+" "+frameReg.getStudent_Middle_Name().getText()+" "+frameReg.getStudent_Last_Name().getText()).toUpperCase());
 			employeeDetail.setFathersName((frameReg.getFather_First_Name().getText()+" "+frameReg.getFather_Middle_Name().getText()+" "+frameReg.getFather_Last_Name().getText()).toUpperCase());
 			employeeDetail.setDob((((String)frameReg.getDaydob().getSelectedItem())+"/"+((String)frameReg.getMonthsdob().getSelectedItem())+"/"+((String)frameReg.getYeardob().getSelectedItem())).toUpperCase());
@@ -23,7 +23,7 @@ public class GetValueFrmRegistrationform {
 			return employeeDetail;
 		}
 		
-		private Employeedto setContactInformation(RegistrationeEmployee frameReg,Employeedto empDetail){			
+		private EmployeeRegsdto setContactInformation(RegistrationeEmployee frameReg,EmployeeRegsdto empDetail){			
 			empDetail.setContactNumber(frameReg.getContact_number().getText().toUpperCase());
 			empDetail.setEmailId(frameReg.getEmail_id().getText().toUpperCase());
 			empDetail.setState(frameReg.getStatee().getText().toUpperCase());
@@ -33,7 +33,7 @@ public class GetValueFrmRegistrationform {
 			empDetail.setAddRess(frameReg.getAddress().getText().toUpperCase());						
 			return empDetail;
 		}
-		private Employeedto set10thQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail)
+		private EmployeeRegsdto set10thQualificationDetail(RegistrationeEmployee frameReg,EmployeeRegsdto empDetail)
 		{			
 			
 			if(frameReg.getComboBoxQualification10th().getSelectedItem().equals("10th")){
@@ -46,7 +46,7 @@ public class GetValueFrmRegistrationform {
 			}
 			return empDetail;
 		}
-		private Employeedto set12thQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail)
+		private EmployeeRegsdto set12thQualificationDetail(RegistrationeEmployee frameReg,EmployeeRegsdto empDetail)
 		{
 					
 					if(frameReg.getComboBoxQualification12th().getSelectedItem().equals("12th")){
@@ -62,7 +62,7 @@ public class GetValueFrmRegistrationform {
 		}
 		
 
-		private Employeedto setCertificationQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private EmployeeRegsdto setCertificationQualificationDetail(RegistrationeEmployee frameReg,EmployeeRegsdto empDetail){
 			
 			if(frameReg.getComboBoxQualificationcertification().getSelectedItem().equals("Certification")){
 			empDetail.setYearCertification(Integer.parseInt(frameReg.getYearcertification().getText()));
@@ -81,7 +81,7 @@ public class GetValueFrmRegistrationform {
 		}
 			
 		
-		private Employeedto setDiplomaQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private EmployeeRegsdto setDiplomaQualificationDetail(RegistrationeEmployee frameReg,EmployeeRegsdto empDetail){
 			
 			if(frameReg.getComboBoxQualificationdiploma().getSelectedItem().equals("Diploma")){
 		
@@ -102,7 +102,7 @@ public class GetValueFrmRegistrationform {
 		}
 		
 
-		private Employeedto setPostGraduateQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private EmployeeRegsdto setPostGraduateQualificationDetail(RegistrationeEmployee frameReg,EmployeeRegsdto empDetail){
 			
 			if(frameReg.getComboBoxQualificationPost_graducation().getSelectedItem().equals("Post Graducation")){
 			empDetail.setYearPostGraduate(Integer.parseInt(frameReg.getYear_post_graduation().getText()));			
@@ -117,7 +117,7 @@ public class GetValueFrmRegistrationform {
 			}			
 			return empDetail;
 		}
-		private Employeedto setUnderGraduateQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private EmployeeRegsdto setUnderGraduateQualificationDetail(RegistrationeEmployee frameReg,EmployeeRegsdto empDetail){
 			
 
 			if(frameReg.getComboBoxQualificationUnder_graduate().getSelectedItem().equals("Under Graduation")){
@@ -134,7 +134,7 @@ public class GetValueFrmRegistrationform {
 			return empDetail;
 		}	
 		
-		private Employeedto setOtherQualificationDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private EmployeeRegsdto setOtherQualificationDetail(RegistrationeEmployee frameReg,EmployeeRegsdto empDetail){
 			
 			
 			if(frameReg.getComboBoxQualificationOther().getSelectedItem().equals("Other")){
@@ -151,7 +151,7 @@ public class GetValueFrmRegistrationform {
 			return empDetail;
 		}	
 		
-		private Employeedto empCourseTeachingDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private EmployeeRegsdto empCourseTeachingDetail(RegistrationeEmployee frameReg,EmployeeRegsdto empDetail){
 			
 			 String subjectName[]=new String[8];
 			 String batchTiming[]=new String[8];
@@ -205,7 +205,7 @@ public class GetValueFrmRegistrationform {
 			return empDetail;
 
 		}
-		private Employeedto empJobDetail(RegistrationeEmployee frameReg,Employeedto empDetail){
+		private EmployeeRegsdto empJobDetail(RegistrationeEmployee frameReg,EmployeeRegsdto empDetail){
 			
 			if(frameReg.getAreyoucmbox().getSelectedItem().equals("Other")){
 						empDetail.setJobName(frameReg.getJobNametxtfieldother().getText().toUpperCase());
@@ -221,8 +221,8 @@ public class GetValueFrmRegistrationform {
 			return empDetail;			
 		}
 		
-		public Employeedto setDetails(RegistrationeEmployee frameReg){
-					Employeedto empDetail=setPersonalInformation(frameReg);
+		public EmployeeRegsdto setDetails(RegistrationeEmployee frameReg){
+					EmployeeRegsdto empDetail=setPersonalInformation(frameReg);
 					empDetail=setContactInformation(frameReg, empDetail);
 					empDetail=set10thQualificationDetail(frameReg, empDetail);
 					empDetail=set12thQualificationDetail(frameReg, empDetail);	

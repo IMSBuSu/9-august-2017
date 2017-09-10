@@ -22,12 +22,15 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
 import org.ims.ignou.helper.employee.registration.CourseGet;
+import org.ims.ignou.helper.student.registration.BatchDetails;
 import org.ims.ignou.view.course.add.CourseAddView;
 import org.ims.ignou.view.course.delete.CourseDeleteView;
 import org.ims.ignou.view.course.find.CourseFindView;
 import org.ims.ignou.view.course.update.CourseUpdateView;
+import org.ims.ignou.view.employee.delete.DeleteEmployeeSearchView;
 import org.ims.ignou.view.employee.find.EmployeeSearchView;
 import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
+import org.ims.ignou.view.student.registration.StudentRegistration;
 
 public class Welcome extends JFrame {
 
@@ -63,6 +66,16 @@ public class Welcome extends JFrame {
 		menuBar.add(mnNew);
 		
 		JMenuItem menuItem_18 = new JMenuItem("New Student registration");
+		menuItem_18.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				BatchDetails courseGetFromDB=new BatchDetails();
+				if(courseGetFromDB.getCourseAndBatch()){
+					StudentRegistration student=new StudentRegistration(courseGetFromDB.getCourselist(),courseGetFromDB.getBatchList());
+					student.setVisible(true);		
+				}
+			}
+		});
 		mnNew.add(menuItem_18);
 		
 		JMenuItem menuItem_15 = new JMenuItem("View Record");
@@ -127,12 +140,20 @@ public class Welcome extends JFrame {
 		mnStaffMember.add(menuItem_1);
 		
 		JMenuItem menuItem_3 = new JMenuItem("View Record");
+		menuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				EmployeeSearchView employeeSearchView=new EmployeeSearchView();
+				employeeSearchView.setVisible(true);
+			}
+		});
 		mnStaffMember.add(menuItem_3);
 		
 		JMenuItem menuItem_2 = new JMenuItem("Delete Record");
 		menuItem_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						new EmployeeSearchView().setVisible(true);
+				DeleteEmployeeSearchView deleteEmployeeSearchView=new DeleteEmployeeSearchView();
+				deleteEmployeeSearchView.setVisible(true);
 			
 			}
 		});

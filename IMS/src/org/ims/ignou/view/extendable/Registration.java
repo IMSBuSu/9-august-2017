@@ -124,7 +124,6 @@ public class Registration extends JFrame {
 	protected JTextField Other_course_name;
 	protected JComboBox<String> stream12th;
 	protected JButton btnSumbit;
-	protected JButton Reset;
 	private JLabel image;
 	protected JComboBox<String> Category;
 	private JLabel lblNewLabel;
@@ -376,9 +375,7 @@ public Registration getFrame() {
 	public void setBtnSumbit(JButton btnSumbit) {
 		this.btnSumbit = btnSumbit;
 	}
-	public void setReset(JButton reset) {
-		Reset = reset;
-	}
+	
 	public void setImage(JLabel image) {
 		this.image = image;
 	}
@@ -725,7 +722,7 @@ public Registration()
 				Monthsdob = new JComboBox();
 				Monthsdob.setBounds(142, 77, 55, 20);
 				Personal_information.add(Monthsdob);
-				Monthsdob.setModel(new DefaultComboBoxModel(new String[] {"Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"}));
+				Monthsdob.setModel(new DefaultComboBoxModel(new String[] {"Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}));
 				
 				Yeardob = new JComboBox();
 				Yeardob.setBounds(207, 77, 55, 20);
@@ -2151,13 +2148,9 @@ public Registration()
 								 				  		Qualification_Information.add(label_31);
 								 				  		
 								 				  		btnSumbit = new JButton("Sumbit");
-								 				  		btnSumbit.setBounds(279, 542, 89, 23);
+								 				  		btnSumbit.setBounds(330, 543, 89, 23);
 								 				  		
 								 				  		contentPane.add(btnSumbit);
-								 				  		
-								 				  		Reset = new JButton("Reset");
-								 				  		Reset.setBounds(397, 542, 89, 23);
-								 				  		contentPane.add(Reset);
 								 				  		
 								 				  				
 								 				  				

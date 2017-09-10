@@ -1,4 +1,4 @@
-package org.ims.ignou.view.employee.find;
+package org.ims.ignou.view.employee.delete;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -14,17 +14,19 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
-import org.ims.ignou.helper.employee.find.EmpFindValidation;
+import org.ims.ignou.helper.employee.delete.EmpDeleteViewValidation;
+import org.ims.ignou.helper.employee.delete.setDeleteEmpdetail;
 import org.ims.ignou.helper.employee.find.SearchEmployee;
-import org.ims.ignou.helper.employee.find.ShowEmp;
 import javax.swing.ImageIcon;
 
-public class EmployeeSearchView extends JFrame {
+public class DeleteEmployeeSearchView extends JFrame {
 
-	private JPanel contentPane;
+
+private JPanel contentPane;
 	
 	private JTextField txtEmployeeIFld;
 	private JLabel lblErrorMessage;
+	private JLabel lblNewLabel;
 	
 	
 
@@ -47,7 +49,7 @@ public class EmployeeSearchView extends JFrame {
 
 	public void validation(){
 				
-					EmpFindValidation deleteValidation=new EmpFindValidation();
+					EmpDeleteViewValidation deleteValidation=new EmpDeleteViewValidation();
 					if(deleteValidation.canNotblank(this)){
 									int id=Integer.parseInt(txtEmployeeIFld.getText());
 									SearchEmployee employee=new SearchEmployee();
@@ -57,14 +59,13 @@ public class EmployeeSearchView extends JFrame {
 									}
 									else{
 										this.setVisible(false);
-													new ShowEmp().showEmpDetail(employee.getEmployeeFinddto(), txtEmployeeIFld.getText());;
-													
+													new setDeleteEmpdetail().showEmpDetail(employee.getEmployeeFinddto(), txtEmployeeIFld.getText());
 									}
 					}
 		
 	}
 
-	public EmployeeSearchView() {
+	public DeleteEmployeeSearchView() {
 		
 	    try
 	    {
@@ -84,7 +85,7 @@ public class EmployeeSearchView extends JFrame {
 		}
 		setTitle("Search Employee");
 		setResizable(false);
-		setBounds(100, 100, 555, 287);
+		setBounds(100, 100, 541, 293);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -92,7 +93,7 @@ public class EmployeeSearchView extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblEmployeeId = new JLabel("Employee Id");
-		lblEmployeeId.setBounds(321, 85, 59, 14);
+		lblEmployeeId.setBounds(298, 100, 59, 14);
 		contentPane.add(lblEmployeeId);
 		
 		JButton btnSearch = new JButton("Search");
@@ -103,23 +104,23 @@ public class EmployeeSearchView extends JFrame {
 				
 			}
 		});
-		btnSearch.setBounds(365, 151, 120, 23);
+		btnSearch.setBounds(374, 165, 89, 23);
 		contentPane.add(btnSearch);
 		
 		txtEmployeeIFld = new JTextField();
-		txtEmployeeIFld.setBounds(413, 82, 109, 20);
+		txtEmployeeIFld.setBounds(367, 97, 158, 20);
 		contentPane.add(txtEmployeeIFld);
 		txtEmployeeIFld.setColumns(10);
 		
 		 lblErrorMessage = new JLabel("");
 		 lblErrorMessage.setForeground(Color.RED);
 		 lblErrorMessage.setBackground(Color.RED);
-		lblErrorMessage.setBounds(328, 126, 173, 14);
+		lblErrorMessage.setBounds(330, 140, 173, 14);
 		contentPane.add(lblErrorMessage);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(EmployeeSearchView.class.getResource("/org/ims/ignou/view/employee/find/Search.jpg")));
-		lblNewLabel.setBounds(0, 0, 282, 258);
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(DeleteEmployeeSearchView.class.getResource("/org/ims/ignou/view/employee/find/Search.jpg")));
+		lblNewLabel.setBounds(0, 0, 288, 264);
 		contentPane.add(lblNewLabel);
 		setLocationRelativeTo(null);
 	}

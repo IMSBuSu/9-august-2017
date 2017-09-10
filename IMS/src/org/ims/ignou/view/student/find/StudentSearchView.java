@@ -1,9 +1,10 @@
-package org.ims.ignou.view.employee.find;
+package org.ims.ignou.view.student.find;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,16 +15,15 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
-import org.ims.ignou.helper.employee.find.EmpFindValidation;
-import org.ims.ignou.helper.employee.find.SearchEmployee;
-import org.ims.ignou.helper.employee.find.ShowEmp;
-import javax.swing.ImageIcon;
+import org.ims.ignou.helper.student.find.SearchStudent;
+import org.ims.ignou.helper.student.find.ShowStu;
+import org.ims.ignou.helper.student.find.StuFindValidation;
 
-public class EmployeeSearchView extends JFrame {
+public class StudentSearchView extends JFrame {
 
 	private JPanel contentPane;
 	
-	private JTextField txtEmployeeIFld;
+	private JTextField txtStudentIFld;
 	private JLabel lblErrorMessage;
 	
 	
@@ -41,30 +41,33 @@ public class EmployeeSearchView extends JFrame {
 
 
 
-	public JTextField getTxtEmployeeIFld() {
-		return txtEmployeeIFld;
+	
+	public JTextField getTxtStudentIFld() {
+		return txtStudentIFld;
 	}
+
+
 
 	public void validation(){
 				
-					EmpFindValidation deleteValidation=new EmpFindValidation();
+		StuFindValidation deleteValidation=new StuFindValidation();
 					if(deleteValidation.canNotblank(this)){
-									int id=Integer.parseInt(txtEmployeeIFld.getText());
-									SearchEmployee employee=new SearchEmployee();
-									Boolean found=employee.chkIdDb(id);
+									int id=Integer.parseInt(txtStudentIFld.getText());
+									SearchStudent student=new SearchStudent();
+									Boolean found=student.chkIdDb(id);
 									if(!found){
-												JOptionPane.showMessageDialog(this, "Employee Not Found");
+												JOptionPane.showMessageDialog(this, "Student Not Found");
 									}
 									else{
 										this.setVisible(false);
-													new ShowEmp().showEmpDetail(employee.getEmployeeFinddto(), txtEmployeeIFld.getText());;
+													new ShowStu().showEmpDetail(student.getstudentFinddto(), txtStudentIFld.getText());;
 													
 									}
 					}
 		
 	}
 
-	public EmployeeSearchView() {
+	public StudentSearchView() {
 		
 	    try
 	    {
@@ -82,7 +85,7 @@ public class EmployeeSearchView extends JFrame {
 			}	    
 	    	
 		}
-		setTitle("Search Employee");
+		setTitle("Search Student");
 		setResizable(false);
 		setBounds(100, 100, 555, 287);
 		contentPane = new JPanel();
@@ -91,7 +94,7 @@ public class EmployeeSearchView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblEmployeeId = new JLabel("Employee Id");
+		JLabel lblEmployeeId = new JLabel("Student Id");
 		lblEmployeeId.setBounds(321, 85, 59, 14);
 		contentPane.add(lblEmployeeId);
 		
@@ -106,19 +109,19 @@ public class EmployeeSearchView extends JFrame {
 		btnSearch.setBounds(365, 151, 120, 23);
 		contentPane.add(btnSearch);
 		
-		txtEmployeeIFld = new JTextField();
-		txtEmployeeIFld.setBounds(413, 82, 109, 20);
-		contentPane.add(txtEmployeeIFld);
-		txtEmployeeIFld.setColumns(10);
+		txtStudentIFld = new JTextField();
+		txtStudentIFld.setBounds(413, 82, 109, 20);
+		contentPane.add(txtStudentIFld);
+		txtStudentIFld.setColumns(10);
 		
 		 lblErrorMessage = new JLabel("");
-		 lblErrorMessage.setForeground(Color.RED);
-		 lblErrorMessage.setBackground(Color.RED);
-		lblErrorMessage.setBounds(328, 126, 173, 14);
+		 lblErrorMessage.setForeground(Color.ORANGE);
+		 lblErrorMessage.setBackground(Color.ORANGE);
+		lblErrorMessage.setBounds(339, 126, 173, 14);
 		contentPane.add(lblErrorMessage);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(EmployeeSearchView.class.getResource("/org/ims/ignou/view/employee/find/Search.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(StudentSearchView.class.getResource("/org/ims/ignou/view/employee/find/Search.jpg")));
 		lblNewLabel.setBounds(0, 0, 282, 258);
 		contentPane.add(lblNewLabel);
 		setLocationRelativeTo(null);

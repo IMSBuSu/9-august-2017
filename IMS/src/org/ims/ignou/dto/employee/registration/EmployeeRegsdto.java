@@ -2,7 +2,7 @@ package org.ims.ignou.dto.employee.registration;
 
 import java.util.Arrays;
 
-public class Employeedto 
+public class EmployeeRegsdto 
 {
 			private String employeeName;
 			private String fathersName;

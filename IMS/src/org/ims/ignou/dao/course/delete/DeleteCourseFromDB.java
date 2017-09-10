@@ -12,6 +12,7 @@ public class DeleteCourseFromDB extends CreateConnection{
 		
 	
 	public Boolean DeleteCourse(int courseid){
+
 		
 			try {
 				Connection connection=createconnection();

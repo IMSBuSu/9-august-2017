@@ -1,23 +1,27 @@
-package org.ims.ignou.view.employee.find;
+package org.ims.ignou.view.employee.delete;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.Image;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class ShowEmpDetailView extends JFrame {
+import org.ims.ignou.helper.employee.delete.DeleteEmpRecord;
+
+public class DeleteShowEmpView extends JFrame{
+
+	
+	
+
 
 	private JPanel contentPane;
 
@@ -27,7 +31,7 @@ public class ShowEmpDetailView extends JFrame {
 	private JTextField textEmailid;
 	private JTextField textfatherName;
 	private JLabel labelempimage;
-	private ShowEmpDetailView frame;
+	private DeleteShowEmpView frame;
 
 	public void setempImage(ImageIcon img){
 		 labelempimage.setIcon(img);
@@ -55,7 +59,8 @@ public class ShowEmpDetailView extends JFrame {
 	}
 
 	
-	public ShowEmpDetailView() {
+	 public DeleteShowEmpView() {
+	 
 		setResizable(false);
 		   try
 		    {
@@ -133,16 +138,29 @@ public class ShowEmpDetailView extends JFrame {
 		
 		
 		
-		JButton btnSearchAnother = new JButton("Search Another");
-		btnSearchAnother.addActionListener(new ActionListener() {
+		JButton btndeleteEmpRecord = new JButton("Delete Employee");
+		btndeleteEmpRecord.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.setVisible(false);
-				EmployeeSearchView employeeSearchView=new EmployeeSearchView();
-				employeeSearchView.setVisible(true);
+					
+				int askDeleterecrd=JOptionPane.showConfirmDialog(frame, "Do You Want To Delete Employee Record ?");
+				if(askDeleterecrd==0){
+							frame.setVisible(false);
+							DeleteEmpRecord deleteEmpRecord=new DeleteEmpRecord();
+							Boolean isRecord=deleteEmpRecord.DeleteRecord(textEmailid.getText(),Integer.parseInt(textempid.getText()));
+								if(isRecord){
+									JOptionPane.showMessageDialog(frame, "Success To Delete Record");				
+								}		
+								else{
+									JOptionPane.showMessageDialog(frame, "Failed To Delete Reocrd");
+								}				
+				}
+				
 			}	
 		});
-		btnSearchAnother.setBounds(229, 217, 133, 23);
-		contentPane.add(btnSearchAnother);
+		btndeleteEmpRecord.setBounds(229, 217, 133, 23);
+		contentPane.add(btndeleteEmpRecord);
 		setLocationRelativeTo(null);
-	}
-}
+
+	
+	 }
+}	 

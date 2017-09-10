@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.ims.ignou.dao.employee.registration.ChkEmailExist;
-import org.ims.ignou.dto.employee.registration.Employeedto;
+import org.ims.ignou.dto.employee.registration.EmployeeRegsdto;
 
 public class ChkEmailAlreadyUse {
 

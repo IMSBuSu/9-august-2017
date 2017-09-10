@@ -1,13 +1,10 @@
-package org.ims.ignou.helper.employee.delete;
+package org.ims.ignou.helper.employee.find;
 
 import org.ims.ignou.view.employee.find.EmployeeSearchView;
 
-public class EmpDeleteValidation {
+public class EmpFindValidation {
 
-			
-	
-	
-			private Boolean onlyNumberAllowed(EmployeeSearchView employee){
+	private Boolean onlyNumberAllowed(EmployeeSearchView employee){
 				String id=employee.getTxtEmployeeIFld().getText();
 						try{
 

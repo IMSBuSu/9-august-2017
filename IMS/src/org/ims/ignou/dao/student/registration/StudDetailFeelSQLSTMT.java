@@ -1,31 +1,17 @@
-package org.ims.ignou.dao.employee.registration;
+package org.ims.ignou.dao.student.registration;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import org.ims.ignou.dto.employee.registration.EmployeeRegsdto;
+import org.ims.ignou.dto.student.registration.StudentRegistrationDto;
 import org.ims.ignou.view.extendable.Registration;
 
-public class EmpDetailFeelSQLSTMT {
+public class StudDetailFeelSQLSTMT {
 
 	
 	
-	public PreparedStatement setBatch_Details(PreparedStatement pre,String CourseName,int employeeeid,String batchTimeing){
-		
-		try{
-			pre.setInt(1, employeeeid);
-			pre.setString(2, CourseName);	
-			pre.setString(3, batchTimeing);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	
-		
-					return pre;
-	}
-	
-	public PreparedStatement setQuflicationOther(Registration regFrame,PreparedStatement pre,EmployeeRegsdto employeedetail,int employeeeid){	
+	public PreparedStatement setQuflicationOther(Registration regFrame,PreparedStatement pre,StudentRegistrationDto employeedetail,int employeeeid){	
 		try{
 					pre.setString(1,(String) regFrame.getComboBoxQualificationOther().getSelectedItem());
 					pre.setInt(2, employeedetail.getYearOther());
@@ -44,7 +30,7 @@ public class EmpDetailFeelSQLSTMT {
 }
 	
 	
-	public PreparedStatement setQuflicationUnderGraduate(Registration regFrame,PreparedStatement pre,EmployeeRegsdto employeedetail,int employeeeid){	
+	public PreparedStatement setQuflicationUnderGraduate(Registration regFrame,PreparedStatement pre,StudentRegistrationDto employeedetail,int employeeeid){	
 		try{
 					pre.setString(1,(String) regFrame.getComboBoxQualificationUnder_graduate().getSelectedItem());
 					pre.setInt(2, employeedetail.getYearunderGraduate());
@@ -62,7 +48,7 @@ public class EmpDetailFeelSQLSTMT {
 	return pre;
 }
 	
-	public PreparedStatement setQuflicationPostGraduate(Registration regFrame,PreparedStatement pre,EmployeeRegsdto employeedetail,int employeeeid){	
+	public PreparedStatement setQuflicationPostGraduate(Registration regFrame,PreparedStatement pre,StudentRegistrationDto employeedetail,int employeeeid){	
 				try{
 							pre.setString(1,(String) regFrame.getComboBoxQualificationPost_graducation().getSelectedItem());
 							pre.setInt(2, employeedetail.getYearPostGraduate());
@@ -82,7 +68,7 @@ public class EmpDetailFeelSQLSTMT {
 
 
 	
-	public PreparedStatement setQuflicationDiploma(Registration regFrame,PreparedStatement pre,EmployeeRegsdto employeedetail,int employeeeid){	
+	public PreparedStatement setQuflicationDiploma(Registration regFrame,PreparedStatement pre,StudentRegistrationDto employeedetail,int employeeeid){	
 				try{
 							pre.setString(1,(String) regFrame.getComboBoxQualificationdiploma().getSelectedItem());
 							pre.setInt(2, employeedetail.getYearDiploma());
@@ -101,7 +87,7 @@ public class EmpDetailFeelSQLSTMT {
 	}
 
 
-	public PreparedStatement setQuflicationCertification(Registration regFrame,PreparedStatement pre,EmployeeRegsdto employeedetail,int employeeeid){
+	public PreparedStatement setQuflicationCertification(Registration regFrame,PreparedStatement pre,StudentRegistrationDto employeedetail,int employeeeid){
 		
 		
 			try {
@@ -122,7 +108,7 @@ public class EmpDetailFeelSQLSTMT {
 	
 	
 	
-	public PreparedStatement setQuflication12th(PreparedStatement pre,EmployeeRegsdto employeedetail,int employeeeid){
+	public PreparedStatement setQuflication12th(PreparedStatement pre,StudentRegistrationDto employeedetail,int employeeeid){
 		try {
 			pre.setInt(1,employeedetail.getYear12th());
 			pre.setString(2, employeedetail.getPercentage12th());
@@ -140,7 +126,7 @@ public class EmpDetailFeelSQLSTMT {
 	
 	
 	
-	public PreparedStatement setQuflication10th(PreparedStatement pre,EmployeeRegsdto employeedetail,int employeeeid){
+	public PreparedStatement setQuflication10th(PreparedStatement pre,StudentRegistrationDto employeedetail,int employeeeid){
 		try {
 			pre.setInt(1,employeedetail.getYear10th());
 			pre.setString(2, employeedetail.getInstituteName10th());
@@ -153,37 +139,61 @@ public class EmpDetailFeelSQLSTMT {
 		}		
 		return pre;
 	}
-	
-	public PreparedStatement  employeeId(PreparedStatement pre,String emailId){
+
+	public PreparedStatement  employeeId(PreparedStatement pre,StudentRegistrationDto stuDetail){
 		try {
-			pre.setString(1, emailId);
+			pre.setString(1, stuDetail.getDob());
+			pre.setString(2, stuDetail.getStudentName());
+			pre.setString(3, stuDetail.getFathersName());
+			pre.setString(4, stuDetail.getContactNumber());
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return pre;		
 	}
-	public PreparedStatement employee(PreparedStatement pre,EmployeeRegsdto empdetail){
+	
+	public PreparedStatement imagePath(PreparedStatement pre,int id)
+	{
 		
 		try {
-			pre.setInt(1,empdetail.getSalary());
-			pre.setString(2, empdetail.getDob());
-			pre.setString(3,empdetail.getJobTiming());
-			pre.setString(4, empdetail.getEmployeeName());
-			pre.setString(5, empdetail.getJobName());
-			pre.setString(6, empdetail.getFathersName());
-			pre.setString(7, empdetail.getMaritialStatus());
-			pre.setString(8, empdetail.getContactNumber());
-			pre.setString(9, empdetail.getEmailId());
-			pre.setString(10, empdetail.getCateGory());
-			pre.setString(11, empdetail.getGenDer());
-			pre.setString(12, empdetail.getAddRess());
-			pre.setInt(13,empdetail.getZipcode());
-			pre.setString(14, empdetail.getState());
-			pre.setString(15, empdetail.getCity());
-			pre.setString(16, empdetail.getCounTry());
-			pre.setString(17, empdetail.getImagesPath()); 
+					pre.setString(1, (Integer.toString(id)+".JPG"));
+					pre.setInt(2, id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return pre;
+	}
+	
+	
+	public PreparedStatement employee(PreparedStatement pre,StudentRegistrationDto empdetail)
+	{
+		
+		try {
+			pre.setInt(1, Integer.parseInt(empdetail.getTotalFees()));
+			pre.setInt(2, Integer.parseInt(empdetail.getReaminFees()));
+			pre.setString(3, empdetail.getDob());
+			pre.setString(4, empdetail.getStudentName());
+			pre.setString(5,empdetail.getFathersName());
+			pre.setString(6,empdetail.getMaritialStatus());
+			pre.setString(7,empdetail.getContactNumber());
+			pre.setString(8,empdetail.getEmailId());
+			pre.setString(9,empdetail.getCateGory());
+			pre.setString(10,empdetail.getGenDer());
+			pre.setString(11,empdetail.getAddRess());
+			pre.setInt(12,empdetail.getZipcode());
+			pre.setString(13,empdetail.getState());
+			pre.setString(14,empdetail.getCity());
+			pre.setString(15,empdetail.getCounTry());		
+			pre.setString(16,empdetail.getTeacherName());
+			pre.setString(17,empdetail.getCourseName());
+			pre.setString(18, empdetail.getBatchTimeing());
 
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

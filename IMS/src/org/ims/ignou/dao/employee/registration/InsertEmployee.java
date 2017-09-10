@@ -7,9 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.sound.midi.Synthesizer;
+
 import org.ims.ignou.dao.Extendable.CreateConnection;
 import org.ims.ignou.dao.Extendable.LoadBundelImageLocation;
-import org.ims.ignou.dto.employee.registration.Employeedto;
+import org.ims.ignou.dto.employee.registration.EmployeeRegsdto;
 import org.ims.ignou.helper.employee.registration.CopyEmployeeImage;
 import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
 import org.ims.ignou.view.extendable.Registration;
@@ -23,14 +25,15 @@ public class InsertEmployee extends CreateConnection
 		return emloyeeId;
 	}
 
-		private Boolean insertQualification10th(Employeedto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT){
+		private Boolean insertQualification10th(EmployeeRegsdto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT){
 			PreparedStatement psQufliaction=null;
 			try {
 							psQufliaction=connection.prepareStatement(RegistrationStatement.getQualification10th());
 							if(psQufliaction!=null){
 											psQufliaction=detailFeelSQLSTMT.setQuflication10th(psQufliaction, employeeDetail,emloyeeId);
+											
 											int isSuccees=psQufliaction.executeUpdate();
-												if(isSuccees==1){
+											if(isSuccees==1){
 																return true;
 												}
 												
@@ -55,7 +58,7 @@ public class InsertEmployee extends CreateConnection
 return false;
 
 		}
-		private Boolean insertQualification12th(Employeedto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT){
+		private Boolean insertQualification12th(EmployeeRegsdto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT){
 
 			PreparedStatement psQufliaction=null;
 			try {
@@ -84,7 +87,7 @@ return false;
 
 			return false;
 		}
-		private Boolean insertQualificationcertification(Employeedto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Registration regFrame){
+		private Boolean insertQualificationcertification(EmployeeRegsdto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Registration regFrame){
 
 			PreparedStatement psQufliaction=null;
 			try {
@@ -116,7 +119,7 @@ return false;
 			
 			return false;
 		}
-		private Boolean insertQualificationdiploma(Employeedto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Registration regFrame){
+		private Boolean insertQualificationdiploma(EmployeeRegsdto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Registration regFrame){
 			
 			PreparedStatement psQufliaction=null;
 			try {
@@ -146,7 +149,7 @@ return false;
 			
 			return false;
 		}
-		private Boolean insertQualificationUnderGraduate(Employeedto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Registration regFrame){
+		private Boolean insertQualificationUnderGraduate(EmployeeRegsdto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Registration regFrame){
 			PreparedStatement psQufliaction=null;
 			try {
 							psQufliaction=connection.prepareStatement(RegistrationStatement.getQualificationUnderGraduation());
@@ -177,7 +180,7 @@ return false;
 			
 			return false;
 		}
-		private Boolean insertQualificationPostGraduate(Employeedto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Registration regFrame){
+		private Boolean insertQualificationPostGraduate(EmployeeRegsdto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Registration regFrame){
 			
 			PreparedStatement psQufliaction=null;
 			try {
@@ -206,7 +209,7 @@ return false;
 
 			return false;
 		}
-		private Boolean insertQualificationOther(Employeedto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Registration regFrame){
+		private Boolean insertQualificationOther(EmployeeRegsdto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Registration regFrame){
 			
 			
 			PreparedStatement psQufliaction=null;
@@ -238,7 +241,7 @@ return false;
 			
 			return false;
 		} 
-		private Boolean insertQaliifcationDetail(Employeedto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Registration frameReg){
+		private Boolean insertQaliifcationDetail(EmployeeRegsdto employeeDetail,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Registration frameReg){
 					Boolean success=true;
 						if(frameReg.getComboBoxQualification10th().getSelectedItem().equals("10th")){
 											if(!insertQualification10th(employeeDetail, connection, detailFeelSQLSTMT)){
@@ -317,7 +320,7 @@ return false;
 
 		
 		
-		private Boolean insertCourseDetail(Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,Employeedto empDetail){
+		private Boolean insertCourseDetail(Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT,EmployeeRegsdto empDetail){
 					String courseName[]=empDetail.getSubjectName();
 					String batchTimeing[]=empDetail.getBatchTiming();
 					for(int i=0;i<=7;i++){
@@ -332,7 +335,7 @@ return false;
 					return true;
 		}
 
-		public Boolean insertEmployeeDetail(Employeedto employeedto,RegistrationeEmployee frame){
+		public Boolean insertEmployeeDetail(EmployeeRegsdto employeedto,RegistrationeEmployee frame){
 			String imgPath=employeedto.getImagesPath();
 			employeedto.setImagesPath(employeedto.getEmailId()+".JPG");
 			Connection connection=null;
@@ -392,7 +395,6 @@ return false;
 			return false;
 
 }
-		
 		
 		private int getEmployeeId(String emailId,Connection connection,EmpDetailFeelSQLSTMT detailFeelSQLSTMT){
 			PreparedStatement psGetEmployeeid=null;
