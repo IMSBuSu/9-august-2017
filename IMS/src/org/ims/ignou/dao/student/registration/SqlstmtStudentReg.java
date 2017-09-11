@@ -60,17 +60,17 @@ public class SqlstmtStudentReg {
 
 			
 			private static String qualification10th(){
-				return "insert into QUALIFICATION_DETAILS_EMPLOYEE(COURSE,COMPLETE_YEAR,INSTITUTION_NAME,PERCENTAGE,ID,GRADE) "
+				return "insert into QUALIFICATION_DETAILS_STUDENT(COURSE,COMPLETE_YEAR,INSTITUTION_NAME,PERCENTAGE,ID,GRADE) "
 						+ "values('10th',?,?,?,?,?)";
 			}
 
 			private static String qualification12th(){
-				return "insert into QUALIFICATION_DETAILS_EMPLOYEE(COURSE,COMPLETE_YEAR,PERCENTAGE,INSTITUTION_NAME,STREAM,GRADE,ID) "
+				return "insert into QUALIFICATION_DETAILS_STUDENT(COURSE,COMPLETE_YEAR,PERCENTAGE,INSTITUTION_NAME,STREAM,GRADE,ID) "
 						+ "values('12th',?,?,?,?,?,?)";
 			}
 			
 			private static String qualification(){			
-				return "insert into QUALIFICATION_DETAILS_EMPLOYEE(COURSE,COMPLETE_YEAR,PERCENTAGE,INSTITUTION_NAME,GRADE,COURSE_NAME,ID) "
+				return "insert into QUALIFICATION_DETAILS_STUDENT(COURSE,COMPLETE_YEAR,PERCENTAGE,INSTITUTION_NAME,GRADE,COURSE_NAME,ID) "
 						+ "values(?,?,?,?,?,?,?)";
 			}
 

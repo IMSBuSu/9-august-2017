@@ -23,7 +23,7 @@ public class ShowStudentDetailView extends JFrame {
 
 	private JTextField textteachername;
 	private JTextField textstudob;
-	private JTextField textstudenid;
+	protected JTextField textstudenid;
 	private JTextField textEmailid;
 	private JTextField textfatherName;
 	private JLabel labelstuimage;
@@ -32,6 +32,22 @@ public class ShowStudentDetailView extends JFrame {
 	private JTextField textBatchTimeing;
 	private JTextField textFieldCourseName;
 	private JTextField textremainFees;
+
+protected	JButton btnSearchAnother;
+
+
+
+	public String getTextremainFees() {
+	return textremainFees.getText().toString();
+}
+
+
+
+
+
+public void setTextremainFees(JTextField textremainFees) {
+	this.textremainFees = textremainFees;
+}
 
 
 
@@ -149,6 +165,8 @@ public class ShowStudentDetailView extends JFrame {
 		contentPane.add(lblteacherName);
 		
 		textteachername = new JTextField();
+		textteachername.setEnabled(false);
+		textteachername.setEditable(false);
 		textteachername.setBounds(137, 176, 263, 20);
 		contentPane.add(textteachername);
 		textteachername.setColumns(10);
@@ -158,6 +176,8 @@ public class ShowStudentDetailView extends JFrame {
 		contentPane.add(lblDateOfBirth);
 		
 		textstudob = new JTextField();
+		textstudob.setEnabled(false);
+		textstudob.setEditable(false);
 		textstudob.setColumns(10);
 		textstudob.setBounds(137, 64, 263, 20);
 		contentPane.add(textstudob);
@@ -167,6 +187,8 @@ public class ShowStudentDetailView extends JFrame {
 		contentPane.add(lblStudentId);
 		
 		textstudenid = new JTextField();
+		textstudenid.setEnabled(false);
+		textstudenid.setEditable(false);
 		textstudenid.setColumns(10);
 		textstudenid.setBounds(137, 92, 263, 20);
 		contentPane.add(textstudenid);
@@ -176,6 +198,8 @@ public class ShowStudentDetailView extends JFrame {
 		contentPane.add(lblEmailId);
 		
 		textEmailid = new JTextField();
+		textEmailid.setEnabled(false);
+		textEmailid.setEditable(false);
 		textEmailid.setColumns(10);
 		textEmailid.setBounds(137, 120, 263, 20);
 		contentPane.add(textEmailid);
@@ -185,6 +209,8 @@ public class ShowStudentDetailView extends JFrame {
 		contentPane.add(lblFathersName);
 		
 		textfatherName = new JTextField();
+		textfatherName.setEnabled(false);
+		textfatherName.setEditable(false);
 		textfatherName.setColumns(10);
 		textfatherName.setBounds(137, 148, 263, 20);
 		contentPane.add(textfatherName);
@@ -196,7 +222,7 @@ public class ShowStudentDetailView extends JFrame {
 		
 		
 		
-		JButton btnSearchAnother = new JButton("Search Another");
+		 btnSearchAnother = new JButton("Search Another");
 		btnSearchAnother.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -212,6 +238,8 @@ public class ShowStudentDetailView extends JFrame {
 		contentPane.add(lblstudentname);
 		
 		textStudentName = new JTextField();
+		textStudentName.setEnabled(false);
+		textStudentName.setEditable(false);
 		textStudentName.setColumns(10);
 		textStudentName.setBounds(137, 36, 263, 20);
 		contentPane.add(textStudentName);
@@ -221,6 +249,8 @@ public class ShowStudentDetailView extends JFrame {
 		contentPane.add(lblBatchTimeing);
 		
 		textBatchTimeing = new JTextField();
+		textBatchTimeing.setEnabled(false);
+		textBatchTimeing.setEditable(false);
 		textBatchTimeing.setColumns(10);
 		textBatchTimeing.setBounds(137, 204, 263, 20);
 		contentPane.add(textBatchTimeing);
@@ -230,11 +260,15 @@ public class ShowStudentDetailView extends JFrame {
 		contentPane.add(labelcoursename);
 		
 		textFieldCourseName = new JTextField();
+		textFieldCourseName.setEnabled(false);
+		textFieldCourseName.setEditable(false);
 		textFieldCourseName.setColumns(10);
 		textFieldCourseName.setBounds(137, 232, 263, 20);
 		contentPane.add(textFieldCourseName);
 		
 		textremainFees = new JTextField();
+		textremainFees.setEnabled(false);
+		textremainFees.setEditable(false);
 		textremainFees.setColumns(10);
 		textremainFees.setBounds(137, 260, 263, 20);
 		contentPane.add(textremainFees);

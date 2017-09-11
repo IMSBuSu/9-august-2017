@@ -23,8 +23,9 @@ public class StudentSearchView extends JFrame {
 
 	private JPanel contentPane;
 	
-	private JTextField txtStudentIFld;
-	private JLabel lblErrorMessage;
+	protected JTextField txtStudentIFld;
+	protected JLabel lblErrorMessage;
+	protected JButton btnSearch;
 	
 	
 
@@ -98,10 +99,10 @@ public class StudentSearchView extends JFrame {
 		lblEmployeeId.setBounds(321, 85, 59, 14);
 		contentPane.add(lblEmployeeId);
 		
-		JButton btnSearch = new JButton("Search");
+		 btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-							
+
 						validation();
 				
 			}

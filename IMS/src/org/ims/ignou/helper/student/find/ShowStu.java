@@ -10,7 +10,7 @@ import org.ims.ignou.view.student.find.ShowStudentDetailView;
 
 public class ShowStu  {
 	
-	private void setDetail(StudentFindDto studentFinddto,ShowStudentDetailView detailView,String id){
+	public void setDetail(StudentFindDto studentFinddto,ShowStudentDetailView detailView,String id){
 	
 		
 

@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 import org.ims.ignou.dao.Extendable.CreateConnection;
 import org.ims.ignou.dao.Extendable.LoadBundelImageLocation;
-import org.ims.ignou.dao.employee.registration.RegistrationStatement;
 import org.ims.ignou.dto.student.registration.StudentRegistrationDto;
 import org.ims.ignou.helper.employee.registration.CopyEmployeeImage;
 import org.ims.ignou.view.extendable.Registration;
@@ -28,7 +27,7 @@ public class InsertStudent extends CreateConnection
 	private Boolean insertQualification10th(StudentRegistrationDto employeeDetail,Connection connection,StudDetailFeelSQLSTMT detailFeelSQLSTMT){
 		PreparedStatement psQufliaction=null;
 		try {
-						psQufliaction=connection.prepareStatement(RegistrationStatement.getQualification10th());
+						psQufliaction=connection.prepareStatement(SqlstmtStudentReg.getQualification10th());
 						if(psQufliaction!=null){
 										psQufliaction=detailFeelSQLSTMT.setQuflication10th(psQufliaction, employeeDetail,studentId);
 										
@@ -62,7 +61,7 @@ return false;
 
 		PreparedStatement psQufliaction=null;
 		try {
-						psQufliaction=connection.prepareStatement(RegistrationStatement.getQualification12th());
+						psQufliaction=connection.prepareStatement(SqlstmtStudentReg.getQualification12th());
 						if(psQufliaction!=null){
 										psQufliaction=detailFeelSQLSTMT.setQuflication12th(psQufliaction, employeeDetail,studentId);
 										int isSuccees=psQufliaction.executeUpdate();
@@ -91,7 +90,7 @@ return false;
 
 		PreparedStatement psQufliaction=null;
 		try {
-						psQufliaction=connection.prepareStatement(RegistrationStatement.getQualificationCertificate());
+						psQufliaction=connection.prepareStatement(SqlstmtStudentReg.getQualificationCertificate());
 						if(psQufliaction!=null){
 										psQufliaction=detailFeelSQLSTMT.setQuflicationCertification(regFrame,psQufliaction, employeeDetail,studentId);
 										int isSuccees=psQufliaction.executeUpdate();
@@ -123,7 +122,7 @@ return false;
 		
 		PreparedStatement psQufliaction=null;
 		try {
-						psQufliaction=connection.prepareStatement(RegistrationStatement.getQualificationDiploma());
+						psQufliaction=connection.prepareStatement(SqlstmtStudentReg.getQualificationDiploma());
 						if(psQufliaction!=null){
 										psQufliaction=detailFeelSQLSTMT.setQuflicationDiploma(regFrame,psQufliaction, employeeDetail,studentId);
 										int isSuccees=psQufliaction.executeUpdate();
@@ -152,7 +151,7 @@ return false;
 	private Boolean insertQualificationUnderGraduate(StudentRegistrationDto employeeDetail,Connection connection,StudDetailFeelSQLSTMT detailFeelSQLSTMT,Registration regFrame){
 		PreparedStatement psQufliaction=null;
 		try {
-						psQufliaction=connection.prepareStatement(RegistrationStatement.getQualificationUnderGraduation());
+						psQufliaction=connection.prepareStatement(SqlstmtStudentReg.getQualificationUnderGraduation());
 						if(psQufliaction!=null){
 										psQufliaction=detailFeelSQLSTMT.setQuflicationUnderGraduate(regFrame,psQufliaction, employeeDetail,studentId);
 										int isSuccees=psQufliaction.executeUpdate();
@@ -184,7 +183,7 @@ return false;
 		
 		PreparedStatement psQufliaction=null;
 		try {
-						psQufliaction=connection.prepareStatement(RegistrationStatement.getQualificationPostGraduation());
+						psQufliaction=connection.prepareStatement(SqlstmtStudentReg.getQualificationPostGraduation());
 						if(psQufliaction!=null){
 										psQufliaction=detailFeelSQLSTMT.setQuflicationPostGraduate(regFrame,psQufliaction, employeeDetail,studentId);
 										int isSuccees=psQufliaction.executeUpdate();
@@ -214,7 +213,7 @@ return false;
 		
 		PreparedStatement psQufliaction=null;
 		try {
-						psQufliaction=connection.prepareStatement(RegistrationStatement.getQualificationOther());
+						psQufliaction=connection.prepareStatement(SqlstmtStudentReg.getQualificationOther());
 						if(psQufliaction!=null){
 										psQufliaction=detailFeelSQLSTMT.setQuflicationOther(regFrame,psQufliaction, employeeDetail,studentId);
 										int isSuccees=psQufliaction.executeUpdate();
