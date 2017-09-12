@@ -49,10 +49,12 @@ public class ShowStudentFeesUpdateView extends ShowStudentDetailView
 						
 							if(new UpdateStudentFees().updateRemainFees(getFeesDetail()))
 							{
+								this.setVisible(false);
 								JOptionPane.showMessageDialog(this, "Fees Submit SuccessFully!");
 							}
 							else{
 								
+								this.setVisible(false);
 								JOptionPane.showMessageDialog(this, "Failed To Submit Fees!");
 
 							}

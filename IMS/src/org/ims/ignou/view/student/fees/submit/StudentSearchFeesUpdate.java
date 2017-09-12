@@ -13,8 +13,7 @@ import org.ims.ignou.view.student.find.StudentSearchView;
 
 public class StudentSearchFeesUpdate extends StudentSearchView{
 	
-	
-	
+	private String btnClick;
 	
 	@Override
 	public void validation() {
@@ -28,12 +27,34 @@ public class StudentSearchFeesUpdate extends StudentSearchView{
 						}
 						else{
 										this.setVisible(false);
-										if(student.getstudentFinddto().)
-										new ShowStuFeesUpdatehelper().showEmpDetail(student.getstudentFinddto(), txtStudentIFld.getText());;	
+										int pdenfingfees=Integer.parseInt(student.getstudentFinddto().getRemainFees());
+										if(pdenfingfees!=0)
+										{		
+												if(btnClick==""){
+													new ShowStuFeesUpdatehelper().showEmpDetail(student.getstudentFinddto(), txtStudentIFld.getText());;	
+												}
+												else{
+													JOptionPane.showMessageDialog(null, "Fees ReaminIng  : "+student.getstudentFinddto().getRemainFees());
+													return;
+												}
+										}
+										else{
+											if(btnClick==""){
+											JOptionPane.showMessageDialog(null, "There No Fees Pending ");
+											
+											}
+										}
+										if(btnClick=="Check Status"){
+													if(pdenfingfees==0){
+														JOptionPane.showMessageDialog(null, "There No Fees Pending ");
+													}
+										}
+		
 						}
 		}
 	}
-	public StudentSearchFeesUpdate() {
+	public StudentSearchFeesUpdate(String btnClick) {
+		this.btnClick=btnClick;
 		btnSearch.setLocation(365, 181);
 		
 		this.remove(btnSearch);

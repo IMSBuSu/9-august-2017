@@ -25,7 +25,7 @@ public class EmployeeSearchView extends JFrame {
 	
 	private JTextField txtEmployeeIFld;
 	private JLabel lblErrorMessage;
-	
+	protected JButton btnSearch;
 	
 
 	public JLabel getLblErrorMessage() {
@@ -45,6 +45,7 @@ public class EmployeeSearchView extends JFrame {
 		return txtEmployeeIFld;
 	}
 
+	
 	public void validation(){
 				
 					EmpFindValidation deleteValidation=new EmpFindValidation();
@@ -95,7 +96,7 @@ public class EmployeeSearchView extends JFrame {
 		lblEmployeeId.setBounds(321, 85, 59, 14);
 		contentPane.add(lblEmployeeId);
 		
-		JButton btnSearch = new JButton("Search");
+		 btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 							

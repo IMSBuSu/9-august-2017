@@ -1,5 +1,6 @@
 package org.ims.ignou.view.admin.welcome;
 import java.awt.Color;
+
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -30,7 +31,9 @@ import org.ims.ignou.view.course.update.CourseUpdateView;
 import org.ims.ignou.view.employee.delete.DeleteEmployeeSearchView;
 import org.ims.ignou.view.employee.find.EmployeeSearchView;
 import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
+import org.ims.ignou.view.library.add.BooksAddView;
 import org.ims.ignou.view.student.delete.DeleteStudentSearchView;
+import org.ims.ignou.view.student.fees.submit.StudentSearchFeesUpdate;
 import org.ims.ignou.view.student.find.StudentSearchView;
 import org.ims.ignou.view.student.registration.StudentRegistration;
 
@@ -181,9 +184,25 @@ public class Welcome extends JFrame {
 		mnOrganization.add(mnFees);
 		
 		JMenuItem mntmUpdate = new JMenuItem("Sumbit now");
+		mntmUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				StudentSearchFeesUpdate feesUpdate=new StudentSearchFeesUpdate("");
+				feesUpdate.setVisible(true);
+			}
+		});
 		mnFees.add(mntmUpdate);
 		
 		JMenuItem mntmCheckStatusItem = new JMenuItem("Check Status");
+		mntmCheckStatusItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				StudentSearchFeesUpdate feesUpdate=new StudentSearchFeesUpdate("Check Status");
+				feesUpdate.setVisible(true);
+					
+			
+			}	
+		});
+	
 		mnFees.add(mntmCheckStatusItem);
 		
 		JMenu mnSalary = new JMenu("Salary");
@@ -202,6 +221,14 @@ public class Welcome extends JFrame {
 		mnOrganization.add(mnBooks);
 		
 		JMenuItem mntmAddNewBook = new JMenuItem("Add new Book");
+		mntmAddNewBook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				BooksAddView addView=new BooksAddView();
+				addView.setVisible(true);
+			
+			}
+		});
 		mnBooks.add(mntmAddNewBook);
 		
 		JMenuItem mntmUpdateExistingBooks = new JMenuItem("Update Existing Book");
