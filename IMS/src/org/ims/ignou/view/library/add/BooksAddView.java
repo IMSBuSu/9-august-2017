@@ -32,7 +32,7 @@ public class BooksAddView extends JFrame {
 	protected JComboBox<String> purchasingmonthcmbx;
 	protected JComboBox<String> bookCategorycmbx;
 	protected JButton btnAddnewbook;
- 	
+ 	protected 	JLabel lblPurchasingDate;
 	
 	
 	
@@ -146,7 +146,7 @@ public class BooksAddView extends JFrame {
 		lblBookCategory.setBounds(53, 98, 70, 14);
 		contentPane.add(lblBookCategory);
 		
-		JLabel lblPurchasingDate = new JLabel("Purchasing Date");
+	 lblPurchasingDate = new JLabel("Purchasing Date");
 		lblPurchasingDate.setBounds(53, 129, 88, 14);
 		contentPane.add(lblPurchasingDate);
 		

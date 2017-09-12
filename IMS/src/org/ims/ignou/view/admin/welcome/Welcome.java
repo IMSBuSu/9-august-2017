@@ -1,6 +1,5 @@
 package org.ims.ignou.view.admin.welcome;
 import java.awt.Color;
-
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -32,7 +31,9 @@ import org.ims.ignou.view.employee.delete.DeleteEmployeeSearchView;
 import org.ims.ignou.view.employee.find.EmployeeSearchView;
 import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
 import org.ims.ignou.view.library.add.BooksAddView;
+import org.ims.ignou.view.library.delete.BookFindViewforDelete;
 import org.ims.ignou.view.library.find.BookFindView;
+import org.ims.ignou.view.library.update.BookUpdateSearchView;
 import org.ims.ignou.view.student.delete.DeleteStudentSearchView;
 import org.ims.ignou.view.student.fees.submit.StudentSearchFeesUpdate;
 import org.ims.ignou.view.student.find.StudentSearchView;
@@ -233,9 +234,21 @@ public class Welcome extends JFrame {
 		mnBooks.add(mntmAddNewBook);
 		
 		JMenuItem mntmUpdateExistingBooks = new JMenuItem("Update Existing Book");
+		mntmUpdateExistingBooks.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {				
+				BookUpdateSearchView bookUpdateSearchView=new BookUpdateSearchView();
+				bookUpdateSearchView.setVisible(true);
+			}
+		});
 		mnBooks.add(mntmUpdateExistingBooks);
 		
 		JMenuItem mntmDeleteExistingBooks = new JMenuItem("Delete Existing Book");
+		mntmDeleteExistingBooks.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BookFindViewforDelete bookFindViewforDelete=new BookFindViewforDelete();
+				bookFindViewforDelete.setVisible(true);
+			}
+		});
 		mnBooks.add(mntmDeleteExistingBooks);
 		
 		JMenuItem mntmViewExistingBooks = new JMenuItem("View  Existing Book");

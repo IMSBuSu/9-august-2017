@@ -12,14 +12,20 @@ import javax.swing.JLabel;
 public class ShowBookDetail extends BooksAddView
 {
 	private ShowBookDetail bookDetail;
-	private JTextField textbookpurchasingDate;
-	private JTextField textFieldbookid;
-	private JTextField textFieldCategorycmbx;
+	protected JTextField textbookpurchasingDate;
+	protected JTextField textFieldbookid;
+	protected JTextField textFieldCategorycmbx;
+	protected JButton btnSearchAnother;
 	
 	
 	
 	
-	
+	public JTextField getTextFieldbookid() {
+		return textFieldbookid;
+	}
+
+
+
 	public void setTextFieldCategorycmbx(String textFieldCategorycmbx) {
 		this.textFieldCategorycmbx.setText(textFieldCategorycmbx);
 	}
@@ -60,7 +66,7 @@ public class ShowBookDetail extends BooksAddView
 		
 		
 		setTitle("Book Detail");
-		JButton btnSearchAnother = new JButton("Search Another");
+		 btnSearchAnother = new JButton("Search Another");
 		btnSearchAnother.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

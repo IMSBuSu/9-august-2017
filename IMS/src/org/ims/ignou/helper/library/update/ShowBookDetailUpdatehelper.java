@@ -1,13 +1,13 @@
-package org.ims.ignou.helper.library.find;
-
-import javax.swing.JComboBox;
+package org.ims.ignou.helper.library.update;
 
 import org.ims.ignou.dto.library.add.BookAddDto;
 import org.ims.ignou.view.library.find.ShowBookDetail;
+import org.ims.ignou.view.library.update.ShowBookDetailUpdate;
 
-public class ShowBookDetailFeelValue {
+public class ShowBookDetailUpdatehelper {
 
-	private void feelValue(BookAddDto bookdetail,ShowBookDetail viewBookDetail){
+	
+	private void feelValue(BookAddDto bookdetail,ShowBookDetailUpdate viewBookDetail){
 		viewBookDetail.setTextFieldBookLanGuage(bookdetail.getBooklanguage());
 		viewBookDetail.setTextFieldCategorycmbx(bookdetail.getBookCategory());
 		viewBookDetail.setTextFieldisbn(bookdetail.getIsbn());
@@ -18,11 +18,11 @@ public class ShowBookDetailFeelValue {
 	}
 	public void showDetail(BookAddDto bookdetail){
 		
-		ShowBookDetail book=new ShowBookDetail();
+		ShowBookDetailUpdate book=new ShowBookDetailUpdate();
 		feelValue(bookdetail,book);
 		book.setVisible(true);
 		
 	}
 	
-	
+
 }

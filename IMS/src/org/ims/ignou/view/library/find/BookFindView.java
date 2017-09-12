@@ -22,7 +22,7 @@ import org.ims.ignou.helper.library.find.ShowBookDetailFeelValue;
 public class BookFindView extends JFrame {
 
 	protected JPanel contentPane;
-	private JTextField textBookId;
+	protected JTextField textBookId;
 	protected JButton btnBookSearch;
 	
 	
