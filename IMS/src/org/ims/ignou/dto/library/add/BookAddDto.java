@@ -13,19 +13,23 @@ public class BookAddDto {
 	private String booklanguage;
 	private	String bookpurchasingDate;
 	private String bookCategory;
-	
-		
-	
+	private int bookid;
 	
 	
 	
-	
-			@Override
-	public String toString() {
-		return "BookAddDto [bookName=" + bookName + ", isbn=" + isbn + ", booklanguage=" + booklanguage
-				+ ", bookpurchasingDate=" + bookpurchasingDate + ", bookCategory=" + bookCategory + "]";
+			public int getBookid() {
+		return bookid;
 	}
 
+
+
+
+
+
+
+	public void setBookid(int bookid) {
+		this.bookid = bookid;
+	}
 
 
 
@@ -35,6 +39,19 @@ public class BookAddDto {
 			public String getBookName() {
 		return bookName;
 	}
+
+
+
+
+
+
+
+	@Override
+			public String toString() {
+				return "BookAddDto [bookName=" + bookName + ", isbn=" + isbn + ", booklanguage=" + booklanguage
+						+ ", bookpurchasingDate=" + bookpurchasingDate + ", bookCategory=" + bookCategory + ", bookid="
+						+ bookid + "]";
+			}
 
 
 

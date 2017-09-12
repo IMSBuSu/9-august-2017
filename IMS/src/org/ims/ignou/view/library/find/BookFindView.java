@@ -1,31 +1,29 @@
 package org.ims.ignou.view.library.find;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
 import org.ims.ignou.helper.library.find.BookfindValidation;
-
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;
-import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import org.ims.ignou.helper.library.find.SearchBookHelper;
+import org.ims.ignou.helper.library.find.ShowBookDetailFeelValue;
 
 public class BookFindView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textBookId;
 
-	
 	
 	public JTextField getTextBookId() {
 		return textBookId;
@@ -39,24 +37,19 @@ public class BookFindView extends JFrame {
 	public void Validation(){
 		
 				if(bookfindValidation.cannotBlank(this)){	
-
-					
-								JOptionPane.showMessageDialog(this, "Fine");
-				
+						int bookId=Integer.parseInt(textBookId.getText().toString().trim());
+						SearchBookHelper searchBookHelper=new SearchBookHelper();
+						Boolean isRecodFound=searchBookHelper.searchBookRecord(bookId);
+							if(isRecodFound){
+									this.setVisible(false);
+									ShowBookDetailFeelValue showDetail = new ShowBookDetailFeelValue();
+									showDetail.showDetail(searchBookHelper.getBookFinddetail());
+							}
+							else{
+								JOptionPane.showMessageDialog(this, "Book Detail not found !");
+							}
 				}
-					
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public BookFindView() {
 		
 		try

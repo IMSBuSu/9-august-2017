@@ -24,16 +24,28 @@ import org.ims.ignou.helper.library.add.ValidationAddBookView;
 public class BooksAddView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldBooksName;
-	private JTextField textFieldisbn;
-	private JTextField textFieldBookLanGuage;
-	private	JComboBox<String> purchasingDaycmbx;
-	private	JComboBox<String> purchasingYearcmbx;
-	private JComboBox<String> purchasingmonthcmbx;
-	private JComboBox<String> bookCategorycmbx;
+	protected JTextField textFieldBooksName;
+	protected JTextField textFieldisbn;
+	protected JTextField textFieldBookLanGuage;
+	protected	JComboBox<String> purchasingDaycmbx;
+	protected	JComboBox<String> purchasingYearcmbx;
+	protected JComboBox<String> purchasingmonthcmbx;
+	protected JComboBox<String> bookCategorycmbx;
+	protected JButton btnAddnewbook;
+ 	
 	
 	
 	
+	
+	public void setTextFieldBooksName(String textFieldBooksName) {
+		this.textFieldBooksName.setText(textFieldBooksName);
+	}
+	public void setTextFieldisbn(String textFieldisbn) {
+		this.textFieldisbn.setText(textFieldisbn);
+	}
+	public void setTextFieldBookLanGuage(String textFieldBookLanGuage) {
+		this.textFieldBookLanGuage.setText(textFieldBookLanGuage);
+	}
 	public JTextField getTextFieldBooksName() {
 		return textFieldBooksName;
 	}
@@ -170,7 +182,7 @@ public class BooksAddView extends JFrame {
 		purchasingmonthcmbx.setBounds(219, 123, 55, 20);
 		contentPane.add(purchasingmonthcmbx);
 		
-		JButton btnAddnewbook = new JButton("Add New Book");
+		 btnAddnewbook = new JButton("Add New Book");
 		btnAddnewbook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
