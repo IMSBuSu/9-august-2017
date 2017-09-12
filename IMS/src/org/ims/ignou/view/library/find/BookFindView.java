@@ -21,9 +21,10 @@ import org.ims.ignou.helper.library.find.ShowBookDetailFeelValue;
 
 public class BookFindView extends JFrame {
 
-	private JPanel contentPane;
+	protected JPanel contentPane;
 	private JTextField textBookId;
-
+	protected JButton btnBookSearch;
+	
 	
 	public JTextField getTextBookId() {
 		return textBookId;
@@ -93,7 +94,7 @@ public class BookFindView extends JFrame {
 		contentPane.add(textBookId);
 		textBookId.setColumns(10);
 		
-		JButton btnBookSearch = new JButton("Search Book");
+		 btnBookSearch = new JButton("Search Book");
 		btnBookSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Validation();

@@ -32,6 +32,7 @@ import org.ims.ignou.view.employee.delete.DeleteEmployeeSearchView;
 import org.ims.ignou.view.employee.find.EmployeeSearchView;
 import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
 import org.ims.ignou.view.library.add.BooksAddView;
+import org.ims.ignou.view.library.find.BookFindView;
 import org.ims.ignou.view.student.delete.DeleteStudentSearchView;
 import org.ims.ignou.view.student.fees.submit.StudentSearchFeesUpdate;
 import org.ims.ignou.view.student.find.StudentSearchView;
@@ -238,6 +239,14 @@ public class Welcome extends JFrame {
 		mnBooks.add(mntmDeleteExistingBooks);
 		
 		JMenuItem mntmViewExistingBooks = new JMenuItem("View  Existing Book");
+		mntmViewExistingBooks.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				BookFindView bookFindView=new BookFindView();
+				bookFindView.setVisible(true);
+
+			}
+		});
 		mnBooks.add(mntmViewExistingBooks);
 		
 		JMenu mnCourse = new JMenu("Course");
