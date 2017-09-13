@@ -24,7 +24,7 @@ public class BookFindView extends JFrame {
 	protected JPanel contentPane;
 	protected JTextField textBookId;
 	protected JButton btnBookSearch;
-	
+	protected JLabel lblBookId;
 	
 	public JTextField getTextBookId() {
 		return textBookId;
@@ -85,7 +85,7 @@ public class BookFindView extends JFrame {
 		lblNewLabelIMage.setBounds(0, 0, 316, 261);
 		contentPane.add(lblNewLabelIMage);
 		
-		JLabel lblBookId = new JLabel("Book Id");
+		lblBookId = new JLabel("Book Id");
 		lblBookId.setBounds(326, 96, 46, 14);
 		contentPane.add(lblBookId);
 		

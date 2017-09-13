@@ -31,6 +31,7 @@ import org.ims.ignou.view.employee.delete.DeleteEmployeeSearchView;
 import org.ims.ignou.view.employee.find.EmployeeSearchView;
 import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
 import org.ims.ignou.view.inventory.add.AddNewGoods;
+import org.ims.ignou.view.inventory.find.GoodsSearchView;
 import org.ims.ignou.view.library.add.BooksAddView;
 import org.ims.ignou.view.library.delete.BookFindViewforDelete;
 import org.ims.ignou.view.library.find.BookFindView;
@@ -325,6 +326,13 @@ public class Welcome extends JFrame {
 		mnInventory.add(mntmDeleteExistingGoods);
 		
 		JMenuItem mntmViewExistingGoods = new JMenuItem("View  Existing goods");
+		mntmViewExistingGoods.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GoodsSearchView goodsSearchView=new GoodsSearchView();
+				goodsSearchView.setVisible(true);
+
+			}
+		});
 		mnInventory.add(mntmViewExistingGoods);
 		
 		JMenu mnEmail = new JMenu("Send Message");

@@ -1,11 +1,17 @@
 package org.ims.ignou.view.inventory.add;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.text.spi.DateFormatProvider;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
@@ -17,31 +23,42 @@ import org.ims.ignou.helper.inventory.add.InsertGoodsDetailHelper;
 
 import com.toedter.calendar.JDateChooser;
 
-import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import javax.swing.JScrollBar;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
 public class AddNewGoods extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textGoodsName;
-	private JTextField textWarntyDurtin;
-	private JTextField textTinNo;
-	private JTextField textShopName;
-	private JTextField textFieldWarantyType;
-	private JTextField textQuantity;
+	protected JTextField textGoodsName;
+	protected JTextField textWarntyDurtin;
+	protected JTextField textTinNo;
+	protected JTextField textShopName;
+	protected JTextField textFieldWarantyType;
+	protected JTextField textQuantity;
 	private JLabel lblGoodsDEscription;
-	private JTextArea textDescription;
+	protected JTextArea textDescription;
+	protected JButton btnNewButton;
 	
-	
-private JDateChooser dateChooser;
+	protected JDateChooser dateChooser;
 
+public void setTextGoodsName(String textGoodsName) {
+		this.textGoodsName.setText(textGoodsName);
+	}
+	public void setTextWarntyDurtin(String textWarntyDurtin) {
+		this.textWarntyDurtin.setText(textWarntyDurtin);
+	}
+	public void setTextTinNo(String textTinNo) {
+		this.textTinNo.setText(textTinNo);
+	}
+	public void setTextShopName(String textShopName) {
+		this.textShopName.setText(textShopName);
+	}
+	public void setTextFieldWarantyType(String textFieldWarantyType) {
+		this.textFieldWarantyType.setText(textFieldWarantyType);
+	}
+	public void setTextQuantity(String textQuantity) {
+		this.textQuantity.setText(textQuantity);
+	}
+	public void setTextDescription(String textDescription) {
+		this.textDescription.setText(textDescription);
+	}
 public JTextArea getTextDescription() {
 	return textDescription;
 }	
@@ -198,7 +215,7 @@ GoodsAddValidation addValidation=new GoodsAddValidation();
 		
 	
 		
-		JButton btnNewButton = new JButton("Add Goods ");
+		 btnNewButton = new JButton("Add Goods ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

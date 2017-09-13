@@ -11,6 +11,7 @@ public class GoodsAddDto {
 	private String SHOPNAME;
 	private String WARRANTY_TYPE;
 	private int QUANTITY;
+	
 	public String getPRODUCTNAME() {
 		return PRODUCTNAME;
 	}

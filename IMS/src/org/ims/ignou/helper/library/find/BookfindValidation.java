@@ -28,7 +28,7 @@ public class BookfindValidation {
 					}
 		}	
 		else{
-				JOptionPane.showMessageDialog(bookFindView, "Please Enter Book Id !");
+				JOptionPane.showMessageDialog(bookFindView, "Please Enter  Id !");
 		}
 		return false;
 	}
