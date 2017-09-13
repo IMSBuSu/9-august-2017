@@ -10,8 +10,8 @@ import javax.swing.JLabel;
 public class GoodsDetailShowView extends AddNewGoods {
 	private JTextField textpurchasingDate;
 	private GoodsDetailShowView frame;
-	private JTextField textGoodsId;
-
+	protected JTextField textGoodsId;
+	protected JButton btnSearchAnother;
 	
 	
 	public void setTextpurchasingDate(String textpurchasingDate) {
@@ -29,6 +29,7 @@ public class GoodsDetailShowView extends AddNewGoods {
 
 
 	public GoodsDetailShowView() {
+		setTitle("Item Detail");
 		setBounds(100, 100, 450, 450);
 		setLocationRelativeTo(null);
 		frame=this;
@@ -42,7 +43,7 @@ public class GoodsDetailShowView extends AddNewGoods {
 		textpurchasingDate.setColumns(10);
 		
 		
-		JButton btnSearchAnother = new JButton("Search Another");
+		 btnSearchAnother = new JButton("Search Another");
 		btnSearchAnother.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);

@@ -7,7 +7,7 @@ import org.ims.ignou.view.inventory.find.GoodsDetailShowView;
 
 public class ShowItemDetailGoodshelper {
 
-	private void setGoodsDetail(GoodsDetailShowView goodsview,GoodsAddDto  goodsDetail){
+	protected void setGoodsDetail(GoodsDetailShowView goodsview,GoodsAddDto  goodsDetail){
 		goodsview.setTextGoodsName(goodsDetail.getPRODUCTNAME());
 		goodsview.setTextWarntyDurtin(Integer.toString(goodsDetail.getWARRANTY_DURATION()));
 		goodsview.setTextTinNo(goodsDetail.getTIN_NUMBER());

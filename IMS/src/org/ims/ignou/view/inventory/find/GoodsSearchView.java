@@ -14,7 +14,7 @@ import org.ims.ignou.view.library.find.BookFindView;
 public class GoodsSearchView extends BookFindView
 {
 	private BookfindValidation goodsSearchValidation=new BookfindValidation();
-	
+	protected JButton btnNewButton;
 	@Override
 	public void Validation() {
 
@@ -46,7 +46,7 @@ public class GoodsSearchView extends BookFindView
 		
 		setTitle("Find Goods Detail");
 		
-		JButton btnNewButton = new JButton("Search Item");
+		 btnNewButton = new JButton("Search Item");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
