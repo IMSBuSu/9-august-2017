@@ -85,10 +85,8 @@ public JDateChooser getDateChooser() {
 }
 
 GoodsAddValidation addValidation=new GoodsAddValidation();
-	
-
-	public void validation(){
-					
+		public void validation(){
+			
 				if(addValidation.checkValue(this)){
 					
 							FeelGoodsDetailfrmForm feelGoodsDetail=new FeelGoodsDetailfrmForm();

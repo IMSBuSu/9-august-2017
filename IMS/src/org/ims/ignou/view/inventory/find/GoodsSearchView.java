@@ -13,7 +13,7 @@ import org.ims.ignou.view.library.find.BookFindView;
 
 public class GoodsSearchView extends BookFindView
 {
-	private BookfindValidation goodsSearchValidation=new BookfindValidation();
+	protected BookfindValidation goodsSearchValidation=new BookfindValidation();
 	protected JButton btnNewButton;
 	@Override
 	public void Validation() {

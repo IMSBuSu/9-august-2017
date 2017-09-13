@@ -33,6 +33,7 @@ import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
 import org.ims.ignou.view.inventory.add.AddNewGoods;
 import org.ims.ignou.view.inventory.delete.GoodsSearchViewForDelete;
 import org.ims.ignou.view.inventory.find.GoodsSearchView;
+import org.ims.ignou.view.inventory.update.GoodsSearchViewUpdate;
 import org.ims.ignou.view.library.add.BooksAddView;
 import org.ims.ignou.view.library.delete.BookFindViewforDelete;
 import org.ims.ignou.view.library.find.BookFindView;
@@ -321,6 +322,12 @@ public class Welcome extends JFrame {
 		mnInventory.add(mntmAddNewGoods);
 		
 		JMenuItem mntmUpdateExistingGoods = new JMenuItem("Update Existing Goods");
+		mntmUpdateExistingGoods.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {				
+				GoodsSearchViewUpdate goodsSearchViewUpdate=new GoodsSearchViewUpdate();
+				goodsSearchViewUpdate.setVisible(true);
+			}
+		});
 		mnInventory.add(mntmUpdateExistingGoods);
 		
 		JMenuItem mntmDeleteExistingGoods = new JMenuItem("Delete Existing Goods");

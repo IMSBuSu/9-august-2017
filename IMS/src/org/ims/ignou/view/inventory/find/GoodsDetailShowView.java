@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
 public class GoodsDetailShowView extends AddNewGoods {
-	private JTextField textpurchasingDate;
+	protected JTextField textpurchasingDate;
 	private GoodsDetailShowView frame;
 	protected JTextField textGoodsId;
 	protected JButton btnSearchAnother;
