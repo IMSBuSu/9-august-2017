@@ -1,11 +1,13 @@
 package org.ims.ignou.view.inventory.find;
 
-import org.ims.ignou.view.inventory.add.AddNewGoods;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import org.ims.ignou.view.inventory.add.AddNewGoods;
 
 public class GoodsDetailShowView extends AddNewGoods {
 	protected JTextField textpurchasingDate;

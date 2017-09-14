@@ -20,6 +20,9 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
+import org.ims.ignou.dto.admin.AdminDto;
+import org.ims.ignou.helper.admin.login.ComUsernamePassword;
+import org.ims.ignou.helper.admin.login.LoginValidation;
 import org.ims.ignou.view.admin.resetpassword.Reset_paswd;
 import org.ims.ignou.view.admin.signup.Signup;
 
@@ -72,70 +75,34 @@ public class Login extends JFrame
 	private JTextField UserId;
 	private JTextField UserPassword;
 	private JLabel user_id_can_not_blank;
-	private JLabel Passwd_can_not_be_blank;
-	private JButton btnNewButton;
-	public void singup()
-	{
-		this.setVisible(false);
-		Signup signup=new Signup();
-		signup.setVisible(true);
-	}
 	public void resetuid_paswd()
 	{
 		this.setVisible(false);  //closeing login view.
-		Reset_paswd paswd=new Reset_paswd(); //opening reset password view.
+		Reset_paswd paswd=new Reset_paswd(admindetail); //opening reset password view.
 		paswd.setVisible(true);
-	}
-	public boolean cannotbeblank(String userid,String password)
-	{
-		int Anyproblem=0;
-		if(userid.equals("Enter User id"))
-		{			
-			user_id_can_not_blank.setText("  *  User id can not be blank");									
-			user_id_can_not_blank.setForeground(Color.red);
-			Anyproblem=1;
-		}
-		else  
-		{
-			user_id_can_not_blank.setText("");
-			user_id_can_not_blank.setForeground(Color.white);
-			
-		}
-		if(password.equals("Enter User Password"))
-		{
-			Passwd_can_not_be_blank.setText(" *  Password can not be blank ");
-			Passwd_can_not_be_blank.setForeground(Color.red);	
-			Anyproblem=1;
-		}
-		else
-		{
-			Passwd_can_not_be_blank.setText("");
-			Passwd_can_not_be_blank.setForeground(Color.white);
-		}
-		if(Anyproblem==0)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}		
-	}
-	
+	}	
 	public void checkuid_upswd(String userid,String password)
 	{				
-		System.out.println("underprocess.");	
+		ComUsernamePassword comUsernamePassword=new ComUsernamePassword();
+		if(!comUsernamePassword.compare(userid, password,admindetail,frame)){
+			JOptionPane.showMessageDialog(this, "Invalid user Id password");
+		}
 	}
-	public void Login_check()
+	private LoginValidation loginValidation=new LoginValidation();
+	public void validation()
 	{
-		if(cannotbeblank(UserId.getText(), UserPassword.getText()))
+		if(loginValidation.cannotbeblank(UserId.getText().trim(), UserPassword.getText().trim()))
 		{
-			checkuid_upswd(UserId.getText(), UserPassword.getText());
+			checkuid_upswd(UserId.getText().trim(), UserPassword.getText().trim());
 		}		
 	}
-	
-	public Login() 
+	private Login frame;
+	private AdminDto admindetail;
+	public Login(AdminDto admindetail) 
 	{
+		this.admindetail=admindetail;
+		frame=this;
+		
 		try
 	    {			
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"); //set look and feel depend os.
@@ -179,36 +146,7 @@ public class Login extends JFrame
 		contentPane.add(UserId);
 		UserId.setColumns(10);
 
-		UserId.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent arg0) {
-								if(UserId.getText().equals("Enter User id"))					
-									{
-									UserId.setText("");				
-									}
-			}
-		});
-		UserId.addMouseMotionListener(new MouseMotionAdapter() {
-			
-			@Override
-			public void mouseMoved(MouseEvent arg0) {
-						if(UserId.getText().equals("Enter User id"))
-					
-				{					UserId.setText("");				
-				}
-			}
-		});
 		
-		UserId.addMouseListener(new MouseAdapter() {
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				if(UserId.getText().equals(""))
-				{										
-					UserId.setText("Enter User id");				
-				}
-			}
-		});
 		
 		UserPassword = new JTextField();
 		UserPassword.setToolTipText("Enter User Password");
@@ -216,38 +154,9 @@ public class Login extends JFrame
 		UserPassword.setColumns(10);
 		UserPassword.setBounds(499, 24, 223, 25);
 		contentPane.add(UserPassword);
-		UserPassword.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent arg0) {
-				
-				if(UserPassword.getText().equals("Enter User Password"))
-					
-		{					UserPassword.setText("");				
-		}
-
-			}
-		});
-
-		UserPassword.addMouseMotionListener(new MouseMotionAdapter() {
-			@Override
-			public void mouseMoved(MouseEvent arg0) {
-				if(UserPassword.getText().equals("Enter User Password"))
-					
-				{				
-					UserPassword.setText("");				
-				}
-			}
+	
 		
-		});
-		UserPassword.addMouseListener(new MouseAdapter() {			
-				@Override
-				public void mouseExited(MouseEvent e) {
-					if(UserPassword.getText().equals(""))
-					{										
-						UserPassword.setText("Enter User Password");				
-					}
-				}			
-		});
+	
 	
 		UserPassword.setToolTipText("Enter User Password");
 		UserPassword.setText("Enter User Password");
@@ -257,12 +166,12 @@ public class Login extends JFrame
 		JButton Login_btn = new JButton("Login");
 		Login_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Login_check();
+				validation();
 			}
 
 					});
 		Login_btn.setToolTipText("Login");
-		Login_btn.setBounds(508, 189, 80, 23);
+		Login_btn.setBounds(556, 189, 80, 23);
 		contentPane.add(Login_btn);
 		
 		JButton Forgot_uid_passwd = new JButton("Forgot User Password");
@@ -272,7 +181,7 @@ public class Login extends JFrame
 			}
 		});
 		Forgot_uid_passwd.setToolTipText("Forgot User Password");
-		Forgot_uid_passwd.setBounds(525, 234, 170, 23);
+		Forgot_uid_passwd.setBounds(523, 241, 170, 23);
 		contentPane.add(Forgot_uid_passwd);
 		
 		user_id_can_not_blank = new JLabel("");
@@ -280,21 +189,5 @@ public class Login extends JFrame
 		user_id_can_not_blank.setBackground(Color.RED);
 		user_id_can_not_blank.setBounds(489, 101, 224, 14);
 		contentPane.add(user_id_can_not_blank);
-		
-		Passwd_can_not_be_blank = new JLabel("");
-		Passwd_can_not_be_blank.setForeground(Color.RED);
-		Passwd_can_not_be_blank.setBackground(Color.RED);
-		Passwd_can_not_be_blank.setBounds(498, 164, 224, 14);
-		contentPane.add(Passwd_can_not_be_blank);
-		
-		btnNewButton = new JButton("SignUp");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0)
-			{				
-					singup();
-				}
-		});
-		btnNewButton.setBounds(618, 189, 89, 23);
-		contentPane.add(btnNewButton);
 	}
 }

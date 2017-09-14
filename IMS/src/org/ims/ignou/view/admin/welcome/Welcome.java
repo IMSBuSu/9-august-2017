@@ -21,6 +21,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
+import org.ims.ignou.dto.admin.AdminDto;
 import org.ims.ignou.helper.employee.registration.CourseGet;
 import org.ims.ignou.helper.student.registration.BatchDetails;
 import org.ims.ignou.view.course.add.CourseAddView;
@@ -38,6 +39,8 @@ import org.ims.ignou.view.library.add.BooksAddView;
 import org.ims.ignou.view.library.delete.BookFindViewforDelete;
 import org.ims.ignou.view.library.find.BookFindView;
 import org.ims.ignou.view.library.update.BookUpdateSearchView;
+import org.ims.ignou.view.message.employee.SearchEmployeeeView;
+import org.ims.ignou.view.message.student.SearchStudentView;
 import org.ims.ignou.view.student.delete.DeleteStudentSearchView;
 import org.ims.ignou.view.student.fees.submit.StudentSearchFeesUpdate;
 import org.ims.ignou.view.student.find.StudentSearchView;
@@ -47,8 +50,11 @@ public class Welcome extends JFrame {
 
 	private JLabel label;	
 	private JPanel contentPane;
-	public Welcome() 
+	private AdminDto admindetail;
+	public Welcome(AdminDto admindetail) 
 	{
+		
+		this.admindetail=admindetail;
 		try
 	    {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"); //set look and feel depend os.
@@ -358,20 +364,27 @@ public class Welcome extends JFrame {
 		JMenu menu = new JMenu("Student ");
 		mnNewMenu_2.add(menu);
 		
-		JMenuItem menuItem_11 = new JMenuItem("All Student");
-		menu.add(menuItem_11);
-		
 		JMenuItem menuItem_12 = new JMenuItem("By Student Id");
+		menuItem_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SearchStudentView  searchStudentView=new SearchStudentView();
+				searchStudentView.setVisible(true);
+			}
+		});
 		menu.add(menuItem_12);
 		
 		JMenu menu_1 = new JMenu("Faculty");
 		mnNewMenu_2.add(menu_1);
 		
 		JMenuItem menuItem_13 = new JMenuItem("By Faculty Id");
+		menuItem_13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SearchEmployeeeView employeeeView=new SearchEmployeeeView();
+				employeeeView.setVisible(true);
+
+			}
+		});
 		menu_1.add(menuItem_13);
-		
-		JMenuItem menuItem_14 = new JMenuItem("All Faculty");
-		menu_1.add(menuItem_14);
 		
 		JMenu mnAverage = new JMenu("Estimate");
 		mnOrganization.add(mnAverage);

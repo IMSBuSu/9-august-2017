@@ -26,13 +26,12 @@ public class StudentSearchView extends JFrame {
 	protected JTextField txtStudentIFld;
 	protected JLabel lblErrorMessage;
 	protected JButton btnSearch;
-	
+	protected 	JLabel lblEmployeeId;
 	
 
 	public JLabel getLblErrorMessage() {
 		return lblErrorMessage;
 	}
-
 
 
 	public void setLblErrorMessage(String Message) {
@@ -48,10 +47,10 @@ public class StudentSearchView extends JFrame {
 	}
 
 
+	StuFindValidation deleteValidation=new StuFindValidation();
 
 	public void validation(){
 				
-		StuFindValidation deleteValidation=new StuFindValidation();
 					if(deleteValidation.canNotblank(this)){
 									int id=Integer.parseInt(txtStudentIFld.getText());
 									SearchStudent student=new SearchStudent();
@@ -95,7 +94,7 @@ public class StudentSearchView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblEmployeeId = new JLabel("Student Id");
+		lblEmployeeId = new JLabel("Student Id");
 		lblEmployeeId.setBounds(321, 85, 59, 14);
 		contentPane.add(lblEmployeeId);
 		
