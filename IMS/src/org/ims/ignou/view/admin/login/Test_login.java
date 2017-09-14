@@ -1,11 +1,10 @@
 
 package org.ims.ignou.view.admin.login;
 
-import org.ims.ignou.dto.admin.AdminDto;
 import org.ims.ignou.helper.admin.login.GetAdminDetail;
+import org.ims.ignou.view.admin.signup.Signup;
 
-public class Test_login {
-
+public class Test_login{
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		GetAdminDetail adminDetail=new GetAdminDetail();
@@ -14,15 +13,8 @@ public class Test_login {
 			login.setVisible(true);			
 		}
 		else{
-			Signuup signuup=new Signuup();
+			Signup signuup=new Signup();
 			signuup.setVisible(true);
 		}
-		
-	
-	
-	
-	
-	
-	
 	}
 }

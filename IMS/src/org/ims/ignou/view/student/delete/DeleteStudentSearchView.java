@@ -93,7 +93,7 @@ private JPanel contentPane;
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblEmployeeId = new JLabel("Employee Id");
+		JLabel lblEmployeeId = new JLabel("Student Id");
 		lblEmployeeId.setBounds(298, 100, 59, 14);
 		contentPane.add(lblEmployeeId);
 		

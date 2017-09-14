@@ -84,6 +84,7 @@ public class Login extends JFrame
 	public void checkuid_upswd(String userid,String password)
 	{				
 		ComUsernamePassword comUsernamePassword=new ComUsernamePassword();
+	
 		if(!comUsernamePassword.compare(userid, password,admindetail,frame)){
 			JOptionPane.showMessageDialog(this, "Invalid user Id password");
 		}
@@ -141,7 +142,6 @@ public class Login extends JFrame
 		UserId = new JTextField();
 		UserId.setFont(UIManager.getFont("CheckBoxMenuItem.font"));
 		UserId.setToolTipText("Enter User id");
-		UserId.setText("Enter User id");
 		UserId.setBounds(499, 65, 223, 25);
 		contentPane.add(UserId);
 		UserId.setColumns(10);
@@ -150,7 +150,6 @@ public class Login extends JFrame
 		
 		UserPassword = new JTextField();
 		UserPassword.setToolTipText("Enter User Password");
-		UserPassword.setText("Enter User Password");
 		UserPassword.setColumns(10);
 		UserPassword.setBounds(499, 24, 223, 25);
 		contentPane.add(UserPassword);
@@ -159,7 +158,6 @@ public class Login extends JFrame
 	
 	
 		UserPassword.setToolTipText("Enter User Password");
-		UserPassword.setText("Enter User Password");
 		UserPassword.setColumns(10);
 		UserPassword.setBounds(499, 126, 223, 25);
 		contentPane.add(UserPassword);		

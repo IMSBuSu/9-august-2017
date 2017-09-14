@@ -14,8 +14,8 @@ public class CompareDetailResetPAsswordAdmin {
 
 		System.out.println(adminDetail.getName());
 		System.out.println(adminDetail.getEmailID());
-		if((!resetpassword.getTextemailid().getText().trim().equals(adminDetail.getEmailID())) || 
-				(!resetpassword.getTextFieldusername().getText().trim().equals(adminDetail.getName())))
+		if((!resetpassword.getTextemailid().getText().trim().toUpperCase().equals(adminDetail.getEmailID())) || 
+				(!resetpassword.getTextFieldusername().getText().trim().toUpperCase().equals(adminDetail.getName())))
 		{
 
 			JOptionPane.showMessageDialog(resetpassword, "Admin Not Found !");

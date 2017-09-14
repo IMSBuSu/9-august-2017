@@ -30,6 +30,10 @@ public class CourseDto {
 	public void setCourseDuration(int courseDuration) {
 		this.courseDuration = courseDuration;
 	}
+	@Override
+	public String toString() {
+		return "CourseDto [courseName=" + courseName + ", courseFees=" + courseFees + "]";
+	}
 	
 	
 	

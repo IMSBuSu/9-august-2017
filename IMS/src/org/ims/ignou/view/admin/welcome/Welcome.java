@@ -22,8 +22,13 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
 import org.ims.ignou.dto.admin.AdminDto;
+import org.ims.ignou.helper.admin.login.GetAdminDetail;
 import org.ims.ignou.helper.employee.registration.CourseGet;
+import org.ims.ignou.helper.finance.GetSalAndFee;
 import org.ims.ignou.helper.student.registration.BatchDetails;
+import org.ims.ignou.view.admin.login.Login;
+import org.ims.ignou.view.admin.resetpassword.Reset_paswd;
+import org.ims.ignou.view.admin.signup.Signup;
 import org.ims.ignou.view.course.add.CourseAddView;
 import org.ims.ignou.view.course.delete.CourseDeleteView;
 import org.ims.ignou.view.course.find.CourseFindView;
@@ -31,6 +36,7 @@ import org.ims.ignou.view.course.update.CourseUpdateView;
 import org.ims.ignou.view.employee.delete.DeleteEmployeeSearchView;
 import org.ims.ignou.view.employee.find.EmployeeSearchView;
 import org.ims.ignou.view.employee.registration.RegistrationeEmployee;
+import org.ims.ignou.view.finance.ProfitVsExpenditureView;
 import org.ims.ignou.view.inventory.add.AddNewGoods;
 import org.ims.ignou.view.inventory.delete.GoodsSearchViewForDelete;
 import org.ims.ignou.view.inventory.find.GoodsSearchView;
@@ -45,6 +51,7 @@ import org.ims.ignou.view.student.delete.DeleteStudentSearchView;
 import org.ims.ignou.view.student.fees.submit.StudentSearchFeesUpdate;
 import org.ims.ignou.view.student.find.StudentSearchView;
 import org.ims.ignou.view.student.registration.StudentRegistration;
+import org.jfree.ui.RefineryUtilities;
 
 public class Welcome extends JFrame {
 
@@ -217,18 +224,6 @@ public class Welcome extends JFrame {
 	
 		mnFees.add(mntmCheckStatusItem);
 		
-		JMenu mnSalary = new JMenu("Salary");
-		mnOrganization.add(mnSalary);
-		
-		JMenuItem mntmPayNow = new JMenuItem("Pay Now");
-		mnSalary.add(mntmPayNow);
-		
-		JMenu mnCheckStatus = new JMenu("Check Status");
-		mnSalary.add(mnCheckStatus);
-		
-		JMenuItem mntmByFacultyId = new JMenuItem("By Faculty Id");
-		mnCheckStatus.add(mntmByFacultyId);
-		
 		JMenu mnBooks = new JMenu("Library");
 		mnOrganization.add(mnBooks);
 		
@@ -390,6 +385,21 @@ public class Welcome extends JFrame {
 		mnOrganization.add(mnAverage);
 		
 		JMenuItem mntmExpenditureVsProfit = new JMenuItem("Expenditure VS Profit ");
+		mntmExpenditureVsProfit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GetSalAndFee andFee=new GetSalAndFee();
+				andFee.getFinance();
+				System.out.println(andFee.getDto());
+
+				
+				
+				  ProfitVsExpenditureView demo = new ProfitVsExpenditureView( "Profit Vs Expenditure" ,andFee.getDto().getEmployeeSalary(),andFee.getDto().getStudentFees());  
+			      demo.setSize( 660 , 400 );    
+			      RefineryUtilities.centerFrameOnScreen( demo );    
+			      demo.setVisible( true ); 
+
+			}
+		});
 		mnAverage.add(mntmExpenditureVsProfit);
 		
 		JMenu mnAdminProfile = new JMenu("Admin Profile");
@@ -397,29 +407,53 @@ public class Welcome extends JFrame {
 		menuBar.add(mnAdminProfile);
 		
 		JMenuItem mntmV = new JMenuItem("View Details");
+		mntmV.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "DOB :- "+admindetail.getDob()+" Email Id :- "+admindetail.getEmailID() +" User Name  :- "+admindetail.getName());
+			}
+		});
 		mnAdminProfile.add(mntmV);
 		
 		JMenuItem mntmChangePassword = new JMenuItem("Change Password");
+		mntmChangePassword.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Reset_paswd paswd=new Reset_paswd(admindetail); //opening reset password view.
+				paswd.setVisible(true);
+			}
+		});
 		mnAdminProfile.add(mntmChangePassword);
-		
-		JMenuItem menuItem_23 = new JMenuItem("Update Details");
-		mnAdminProfile.add(menuItem_23);
-		
+		Welcome frame=this;
 		JMenuItem mntmLogout = new JMenuItem("Logout");
+		mntmLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				GetAdminDetail adminDetail=new GetAdminDetail();
+				if(adminDetail.get()){
+					Login login=new Login(adminDetail.getAdmindto());
+					login.setVisible(true);			
+				}
+				else{
+					Signup signuup=new Signup();
+					signuup.setVisible(true);
+				}
+			}
+		});
 		mnAdminProfile.add(mntmLogout);
-		
-		JMenuItem mntmLogOff = new JMenuItem("Log off");
-		mnAdminProfile.add(mntmLogOff);
 		
 		JMenu mnRegistration = new JMenu("Registration");
 		mnRegistration.setIcon(new ImageIcon(Welcome.class.getResource("register.png")));
 		menuBar.add(mnRegistration);
 		
 		JMenuItem mntmRevenue = new JMenuItem("View Details");
+		mntmRevenue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "DOB :- "+admindetail.getDob()+" Email Id :- "+admindetail.getEmailID() +" User Name  :- "+admindetail.getName());
+
+			}
+		});
 		mnRegistration.add(mntmRevenue);
-		
-		JMenuItem mntmSendFeedback = new JMenuItem("Feed Back");
-		mnRegistration.add(mntmSendFeedback);
 		
 		JMenu mnBackup = new JMenu("Backup");
 		mnBackup.setIcon(new ImageIcon(Welcome.class.getResource("settings.png")));

@@ -19,6 +19,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
 import org.ims.ignou.dto.admin.AdminDto;
+import org.ims.ignou.helper.admin.login.GetAdminDetail;
 import org.ims.ignou.helper.admin.resetpassword.CompareDetailResetPAsswordAdmin;
 import org.ims.ignou.helper.admin.resetpassword.PasswordResetValidation;
 import org.ims.ignou.helper.admin.resetpassword.UpdatePasswordHelper;
@@ -39,6 +40,7 @@ import org.ims.ignou.view.admin.login.Login;
  * then admin can enter it's new password.
  * 
  */
+import org.ims.ignou.view.admin.signup.Signup;
 
 import com.toedter.calendar.JDateChooser;
 import java.awt.Panel;
@@ -68,21 +70,32 @@ public class Reset_paswd extends JFrame
 	private JTextField textFieldpassword;
 	private  Panel pane2;
 
-	
+	private void login(){
+		GetAdminDetail adminDetail=new GetAdminDetail();
+		if(adminDetail.get()){
+			Login login=new Login(adminDetail.getAdmindto());
+			login.setVisible(true);			
+		}
+		else{
+			Signup signuup=new Signup();
+			signuup.setVisible(true);
+		}
+		
+	}
 	private void reset(){
 		if(!textFieldpassword.getText().trim().equals("")){
 		
 		String newpassword=textFieldpassword.getText().trim();
-		admindetail.setPassword(newpassword);
+		admindetail.setPassword(newpassword.toUpperCase());
 		UpdatePasswordHelper helper=new UpdatePasswordHelper();
 		Boolean isUpdated=helper.resetPassword(admindetail);
 		if(isUpdated){
 			this.setVisible(false);
-			JOptionPane.showMessageDialog(this, "Password Updated Successfully !");			
+			JOptionPane.showMessageDialog(this, "Password Updated Successfully !");		
+			login();
 		}
 		else{
 			this.setVisible(false);
-
 			JOptionPane.showMessageDialog(this, "Failed to Reset password !");
 		}
 		}
