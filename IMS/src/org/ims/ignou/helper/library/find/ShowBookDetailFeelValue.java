@@ -7,7 +7,7 @@ import org.ims.ignou.view.library.find.ShowBookDetail;
 
 public class ShowBookDetailFeelValue {
 
-	private void feelValue(BookAddDto bookdetail,ShowBookDetail viewBookDetail){
+	protected void feelValue(BookAddDto bookdetail,ShowBookDetail viewBookDetail){
 		viewBookDetail.setTextFieldBookLanGuage(bookdetail.getBooklanguage());
 		viewBookDetail.setTextFieldCategorycmbx(bookdetail.getBookCategory());
 		viewBookDetail.setTextFieldisbn(bookdetail.getIsbn());

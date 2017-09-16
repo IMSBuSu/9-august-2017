@@ -36,7 +36,7 @@ public class CheckInternetConnection{
 		try 
 	
 		{
-					URL url = new URL("https://www.google.co.in");
+					URL url = new URL("https://www.google.co.in/");
  
 						URLConnection connection = url.openConnection();
 						connection.connect();   

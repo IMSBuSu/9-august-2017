@@ -3,6 +3,9 @@ package org.ims.ignou.dao.library.delete;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+
+import javax.swing.JOptionPane;
 
 import org.ims.ignou.dao.Extendable.CreateConnection;
 
@@ -31,8 +34,12 @@ public class Deletebookdao  extends CreateConnection{
 						}
 				
 				
-			}
-		} catch (ClassNotFoundException e) {
+			}			
+		} 
+		catch (SQLIntegrityConstraintViolationException e) {
+			JOptionPane.showMessageDialog(null, "Soory,Book Is Issued to someone, We are unable to delete detail!");
+		}
+		catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {

@@ -34,7 +34,7 @@ public class BookFindView extends JFrame {
 		this.textBookId.setText(textBookId);
 	}
 	
-	private BookfindValidation bookfindValidation=new BookfindValidation();
+	protected BookfindValidation bookfindValidation=new BookfindValidation();
 	public void Validation(){
 		
 				if(bookfindValidation.cannotBlank(this)){	

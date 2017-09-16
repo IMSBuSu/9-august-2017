@@ -52,7 +52,7 @@ public class StudentSearchView extends JFrame {
 	public void validation(){
 				
 					if(deleteValidation.canNotblank(this)){
-									int id=Integer.parseInt(txtStudentIFld.getText());
+									int id=Integer.parseInt(txtStudentIFld.getText().trim());
 									SearchStudent student=new SearchStudent();
 									Boolean found=student.chkIdDb(id);
 									if(!found){

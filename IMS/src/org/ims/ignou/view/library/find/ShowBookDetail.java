@@ -48,7 +48,11 @@ public class ShowBookDetail extends BooksAddView
 		this.textbookpurchasingDate.setText(textbookpurchasingDate);
 	}
 
-
+protected void searchanother(){
+	bookDetail.setVisible(false);
+	BookFindView bookFindview=new BookFindView();
+	bookFindview.setVisible(true);
+}
 
 	public ShowBookDetail() {
 		bookCategorycmbx.setLocation(20, 270);
@@ -70,9 +74,7 @@ public class ShowBookDetail extends BooksAddView
 		btnSearchAnother.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				bookDetail.setVisible(false);
-				BookFindView bookFindview=new BookFindView();
-				bookFindview.setVisible(true);
+				searchanother();
 			}
 		});
 		btnSearchAnother.setBounds(195, 226, 122, 23);

@@ -44,6 +44,7 @@ import org.ims.ignou.view.inventory.update.GoodsSearchViewUpdate;
 import org.ims.ignou.view.library.add.BooksAddView;
 import org.ims.ignou.view.library.delete.BookFindViewforDelete;
 import org.ims.ignou.view.library.find.BookFindView;
+import org.ims.ignou.view.library.issuebook.SearcBookViewIssueBook;
 import org.ims.ignou.view.library.update.BookUpdateSearchView;
 import org.ims.ignou.view.message.employee.SearchEmployeeeView;
 import org.ims.ignou.view.message.student.SearchStudentView;
@@ -260,12 +261,24 @@ public class Welcome extends JFrame {
 		mntmViewExistingBooks.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+			
+				
 				BookFindView bookFindView=new BookFindView();
 				bookFindView.setVisible(true);
 
 			}
 		});
 		mnBooks.add(mntmViewExistingBooks);
+		
+		JMenuItem mntmIssueBooks = new JMenuItem("Issue Books");
+		mntmIssueBooks.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				SearcBookViewIssueBook  bookView=new SearcBookViewIssueBook();
+				bookView.setVisible(true);
+			}
+		});
+		mnBooks.add(mntmIssueBooks);
 		
 		JMenu mnCourse = new JMenu("Course");
 		mnOrganization.add(mnCourse);
